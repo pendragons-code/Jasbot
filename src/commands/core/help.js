@@ -20,7 +20,7 @@ module.exports = {
 			)
 		    helpembed.setTimestamp( new Date().getTime())
 		    helpembed.setFooter({text:"Follow the dev on instagram!: @pendragonscode"})
-			messageCreate.channel.send({ embeds: [helpembed] })
+			return messageCreate.channel.send({ embeds: [helpembed] })
 		}
 		if(cats.includes(args[0])=== true){
 			let commands = bot.commands.filter(command => command.category === args[0])
@@ -36,7 +36,7 @@ module.exports = {
 		    embed.setFooter({text:"Follow the dev on instagram!: @pendragonscode"})
 		    messageCreate.channel.send({ embeds: [embed] })
 		}
-		if(cats.includes(args[0]) === false){
+		if(args[0] && cats.includes(args[0]) === false){
 			const command = messageCreate.client.commands.get(args.join(" ").toLowerCase()) || messageCreate.client.commands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()));
 		  if (!command) return messageCreate.channel.send(`I did not find this command !`);
 		  let embed2 = new EmbedBuilder()
