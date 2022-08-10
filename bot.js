@@ -1,21 +1,32 @@
 const fs = require('fs')
-const Discord = require('discord.js')
-const { Client, GatewayIntentBits} = require('discord.js');
+const { Client, GatewayIntentBits, Collection} = require('discord.js');
 const { QuickDB } = require('quick.db');
 const db = new QuickDB();
 //const myIntents = new IntentsBitField(32767);
 //const bot = new Client({ intents:  myIntents });
 const bot = new Client({
   intents: [
-    GatewayIntentBits.DirectMessages,
-    GatewayIntentBits.Guilds,
-    GatewayIntentBits.GuildBans,
-    GatewayIntentBits.GuildMessages,
-    GatewayIntentBits.MessageContent,
+	GatewayIntentBits.DirectMessages,
+	GatewayIntentBits.Guilds,
+	GatewayIntentBits.GuildBans,
+	GatewayIntentBits.GuildMessages,
+	GatewayIntentBits.MessageContent,
+  	GatewayIntentBits.GuildWebhooks,
+  	GatewayIntentBits.DirectMessageReactions,
+  	GatewayIntentBits.DirectMessageTyping,
+  	GatewayIntentBits.GuildEmojisAndStickers,
+	GatewayIntentBits.GuildIntegrations,
+  	GatewayIntentBits.GuildInvites,
+  	GatewayIntentBits.GuildMembers,
+  	GatewayIntentBits.GuildMessageReactions,
+  	GatewayIntentBits.GuildMessageTyping,
+  	GatewayIntentBits.GuildPresences,
+  	GatewayIntentBits.GuildScheduledEvents,
+  	GatewayIntentBits.GuildVoiceStates
   ]
 });
-bot.commands = new Discord.Collection();
-bot.structures = new Discord.Collection();
+bot.commands = new Collection();
+bot.structures = new Collection();
 function commander(){
 console.log(`\x1b[32m%s`, "---------------------------------------------------------------------")
 console.log(`\x1b[32m%s`, "⭕ Commands ⭕")
