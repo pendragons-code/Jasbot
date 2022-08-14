@@ -1,13 +1,15 @@
 {
   "name": "jasbot",
   "version": "1.0.0",
-  "description": "A test variant of Jasbot (playing around with v14 of discord.js)!",
+  "site": "https://code.senghong.xyz",
+  "git_repo": "https://github.com/pendragons-code/jasbot",
+  "description": "A simple Discord bot.",
   "main": "index.js",
   "scripts": {
-    "deploy": "node index.js"
+	  "deploy": "node index.js >> log-file.txt 2>> err-file.txt"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Pendragon's code",
+  "license": "None",
   "dependencies": {
     "@discordjs/rest": "^1.0.1",
     "axios": "^0.27.2",
