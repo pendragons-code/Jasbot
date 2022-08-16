@@ -20,7 +20,7 @@ module.exports = {
 				const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 				arr.reverse()
 				const used = process.memoryUsage().heapUsed / 1024 /1024
-        		let memory = `Approximate memory usage: ${Math.round(used * 100) / 100} MB`
+        			let memory = `Approximate memory usage: ${Math.round(used * 100) / 100} MB`
 				const commander = bot.commands.filter(x => x.showHelp !== false)
 				let desc = `Bot's Version: ${version}\nBot's Author: ${author}\nCPU Usage: ${Math.round(v * 100) / 100}%\n${memory}\nTotal Commands: ${commander.size}\nOperating System: Arch Linux - ${nodeOS.arch(), nodeOS.release()}`
 				const embed = new EmbedBuilder()

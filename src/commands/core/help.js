@@ -15,7 +15,7 @@ module.exports = {
 			helpembed.setTitle("˜”°•.˜”°•--==++List of commands!++==-- •°”˜.•°”˜")
 			helpembed.setDescription(`Prefix is ${prefix}! This bot has ${commander.size} commands!`)
 			helpembed.addFields(
-			  { name: `Available commands!`, value: "`"+ prefix + " help <category>" + "`" + "\n" + "`" +"<" + cats.join(">`, `<") + ">`", inline: true },         
+			  { name: `Available commands!`, value: "`"+ prefix + " help <category>" + "`" + "\n" + "`"  + cats.join("`, `") + "`", inline: true },         
 			  { name: '\u200B', value: '\u200B' },
 			)
 		    helpembed.setTimestamp( new Date().getTime())

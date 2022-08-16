@@ -11,11 +11,13 @@
 	},
 	"mention": {
 		"invalid": "The user you mentioned is not valid!",
-		"missing": "You need to mention a user!"
+		"missing": "You need to mention a user!",
+		"toomany": "You mentioned too many users!"
 	},
 	"args": {
 		"mising": "You need to include arguments!",
-		"invalid": "The arguments you provided are invalid!"
+		"invalid": "The arguments you provided are invalid!",
+		"toomany": "You added too many arguments!"
 	}
 	}
 }
