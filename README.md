@@ -23,3 +23,6 @@ Should consider something like eslint...
 If you are wondering why all the details with regards to the site in the config files are kinda weird, I have actually bought the domain, but have not yet set up the site.
 # db
 I chose quick.db since it was quick and advance + it was really good for what I needed. If I for some reason chose to use mongo.db it ght have been overkill not gonna lie.
+
+
+I however, might consider the usage of encrypted DBs
