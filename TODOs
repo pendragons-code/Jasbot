@@ -46,3 +46,9 @@
 
 
 [.] max-args feature, in messageCreate.js
+
+
+legend: 
+[.] not done
+[-] done
+[/] done and in prod, ready for removal
