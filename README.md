@@ -9,7 +9,7 @@ git clone https://github.com/pendragons-code/Jasbot
 
 get into the directory and install all the packages   
 ```
-npm i
+npm i && npm update
 ```
 
 have fun because i requested for it. (make a .env file, define token in there and start the runtime)    
