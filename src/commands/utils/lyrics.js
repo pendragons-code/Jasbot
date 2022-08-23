@@ -2,11 +2,11 @@ const { EmbedBuilder } = require("discord.js")
 const { defaultfootertext, defaultembedcolour } = require("../../../config.json")
 const reject = require("../../../assets/items/rejection.json")
 module.exports = {
-	name: "",
+	name: "lyrics",
 	aliases: [],
-	category: "",
-	utilisation: "",
-	desc: "",
+	category: "utils",
+	utilisation: "lyrics <query>",
+	desc: "Sends link or lyrics to your dms",
 	async execute(bot, messageCreate, args, prefix){
 		const fetch = await import("node-fetch")
 		if(!args[0]) return messageCreate.channel.send(reject.user.args.missing)
