@@ -25,3 +25,6 @@ I chose quick.db since it was quick and advance + it was really good for what I 
 
 
 I, however, might consider the usage of encrypted DBs
+
+# Resuming work on:
+So surprising no one, i am a student with exams and therefor will not be in contact with this repo for a long time, expect the next commit to be late october.
