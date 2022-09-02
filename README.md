@@ -36,6 +36,6 @@ So surprising no one, i am a student with exams and therefor will not be in cont
 # advertising
 
 Yes i will be advertising with this bot, i will be implementing some basic advertising in the server and the bot.       
-Why am i doing this?
+Why am i doing this?        
 1.) Personal gain, I will be honest, i am just a kid who got out of high school, i would like to prepare for the next level of educations
 2.) [Also this](https://help.unicef.org/?country=SG&gclid=Cj0KCQjw08aYBhDlARIsAA_gb0dKglzLKjs81QBdnLsIzXmEo8CxFeT_nLeL-4XE9jgDJ6eX3Biw-b4aAv8CEALw_wcB), many people think i'm doing this for a PR stunt. Ok yes, technically this is. But I would like to say that I have been supporting the open source education movement for a long time and would like to continue doing so by providing financial and cheaper stuff for children around the world. Many people ask how making tiny projects like this would help people and I understand that my output as of now is very little. I would like to emphasize that i will increase the stuff i put online to help people learn in the future.
