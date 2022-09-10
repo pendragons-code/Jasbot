@@ -45,8 +45,10 @@ Fig 1
 .catch(() => {
     console.log(messageCreate.content)
     console.error()
-    messageCreate.channel.send(reject.ExecutionError)
+    return messageCreate.channel.send(reject.ExecutionError)
 })
+
+//This will be added to all commands soon!
 ```
 
 
