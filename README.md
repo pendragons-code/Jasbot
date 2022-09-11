@@ -52,8 +52,7 @@ Fig 1
 ```
 
 
-The Bot will also be using a DB that is not stored in the same machine. So yes the code uses quickdb because I understand that people may not be able to use mongodb. At the same time the developers have added remote server connection with quick.db. Plus it seem that encryption might be added soon! (I'm really hoping it does.)
-
+The Bot will also be using a DB that is not stored in the same machine. So yes the code uses quickdb because I understand that people may not be able to use mongodb. At the same time the developers have added remote server connection with quick.db. Plus it seem that encryption might be added soon! (I'm really hoping it does.). It should be said that I will still be using quick.db this is because I have no idea how Jasbot will turn out.
 
 
 
