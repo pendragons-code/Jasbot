@@ -53,3 +53,17 @@ Fig 1
 
 
 The Bot will also be using a DB that is not stored in the same machine. So yes the code uses quickdb because I understand that people may not be able to use mongodb. At the same time the developers have added remote server connection with quick.db. Plus it seem that encryption might be added soon! (I'm really hoping it does.)
+
+
+
+
+
+
+Coming features:
+
+```
+Conversion of units
+More APIs
+Moderation?
+cool downs (Hey I'm hosting this, too much traffic tends to also be an issue.)
+```
