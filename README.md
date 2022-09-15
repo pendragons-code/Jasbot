@@ -66,3 +66,8 @@ More APIs
 Moderation?
 cool downs (Hey I'm hosting this, too much traffic tends to also be an issue.)
 ```
+
+
+# Once I can
+
+Once I have more time and resources I hope that the code I write could be improved by the community and be used for education. I do no need credits and I request that you should consider helping children lacking in opportunities.
