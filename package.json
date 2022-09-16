@@ -2,11 +2,12 @@
   "name": "jasbot",
   "version": "1.0.0",
   "site": "https://code.senghong.xyz",
+  "botsite": "https://jasbot.senghong.xyz",
   "git_repo": "https://github.com/pendragons-code/jasbot",
-  "description": "A simple Discord bot.",
+  "description": "A simple discord bot made using nodejs and some useful APIs and open source materials.",
   "main": "index.js",
   "scripts": {
-	  "deploy": "node index.js >> log-file.txt 2>> err-file.txt"
+	  "start": "node index.js >> log-file.txt 2>> err-file.txt"
   },
   "author": "Pendragon's code",
   "license": "None",

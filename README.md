@@ -1,73 +1,83 @@
-# Jasbot
-A poorly designed version of Jasbot.    
-Not fully done! come back later!!   
+# Jasbot:
 
-clone the repo    
+This repository contains the open source version of Jasbot! It is poorly written as of now since this bot is made to be simple to use.		
+This repository is not yet fully done, therefore you should come back later and make suggestions if you can!		
+
 ```
 git clone https://github.com/pendragons-code/Jasbot
 ```
-
-get into the directory and install all the packages   
+enter the directory and run this to install all the packages:		
 ```
 npm i && npm update
 ```
 
-have fun because i requested for it. (make a .env file, define token in there and start the runtime)    
-
-
-lol yeah i was too lazy to make the console.log thing in bot.js look better and i know using multiple console.logs is not the smartest (too lazy to microoptimize everything) but whatever bro!
-Should consider something like eslint...        
-    As of now, I do not care about what you may choose to do with such terrible code written by myself.
-    This might change depending on how things goes.
-
-
-# advertising
-
-Yes i will be advertising with this bot, i will be implementing some basic advertising in the server and the bot.       
-Why am i doing this?        
-1.) Personal gain, I will be honest, i am just a kid who got out of high school, i would like to prepare for the next level of educations           
-2.) [Also this](https://help.unicef.org/?country=SG&gclid=Cj0KCQjw08aYBhDlARIsAA_gb0dKglzLKjs81QBdnLsIzXmEo8CxFeT_nLeL-4XE9jgDJ6eX3Biw-b4aAv8CEALw_wcB), many people think i'm doing this for a PR stunt. Ok yes, technically this is. But I would like to say that I have been supporting the open source education movement for a long time and would like to continue doing so by providing financial and cheaper stuff for children around the world. Many people ask how making tiny projects like this would help people and I understand that my output as of now is very little. I would like to emphasize that i will increase the stuff i put online to help people learn in the future.
-
-
-
-
-# Security
-The prod version will vary in some ways. However, we will not collect more data from you other than your discord id (for storing data, so we will store prefix, warns and stuff as such), guild id, the content of the message *THAT IS DIRECTLY RESPONSIBLE FOR RUNNING THE COMMAND* (banana => not logged, jas help => logged. We primarily do this when the bot crashes. refer to fig 1). We will make a list of all the data that we will be using and how it will be used. It should be noted that the bot will also target moderation, which means that the bot would end up using the guild precense, guild members and message content intents.
+# Directions:
+Enter the .env file and enter the API keys and discord bot tokens accordingly		
+After Installing the packages you now just need to run the bot! You can do so by using:
 ```
-So some of the features would include:
-greeting, goodbyes, afk channel, giveaway (entry by roles, reaction or everyone in the server)
-anti-swear
-warn ban kick
-```        
-
-Fig 1       
-```
-.catch(() => {
-    console.log(messageCreate.content)
-    console.error()
-    return messageCreate.channel.send(reject.ExecutionError)
-})
-
-//This will be added to all commands soon!
+npm start
 ```
 
+# Future:
 
-The Bot will also be using a DB that is not stored in the same machine. So yes the code uses quickdb because I understand that people may not be able to use mongodb. At the same time the developers have added remote server connection with quick.db. Plus it seem that encryption might be added soon! (I'm really hoping it does.). It should be said that I will still be using quick.db this is because I have no idea how Jasbot will turn out.
+Advertising: I hope that I could raise some money to help people that lack the opportunity to learn how to code. Especially those that has displayed aptitude, only to be held back by lack of material.		
+Through advertising, I intend to donate most of the money to climate change and UNICEF in order to help people everywhere. Yes, this would mean that I would still keep a portion of the money in order to save up for my education and stuff (I am just getting out of high school).		
+Many people think that I am using the UNICEF and such organisations to gain more profit as a PR stunt, I would like to say that for I have been for a long time I have been advocating for open source education.		
+The advertising would not be targetted. Meaning that it would literally be random.		
+
+# Prod:
+This repository is not the exact same as the prod version.		
+Why? This is because I do not intend to open source the data. Not unless every single user is ok with that.		
+Most importantly, the data and the types of data we track will be the same. This means we will primarily track the following with the purposes stated at the side.		
+Actual data is held separately from the Machine hosting the bot and the data that I use is actually encrypted.
+```
+[Guild IDs]: Used for saving server configurations.
+[User IDs]: Used for saving personal configurations, warns, bans, kicks and more!
+
+[Relevant commanding message]: 
+	.catch(()=> {
+		console.log(messageCreate.content)
+		console.error()
+		return messageCreate.channel.send(reject.ExecutionError)
+	})
+
+What this blob of code do?:
+	This bunch of code makes it that the message content used to trigger the command will be logged only in the event of errors. Irrelevant messages and executions without errors would not be logged.
 
 
+[Listening to specific messages]:
+	Partials and react roles
+```
 
+# DataBase:
+The current DataBase, [quick.db](https://github.com/plexidev/quick.db/issues/250), is made to be a quick and easy to use database system.		
+This means that the in built features are relatively limited. This means that features like encrytion is not built in. I might consider the usage of encryption in this repo.		
+I would like to use something like mongodb, but costs means that some people may not have it as an available option.
 
-
-Coming features:
+# Coming Features:
+Honestly too many to put here not gonna lie. Genuinely.			
+That said, you should see these coming out soon!
 
 ```
-Conversion of units
-More APIs
-Moderation?
-cool downs (Hey I'm hosting this, too much traffic tends to also be an issue.)
+AFK features.
+Giveaways, entry by rolls, reactions or everyone in the server.
+Greeting new users and goodbyes when they leave.
+Anti-swear
+warn
+ban
+kick
+More common moderation commands
+
+
+random selection
+core commands
+anime commands
+unixporn commands
+utility commands
+unit commands
+scraper commands
+creator commands
+
+
+max-args features
 ```
-
-
-# Once I can
-
-Once I have more time and resources I hope that the code I write could be improved by the community and be used for education. I do no need credits and I request that you should consider helping children lacking in opportunities.
