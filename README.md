@@ -1,6 +1,6 @@
 # Jasbot:
 
-This repository contains the open source version of Jasbot! It is poorly written as of now since this bot is made to be simple to use.		
+This repository contains the open source version of Jasbot! It is poorly written as of now since this bot is made to be simple to use (mainly because I'm lazy, but yes I will work on it.).		
 This repository is not yet fully done, therefore you should come back later and make suggestions if you can!		
 
 ```
