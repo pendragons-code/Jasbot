@@ -52,6 +52,11 @@ What this blob of code do?:
 
 [Listening to specific messages]:
 	Partials and react roles
+
+[Listening to messages]:
+
+Before I begin I would like to guarentee that I WILL NOT TRACK YOUR MESSAGES
+This is primarily used for 2 things. Deleting messages with a list of swear words. I intend to make this configurable. So yes you can configure your own list of anti-swear words.
 ```
 
 # DataBase:
