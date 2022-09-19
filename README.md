@@ -117,3 +117,75 @@ const userdb = new QuickDB({ filePath: './DataBase/User.sqlite' })
 //bot config
 const botconfigdb = new QuickDB({ filePath: './DataBase/botconfig.sqlite' })
 ```
+# current Progress
+```
+├── assets
+│   ├── Art
+│   │   └── image credit.json
+│   ├── icons
+│   ├── items
+│   │   ├── advertisments.json
+│   │   ├── premium.json
+│   │   └── rejection.json
+│   ├── themes
+│   └── wallpapers
+│       ├── mobile.json
+│       └── wallpaper.json
+├── bot.js
+├── config.json
+├── DataBase
+├── events
+│   ├── client
+│   │   ├── error.js
+│   │   ├── rateLimit.js
+│   │   └── ready.js
+│   └── guild
+│       └── messageCreate.js
+├── index.js
+├── package.json
+├── package-lock.json
+├── README.md
+├── src
+│   ├── commands
+│   │   ├── anime
+│   │   │   └── anisearch.js
+│   │   ├── core
+│   │   │   ├── credit.js
+│   │   │   ├── help.js
+│   │   │   ├── ping.js
+│   │   │   ├── usage.js
+│   │   │   └── version.js
+│   │   ├── creator
+│   │   ├── units
+│   │   │   ├── celsius.js
+│   │   │   ├── cm.js
+│   │   │   ├── fahrenheit.js
+│   │   │   ├── feet.js
+│   │   │   ├── inches.js
+│   │   │   ├── kelvin.js
+│   │   │   ├── kilometers.js
+│   │   │   ├── meters.js
+│   │   │   ├── miles.js
+│   │   │   └── yards.js
+│   │   └── utils
+│   │       ├── cmdran.js
+│   │       ├── findmax.js
+│   │       ├── lyrics.js
+│   │       ├── prefix.js
+│   │       └── weather.js
+│   ├── functions.js
+│   ├── structure
+│   │   └── user
+│   │       ├── antiswear.js
+│   │       └── user.js
+│   └── test features
+│       ├── moderation
+│       │   ├── Profanity.js
+│       │   └── warncount.js
+│       └── unixporn
+│           ├── eyecandy.js
+│           ├── icons.js
+│           ├── unixthemes.js
+│           └── wallpapers.js
+└── TODOs
+```
