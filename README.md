@@ -30,7 +30,7 @@ The advertising would not be targetted. Meaning that it would literally be rando
 # Prod:
 This repository is not the exact same as the prod version.				
 
-Why? This is because I do not intend to open source the data. Not unless every single user is ok with that.					
+Why? This is because I do not intend to open source the data in the database. Not unless every single user is ok with that.					
 
 Most importantly, the data and the types of data we track will be the same. This means we will primarily track the following with the purposes stated at the side.				
 
@@ -92,4 +92,25 @@ creator commands
 
 
 max-args features
+```
+
+
+
+# Major Changes that will be coming!!!
+
+```
+//I intend to make multiple database files instead of one singular json.sqlite file.
+//Therefore, I will be doing this
+
+const { QuickDB } = require('quick.db')
+
+//Storing Warns, Bans, kicks and moderation stuff
+const moderationdb = new QuickDB({ filePath: './DataBase/Moderation.sqlite' })
+
+//Storing Configurations (e.g. prefix)
+const guildconfigdb = new QuickDB({ filePath:'./DataBases/GuildConfig.sqlite' })
+
+//Storing basic details (commands ran, blacklist and more)
+const userdb = new QuickDB({ filePath: './DataBase/User.sqlite' })
+
 ```
