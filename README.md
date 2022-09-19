@@ -113,4 +113,7 @@ const guildconfigdb = new QuickDB({ filePath:'./DataBases/GuildConfig.sqlite' })
 //Storing basic details (commands ran, blacklist and more)
 const userdb = new QuickDB({ filePath: './DataBase/User.sqlite' })
 
+
+//bot config
+const botconfigdb = new QuickDB({ filePath: './DataBase/botconfig.sqlite' })
 ```
