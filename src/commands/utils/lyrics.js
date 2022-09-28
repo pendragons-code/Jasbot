@@ -12,7 +12,7 @@ module.exports = {
 		if(!args[0]) return messageCreate.channel.send(reject.user.args.missing)
 		messageCreate.channel.send("Please check your Direct Messages.")
 		messageCreate.react("🔗")
-		fetch(`https://some-random-api.ml/lyrics?title=${args.join(" ")}`)
+		fetch.default(`https://some-random-api.ml/lyrics?title=${args.join(" ")}`)
 		.then(res => res.json())
 		.then(json => {
 			const embed = new EmbedBuilder()
