@@ -1,5 +1,4 @@
 const { EmbedBuilder } = require("discord.js")
-const { db } = require("../../../bot.js")
 module.exports = {
 	name: "help",
 	aliases: ["commands", "-h"],
@@ -8,7 +7,12 @@ module.exports = {
 	desc: "Provides details and list of commands!",
 	async execute(bot, messageCreate, args, prefix){
 		const commander = bot.commands.filter(x => x.showHelp !== false)
-		let cats = bot.commands.map(u => u.category)
+		let cater = bot.commands.map(u => u.category)
+		let cats = []
+		cater.forEach((element)=> {
+			if(!cats.includes(element)) {}
+			cats.push(element)
+		})
 		if(!args[0]){
 			let helpembed = new EmbedBuilder()
 			helpembed.setColor("#0099ff")
