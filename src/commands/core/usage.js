@@ -20,6 +20,7 @@ module.exports = {
 			embed.setFooter({ text: config.defaultfootertext })
 			embed.setTimestamp()
 			embed.setDescription(`${CPU}\n${memory}`)
+			messageCreate.channel.send({ embeds: [embed] })
 		})
 	}
 }
