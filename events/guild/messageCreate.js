@@ -14,7 +14,7 @@ module.exports = async (bot, messageCreate) => {
 		if(editmode == 0 && messageCreate.author.id != config.OwnerID) return messageCreate.channel.send("The bot is currently in editmode, there are some changes being made to the bot! Please wait for maintainence to be completed before trying again!")
 		let guildprefix = await db.get(`prefix_${messageCreate.guild.id}`)
 		let prefix = ''
-		if(!guildprefix || guildprefix === null) prefix = messageCreate.content.includes("jas") ? "jas" : `<@${config.botID}>`
+		if(!guildprefix || guildprefix === null) prefix = messageCreate.content.includes(config.prefix) ? config.prefix : `<@${config.botID}>`
 		if(guildprefix) prefix = messageCreate.content.includes(guildprefix) ? guildprefix : `<@${config.botID}>`
     		if(messageCreate.content.indexOf(prefix) !==0) return
 		const args = messageCreate.content.slice(prefix.length).trim().split(/ +/g);
