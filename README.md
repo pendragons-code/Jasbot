@@ -189,3 +189,7 @@ const botconfigdb = new QuickDB({ filePath: './DataBase/botconfig.sqlite' })
 │           └── wallpapers.js
 └── TODOs
 ```
+
+
+# Sharding
+Jasbot may not be my first discord bot, but it is the first personal one that I am letting go public and verified. Therefor I am looking to consider sharding only after verification happens.
