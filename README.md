@@ -193,3 +193,7 @@ const botconfigdb = new QuickDB({ filePath: './DataBase/botconfig.sqlite' })
 
 # Sharding
 Jasbot may not be my first discord bot, but it is the first personal one that I am letting go public and verified. Therefor I am looking to consider sharding only after verification happens.
+
+# Verification
+Will not come soon at all. This is because I am not yet 16 (by discord's standards) and will have to wait till late dec for attempt of verification.
+Only after that, about next year january would I be cable to see some progress with verificationa and in turn things like sharing. Either that, or the situation changes and I use the teams features.
