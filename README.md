@@ -118,22 +118,25 @@ const userdb = new QuickDB({ filePath: './DataBase/User.sqlite' })
 const botconfigdb = new QuickDB({ filePath: './DataBase/botconfig.sqlite' })
 ```
 # current Progress
-```
-├── assets
+```├── assets
 │   ├── Art
 │   │   └── image credit.json
-│   ├── icons
 │   ├── items
 │   │   ├── advertisments.json
 │   │   ├── premium.json
 │   │   └── rejection.json
-│   ├── themes
-│   └── wallpapers
-│       ├── mobile.json
-│       └── wallpaper.json
+│   └── namegenerator
+│       ├── band.json
+│       ├── female.json
+│       ├── male.json
+│       └── militarynames.json
 ├── bot.js
 ├── config.json
 ├── DataBase
+│   ├── botconfig.sqlite
+│   ├── GuildConfig.sqlite
+│   ├── Moderation.sqlite
+│   └── User.sqlite
 ├── events
 │   ├── client
 │   │   ├── error.js
@@ -144,50 +147,41 @@ const botconfigdb = new QuickDB({ filePath: './DataBase/botconfig.sqlite' })
 ├── index.js
 ├── package.json
 ├── package-lock.json
-├── README.md
-├── src
-│   ├── commands
-│   │   ├── anime
-│   │   │   └── anisearch.js
-│   │   ├── core
-│   │   │   ├── credit.js
-│   │   │   ├── help.js
-│   │   │   ├── ping.js
-│   │   │   ├── usage.js
-│   │   │   └── version.js
-│   │   ├── creator
-│   │   ├── units
-│   │   │   ├── celsius.js
-│   │   │   ├── cm.js
-│   │   │   ├── fahrenheit.js
-│   │   │   ├── feet.js
-│   │   │   ├── inches.js
-│   │   │   ├── kelvin.js
-│   │   │   ├── kilometers.js
-│   │   │   ├── meters.js
-│   │   │   ├── miles.js
-│   │   │   └── yards.js
-│   │   └── utils
-│   │       ├── cmdran.js
-│   │       ├── findmax.js
-│   │       ├── lyrics.js
-│   │       ├── prefix.js
-│   │       └── weather.js
-│   ├── functions.js
-│   ├── structure
-│   │   └── user
-│   │       ├── antiswear.js
-│   │       └── user.js
-│   └── test features
-│       ├── moderation
-│       │   ├── Profanity.js
-│       │   └── warncount.js
-│       └── unixporn
-│           ├── eyecandy.js
-│           ├── icons.js
-│           ├── unixthemes.js
-│           └── wallpapers.js
-└── TODOs
+└── src
+    ├── commands
+    │   ├── anime
+    │   │   ├── animemes.js
+    │   │   └── anisearch.js
+    │   ├── core
+    │   │   ├── credit.js
+    │   │   ├── help.js
+    │   │   ├── link.js
+    │   │   ├── ping.js
+    │   │   ├── usage.js
+    │   │   └── version.js
+    │   ├── units
+    │   │   ├── celsius.js
+    │   │   ├── cm.js
+    │   │   ├── fahrenheit.js
+    │   │   ├── feet.js
+    │   │   ├── inches.js
+    │   │   ├── kelvin.js
+    │   │   ├── kilometers.js
+    │   │   ├── meters.js
+    │   │   ├── miles.js
+    │   │   └── yards.js
+    │   └── utils
+    │       ├── cmdran.js
+    │       ├── findmax.js
+    │       ├── lyrics.js
+    │       ├── prefix.js
+    │       ├── stringgen.js
+    │       └── weather.js
+    ├── functions.js
+    └── structure
+        └── user
+            └── user.js
+
 ```
 
 
