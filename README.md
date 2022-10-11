@@ -118,7 +118,8 @@ const userdb = new QuickDB({ filePath: './DataBase/User.sqlite' })
 const botconfigdb = new QuickDB({ filePath: './DataBase/botconfig.sqlite' })
 ```
 # current Progress
-```├── assets
+```
+├── assets
 │   ├── Art
 │   │   └── image credit.json
 │   ├── items
