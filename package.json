@@ -7,8 +7,7 @@
   "description": "A simple discord bot made using nodejs and some useful APIs and open source materials.",
   "main": "index.js",
   "scripts": {
-    "deploy-prod": "node index.js --max-old-space-size=3072 >> log-file.txt 2>> err-file.txt",
-    "deploy-dev": "node index.js"
+    "deploy": "node . >> log-file.txt 2>> err-file.txt",
   },
   "author": "Pendragon's code",
   "license": "None",
