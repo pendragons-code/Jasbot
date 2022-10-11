@@ -13,14 +13,13 @@ module.exports = {
 			arr.reverse()
 			const used = process.memoryUsage().heapUsed / 1024 /1024
 			let memory = `Approximate memory usage: ${Math.round(used * 100) / 100} MB`
-			let CPU = `CPU Usage: ${Math.round(v * 100) / 100}%`
+			let CPU = `CPU Usage: ${Math.round(v * 100) / 100}%\n `
 			const embed = new EmbedBuilder()
 			embed.setColor(config.defaultembedcolour)
 			embed.setTitle("Jasbot's Usage")
 			embed.setFooter({ text: config.defaultfootertext })
 			embed.setTimestamp()
 			embed.setDescription(`${CPU}\n${memory}`)
-			messageCreate.channel.send({ embeds: [embed] })
 		})
 	}
 }

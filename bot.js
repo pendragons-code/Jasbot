@@ -2,6 +2,10 @@ const fs = require('fs')
 const { Client, GatewayIntentBits, Collection} = require('discord.js');
 const { QuickDB } = require('quick.db');
 const db = new QuickDB();
+const moderationdb = new QuickDB({ filePath: 'DataBase/Moderation.sqlite' })
+const guildconfigdb = new QuickDB({ filePath: 'DataBase/GuildConfig.sqlite' })
+const userdb = new QuickDB({ filePath: 'DataBase/User.sqlite' })
+const botconfigdb = new QuickDB({ filePath: 'DataBase/botconfig.sqlite' })
 const bot = new Client({
   intents: [
 	GatewayIntentBits.DirectMessages,
@@ -64,4 +68,4 @@ fs.readdirSync('./src/structure').forEach(dirs => {
 console.log('\x1b[36m%s\x1b[0m', "---------------------------------------------------------------------")
     }
 
-module.exports = {eventer: eventer, commander: commander, structurer: structurer, bot: bot, db: db}
+module.exports = {eventer: eventer, commander: commander, structurer: structurer, bot: bot, db: db, moderationdb: moderationdb, userdb: userdb, guildconfigdb: guildconfigdb, botconfigdb: botconfigdb}

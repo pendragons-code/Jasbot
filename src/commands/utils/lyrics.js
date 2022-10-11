@@ -6,7 +6,7 @@ module.exports = {
 	aliases: [],
 	category: "utils",
 	utilisation: "lyrics <query>",
-	desc: "Sends link or lyrics to your dms",
+	desc: "Sends link or lyrics to dms!",
 	async execute(bot, messageCreate, args, prefix){
 		const fetch = await import("node-fetch")
 		if(!args[0]) return messageCreate.channel.send(reject.user.args.missing)
@@ -16,7 +16,7 @@ module.exports = {
 		.then(res => res.json())
 		.then(json => {
 			const embed = new EmbedBuilder()
-			embed.setFooter({ text: "Lyrics provided by some-random-api.ml!" })
+			embed.setFooter({ text: `Lyrics provided by some-random-api.ml! ${defaultfootertext}` })
 			embed.setColor(defaultembedcolour)
 			embed.setTitle(`Results for ${json.title}`)
 			embed.setTimestamp()

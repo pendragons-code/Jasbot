@@ -3,5 +3,8 @@
 	"OwnerID": "875324148874895400",
 	"botID": "875419076682473493",
 	"defaultembedcolour": "#0099ff",
-	"defaultfootertext": "Follow @pendragonscode on instagram!"
+	"defaultfootertext": "Follow @pendragonscode on instagram!",
+	"antiswear":{
+		"DefaultSwear": [" nigger ", " cunt ", "fuck", " whore ", " nigga ", " bitch ", " biatch ", " lan jiao ", " chi bai ", " rape you ", " bang you ", " pussy ", " slut "]
+	}
 }

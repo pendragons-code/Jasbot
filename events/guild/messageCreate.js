@@ -1,10 +1,10 @@
 module.exports = async (bot, messageCreate) => {
 	const Discord = require("discord.js")
 	const env = require("dotenv").config()
-	const { db } = require("../../bot.js")
+	const { botconfigdb, userdb, guildconfigdb } = require("../../bot.js")
 	const config = require("../../config.json")
-	let editmode = await db.get('editmode')
-	let blacklisted = await db.get(`blacklisted_${messageCreate.author.id}`)
+	let editmode = await botconfigdb.get('editmode')
+	let blacklisted = await userdb.get(`blacklisted_${messageCreate.author.id}`)
 	if(messageCreate.content.includes(process.env.token)) return bot.users.cache.get(config.OwnerID).send("Token Compromised! Reset bot token immediately!")
 	const reject = require("../../assets/items/rejection.json")
 	if (blacklisted == "yes") return messageCreate.channel.send(reject.BlacklistedUser)
@@ -12,9 +12,9 @@ module.exports = async (bot, messageCreate) => {
 		if(messageCreate.author.bot || messageCreate.channel.type == "dm") return
 		if(editmode === null) editmode = 1
 		if(editmode == 0 && messageCreate.author.id != config.OwnerID) return messageCreate.channel.send("The bot is currently in editmode, there are some changes being made to the bot! Please wait for maintainence to be completed before trying again!")
-		let guildprefix = await db.get(`prefix_${messageCreate.guild.id}`)
+		let guildprefix = await guildconfigdb.get(`prefix_${messageCreate.guild.id}`)
 		let prefix = ''
-		if(!guildprefix || guildprefix === null) prefix = messageCreate.content.includes(config.prefix) ? config.prefix : `<@${config.botID}>`
+		if(!guildprefix || guildprefix === null) prefix = messageCreate.content.includes("jas") ? "jas" : `<@${config.botID}>`
 		if(guildprefix) prefix = messageCreate.content.includes(guildprefix) ? guildprefix : `<@${config.botID}>`
     		if(messageCreate.content.indexOf(prefix) !==0) return
 		const args = messageCreate.content.slice(prefix.length).trim().split(/ +/g);

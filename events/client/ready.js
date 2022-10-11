@@ -1,7 +1,7 @@
 module.exports = async (bot) => {
-	const { db } = require("../../bot.js")
+	const { botconfigdb } = require("../../bot.js")
 	const os = require("os-utils")
-	let editmode = await db.get("editmode")
+	let editmode = await botconfigdb.get("editmode")
 	os.cpuUsage(function(v){
 		const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 		arr.reverse()

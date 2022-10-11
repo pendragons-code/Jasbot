@@ -1,28 +1,29 @@
-const reject = require("../../../assets/items/rejection.json")
+const { meters } = require("../../functions.js")
 const { EmbedBuilder } = require("discord.js")
+const reject = require("../../../assets/items/rejection.json")
 const { defaultfootertext, defaultembedcolour } = require("../../../config.json")
-const { cm } = require("../../functions.js")
 module.exports = {
-	name: "cm",
-	aliases: ["centimeters", "centimetres"],
+	name: "meters",
+	aliases: ["metres"],
 	category: "units",
-	utilisation: "cm <numerical>",
-	desc: "Converts numerical value of cm to some other common units.",
+	utilisation: "meters <numerical>",
+	desc: "Converts numerical value of meters to some other commonly used units.",
 	async execute(bot, messageCreate, args, prefix){
 		let number = parseFloat(args[0])
 		if(!args[0]) return messageCreate.channel.send(reject.user.numbers.missing)
 		if(args[1]) return messageCreate.channel.send(reject.user.numbers.toomany)
-		if(isNaN(number)) return messageCreate.channel.send(reject.user.numbers.invalid)
+		if(isNan(number)) return messageCreate.channel.send(reject.user.number.invalid)
 		const embed = new EmbedBuilder()
+		embed.setTitle("Converting")
+		embed.setDescription(meters(number))
 		embed.setColor(defaultembedcolour)
-		embed.setTimestamp()
 		embed.setFooter({ text: defaultfootertext })
 		embed.addFields({ name: "Disclaimer", value: "Figures here are rounded off by 5 significant figures." })
-		embed.setDescription(cm(number))
-		embed.setTitle("Converting!")
+		embed.setTimestamp()
 		messageCreate.channel.send({ embeds: [embed] }).catch(()=> {
 			console.err()
 			return messageCreate.channel.send(reject.ExecutionError)
 		})
+
 	}
 }

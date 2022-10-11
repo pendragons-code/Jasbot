@@ -1,10 +1,10 @@
-const { db } = require("../../../bot.js")
+const { userdb } = require("../../../bot.js")
 const Discord = require("discord.js")
 module.exports = {
 	name: 'users',
-	async execute(bot, messageCreate, args) {
-		db.add(`cmd_${messageCreate.author.id}`, 1)
-		let newUser = await db.get(`first_${messageCreate.author.id}`)
+	async execute(bot, messageCreate, args, prefix) {
+		userdb.add(`cmd_${messageCreate.author.id}`, 1)
+		let newUser = await userdb.get(`first_${messageCreate.author.id}`)
 		if(newUser === null) newUser = 0
 		if(newUser == 1) return
 		if(newUser === 0){
@@ -16,10 +16,10 @@ module.exports = {
 			embed.setTitle(`Hoiya ${messageCreate.author.username}!`)
 			try{
 				messageCreate.author.send({ embeds: [embed] })
-				db.set(`first_${messageCreate.author.id}`, 1)
+				userdb.set(`first_${messageCreate.author.id}`, 1)
 			}catch(e){
 				messageCreate.channel.send({ embeds: [embed] })
-				db.set(`first_${messageCreate.author.id}`, 1)
+				userdb.set(`first_${messageCreate.author.id}`, 1)
 			}
 		}
 	}

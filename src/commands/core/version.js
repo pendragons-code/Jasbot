@@ -1,5 +1,4 @@
 const { EmbedBuilder } = require("discord.js")
-const { db } = require("../../../bot.js")
 const nodeOS = require("os")
 const os = require("os-utils")
 const { version, author, site, git_repo } = require("../../../package.json")

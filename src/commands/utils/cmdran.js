@@ -1,4 +1,4 @@
-const { db } = require("../../../bot.js")
+const { userdb } = require("../../../bot.js")
 const { EmbedBuilder } = require("discord.js")
 const { defaultfootertext, defaultembedcolour } = require("../../../config.json")
 const reject = require("../../../assets/items/rejection.json")
@@ -11,7 +11,7 @@ module.exports = {
 	async execute(bot, messageCreate, args, prefix){
 		let user = messageCreate.mentions.user.first()
 		if(!user || user === null) user = messageCreate.author
-		let cmdran = await db.get(`cmdran_${user.id}`)
+		let cmdran = await userdb.get(`cmdran_${user.id}`)
 		const embed = new EmbedBuilder()
 		embed.setColor(defaultembedcolour)
 		embed.seFooter({ text: defaultfootertext })

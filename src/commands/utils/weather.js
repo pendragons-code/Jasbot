@@ -1,30 +1,33 @@
-const { db } = require("../../../bot.js")
 const reject = require("../../../assets/items/rejection.json")
-const env = require("dotenv").config()
 const { EmbedBuilder } = require("discord.js")
+const weather = require("weather-js")
+const { defaultembedcolour, defaultfootertext } = require("../../../config.json")
 module.exports = {
 	name: "weather",
 	aliases: [],
 	category: "utils",
 	utilisation: "weather <destination>",
-	desc: "Provides weather details using Foreca!",
+	desc: "Provides weather details using weather-js!",
 	async execute(bot, messageCreate, args){
-		const axios = await import("axios")
-		let q = ""
-		if(!args[1]) q = args[0]
-		if(args[1]) q = args.join("%20")
-		const options = {
-			url: 'https://api.api-ninjas.com/v1/weather?city=' + q,
-			headers: {
-			  'X-Api-Key': process.env.rapidapiweather
-			},
-		}
-		axios.default(options).then(function (response) {
-			console.log(response.data);
-			messageCreate.channel.send("Info received!")
-		}).catch(function (error) {
-			console.error(error)
-			return messageCreate.channel.send(reject.BadApiResponse)
-		});
+		weather.find({search: args.join(" "), degreeType: 'C'}, function(err, result) {
+		if(!args) return messageCreate.channel.send(`${reject.user.args.missing}\n Please provide valid location!`)
+		const embed = new EmbedBuilder()
+		let p = (result[0].current.temperature * 9/5) + 32
+		embed.setTitle(`Weather - ${result[0].location.name}`)
+	  	embed.setColor(defaultembedcolour)
+		embed.setFooter({ text: defaultfootertext })
+	  	embed.setDescription("Temperature units can may be differ some time")
+	  	embed.addField("Temperature", `${result[0].current.temperature} Celsius`, true)
+	  	embed.addField("Temperature", `${p} Fahrenheit`, true)
+	  	embed.addField("Sky Text", result[0].current.skytext, true)
+	  	embed.addField("Humidity", result[0].current.humidity, true)
+	  	embed.addField("Wind Speed", result[0].current.windspeed, true)//What about image
+	  	embed.addField("Observation Time", result[0].current.observationtime, true)
+	  	embed.addField("Wind Display", result[0].current.winddisplay, true)
+	  	embed.setThumbnail(result[0].current.imageUrl);
+	  	messageCreate.channel.send({embeds:[embed]}).catch(() =>{
+			return messageCreate.channel.send(reject.ExecutionError)
+		})
+		})
 	}
 }

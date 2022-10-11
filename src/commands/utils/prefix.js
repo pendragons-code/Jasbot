@@ -1,4 +1,4 @@
-const { db } = require("../../../bot")
+const { guildconfigdb } = require("../../../bot")
 const { EmbedBuilder } = require("discord.js")
 const { defaultfootertext, defaultembedcolour } = require("../../../config.json")
 const reject = require("../../../assets/items/rejection.json")
@@ -9,10 +9,10 @@ module.exports = {
 	desc: "Changes bot prefix",
 	utilisation: "prefix <new prefix>",
 	async execute(bot, messageCreate, args, prefix){
-		let newprefix = await db.get(`prefix_${messageCreate.guild.id}`)
+		let newprefix = await guildconfigdb.get(`prefix_${messageCreate.guild.id}`)
 		if(!args[0]) return messageCreate.channel.send(reject.user.args.missing)
 		if(args[1]) return messageCreate.channel.send(reject.user.args.toomany)
-		db.set(`prefix_${messageCreate.guild.id}`, args[0])
+		guildconfigdb.set(`prefix_${messageCreate.guild.id}`, args[0])
 		.catch(() => { return messageCreate.channel.send(reject.ExecutionError) })
 		const embed = new EmbedBuilder()
 		embed.setColor(defaultembedcolour)
