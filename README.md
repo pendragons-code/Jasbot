@@ -15,7 +15,7 @@ npm i && npm update
 Enter the .env file and enter the API keys and discord bot tokens accordingly				
 After Installing the packages you now just need to run the bot! You can do so by using:			
 ```
-npm start
+npm run deploy
 ```
 
 # Future:
