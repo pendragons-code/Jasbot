@@ -10,8 +10,7 @@ module.exports = {
 		let cater = bot.commands.map(u => u.category)
 		let cats = []
 		cater.forEach((element)=> {
-			if(!cats.includes(element)) {}
-			cats.push(element)
+			if(!cats.includes(element)) cats.push(element)
 		})
 		if(!args[0]){
 			let helpembed = new EmbedBuilder()
