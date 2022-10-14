@@ -90,7 +90,7 @@ function getUserFromMention(mention) {
 	}
 }
 
-function warn(user, reason, moderator){
+async function warn(user, reason, moderator){
 	let warncount = await  moderationdb.get(`warncount_${messageCreate.guild.id}_${user.id}`)
 	moderationdb.add(`warncount_${messageCreate.guild.id}_${user.id}`, 1)
 	moderationdb.set(`warn_${warncount}_${messageCreate.guild.id}_${user.id}`, [`${reason}`, `${moderator}`])
