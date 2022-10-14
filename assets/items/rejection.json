@@ -1,4 +1,6 @@
 {
+"CreatorOnly": "You need to be a creator!",
+"MissingPerms": "You currently do not have the right permissions to use this command!",
 "BadApiResponse": "The site gave us a bad response, please try again later!",
 "ExecutionError": "Something went wrong and we don't know why! Contact the devs or try again later!",
 "DisabledCommand": "The command you are trying to run is currently disabled!",

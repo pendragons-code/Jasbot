@@ -26,7 +26,9 @@ module.exports = async (bot, messageCreate) => {
 				if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
 				cmd.execute(bot, messageCreate, args, prefix)
 				const res1 = bot.structures.get("users")
+				const res2 = bot.structures.get("antiswear")
 				res1.execute(bot, messageCreate, args, prefix)
+				res2.execute(bot, messageCreate, args, prefix)
 				console.log(`${messageCreate.author.username} ran ${cmd.name} in ${messageCreate.guild.id}`)
 			}catch(e){
 				messageCreate.channel.send(reject.ExecutionError)

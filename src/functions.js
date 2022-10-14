@@ -1,3 +1,5 @@
+const {moderationdb} = require("../bot")
+
 // distance
 function cm(a){
 	let inches = a / 2.54
@@ -87,4 +89,15 @@ function getUserFromMention(mention) {
 		return client.users.cache.get(mention);
 	}
 }
-module.exports = { cm: cm, meters: meters, kilometers: kilometers, yards: yards, feet: feet, inches: inches, miles: miles, getUserFromMention: getUserFromMention, NullToZero: NullToZero, getUserFromMention: getUserFromMention }
+
+function warn(user, reason, moderator){
+	let warncount = await  moderationdb.get(`warncount_${messageCreate.guild.id}_${user.id}`)
+	moderationdb.add(`warncount_${messageCreate.guild.id}_${user.id}`, 1)
+	moderationdb.set(`warn_${warncount}_${messageCreate.guild.id}_${user.id}`, [`${reason}`, `${moderator}`])
+	messageCreate.channel.send(`${user} was warned by ${moderator} for the foloowing reason:\n${reason}`)
+}
+
+
+
+
+module.exports = { warn: warn, cm: cm, meters: meters, kilometers: kilometers, yards: yards, feet: feet, inches: inches, miles: miles, getUserFromMention: getUserFromMention, NullToZero: NullToZero, getUserFromMention: getUserFromMention }
