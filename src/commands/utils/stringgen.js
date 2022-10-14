@@ -14,10 +14,12 @@ module.exports = {
 		let nums = "1234567890"
 		let spechar = "\"\`~@#$%^&*()_=+;',/.|{}][-\\"
 		let set = ""
+		let result = ""
 		function stringgen(length, set){
 			for(var i = 0; i < length; i++ ){
 				result += set.charAt(Math.floor(Math.random() * set.length))
 			}
+			return result
 		}
 		const listembed = new EmbedBuilder()
 		listembed.setTitle("List!")
@@ -31,19 +33,19 @@ module.exports = {
 		switch(args[0]){
 			case "numsonly":
 			 	set = nums
-				stringgen(parseInt(args[1]), set)
+				messageCreate.channel.send(stringgen(parseInt(args[1]), set))
 				break;
 			case "alphanumericals":
 				set = nums + Caps + NoCaps
-				stringgen(parseInt(args[1]), set)
+				messageCreate.channel.send(stringgen(parseInt(args[1]), set))
 				break;
 			case "alphabets":
 				set = Caps + NoCaps
-				stringgen(parseInt(args[1]), set)
+				messageCreate.channel.send(stringgen(parseInt(args[1]), set))
 				break;
 			case "all":
-				set = nums + Caps + Nocaps +spechar
-				stringgen(parseInt(args[1]), set)
+				set = nums + Caps + NoCaps +spechar
+				messageCreate.channel.send(stringgen(parseInt(args[1]), set))
 		}
 	}
 }
