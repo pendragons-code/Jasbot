@@ -11,6 +11,15 @@ enter the directory and run this to install all the packages:
 npm i && npm update
 ```
 
+# NEWS
+Next versions will focus on making the bot more user friendly and using some moderation features.
+
+
+
+
+
+
+
 # Directions:
 Enter the .env file and enter the API keys and discord bot tokens accordingly				
 After Installing the packages you now just need to run the bot! You can do so by using:			
