@@ -18,6 +18,7 @@ module.exports = {
 			helpembed.setTitle("˜”°•.˜”°•--==++List of commands!++==-- •°”˜.•°”˜")
 			helpembed.setDescription(`Prefix is ${prefix}! This bot has ${commander.size} commands!`)
 			helpembed.addFields(
+			  { name: '\u200B', value: '\u200B' },
 			  { name: `Available commands!`, value: "`"+ prefix + " help <category>" + "`" + "\n" + "`"  + cats.join("`, `") + "`", inline: true },         
 			  { name: '\u200B', value: '\u200B' },
 			)
@@ -31,6 +32,7 @@ module.exports = {
 			embed.setTitle("˜”°•.˜”°•--==++List of commands!++==-- •°”˜.•°”˜")
 			embed.setDescription(`Prefix is ${prefix}! This bot has ${commander.size} commands!`)
 			embed.addFields(
+			  { name: '\u200B', value: '\u200B' },
 			  { name: `Available commands!`, value: "`"+commands.map(cmd => cmd.name).join("`, `")+"`", inline: true },         
 			  { name: '\u200B', value: '\u200B' },
 			)
