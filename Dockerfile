@@ -1,8 +1,9 @@
-FROM node:16-alpine
+FROM node:17-alpine
 WORKDIR /app
+RUN apk update && apk add git ca-certificates
 
-COPY package*.json /app
+COPY package*.json ./
 RUN npm install
 
 COPY . .
-CMD ["node", "index.js"]
+CMD ["npm", "run", "deploy"]
