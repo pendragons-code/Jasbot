@@ -10,23 +10,26 @@ module.exports = {
 	desc: "Scrapes some stuff from MAL!",
 	async execute(bot, messageCreate, args, prefix){
 		if(!args[0]) return messageCreate.channel.send(reject.user.args.invalid)
-		const search = args.join(" ")
-		malScraper.getInfoFromName(search).then((data) => {
-			if(!data.url) return messageCreate.channel.send("No results!")
-			let embed = new EmbedBuilder()
-			embed.setFooter({ text: defaultfootertext })
-			embed.setThumbnail(data.picture)
-			embed.setColor(defaultembedcolour)
-			embed.addField('English Title',`${data.englishTitle}`)
-    			embed.addField('Japanese Title', `${data.japaneseTitle}`)
-			embed.addField('Type', `${data.type}`)//data.type
-			embed.addField('Episodes', `${data.episodes}`)//data.episodes
-			embed.addField('Rating', `${data.rating}`)//data.rating
-			embed.addField('Aired', `${data.aired}`)//data.aired
-			embed.addField('Score',`${data.score}`)//data.score
-			embed.addField('Score Stats', `${data.scoreStats}`)//data.scoreStats
-			embed.addField('Link', `${data.url}`);
-			messageCreate.channel.send({ embeds: [embed] }).catch(()=> {return messageCreate.channel.send(reject.ExecutionError)})
-		})
+			const name = `${args}`
+			if(!args) return messageCreate.channel.send(reject.user.args.missing)
+			malScraper.getInfoFromName(name)
+			.then((data) => {
+				const embed = new EmbedBuilder()
+				.setFooter({text:`Search results from My Anime List for ${name}`.split(',').join(' ')})
+				.setColor(defaultembedcolour)
+				.setThumbnail(data.picture)
+				.setTimestamp()
+				.addFields({name: 'English Title', value: `${data.englishTitle}`})
+				.addFields({name: 'Japanese Title', value: `${data.japaneseTitle}`})
+				.addFields({name: 'Type', value: `${data.type}`})//data.type
+				.addFields({name: 'Episodes', value: `${data.episodes}`})//data.episodes
+				.addFields({name: 'Rating', value: `${data.rating}`})//data.rating
+				.addFields({name: 'Aired', value: `${data.aired}`})//data.aired
+				.addFields({name: 'Score', value: `${data.score}`})//data.score
+				.addFields({name: 'Score Stats', value: `${data.scoreStats}`})//data.scoreStats
+				.addFields({name: 'Link', value: `${data.url}`});//data.url
+			
+				messageCreate.channel.send({embeds:[embed]})
+			})
+		}
 	}
-}
