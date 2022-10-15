@@ -21,7 +21,7 @@ module.exports = {
 		globalembed.addFields({ name: "Recovered" , value: `${data.recovered}`})
 		messageCreate.channel.send({embeds: [globalembed] }).catch(() => {
 			console.error()
-			console.log(message.content)
+			console.log(messageCreate.content)
 			return messageCreate.channel.send(reject.ExecutionError)
 		})
 	}
