@@ -11,8 +11,8 @@ module.exports = {
 		if(!args[0]) return messageCreate.channel.send(reject.user.numbers.missing)
 		if(args[1]) return messageCreate.channel.send(reject.user.args.toomany)
 		if(isNaN(parseFloat(args[0]))) return messageCreate.channel.send(reject.user.numbers.invalid)
-		let fahrenheit = (parseFloat(args[0]) - 273.15)
-		let celsius = (parseFloat(args[0]) - 273.15) * 1.8 + 32
+		let celsius = (parseFloat(args[0]) - 273.15)
+		let fahrenheit = (parseFloat(args[0]) - 273.15) * 1.8 + 32
 		let desc = `${args[0]} kelvin(s) is equal to:\n${fahrenheit} fahrenheit \n${celsius} celsius`
 		const embed = new EmbedBuilder()
 		embed.setTitle("Conversion of units of temperture!")
