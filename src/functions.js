@@ -72,13 +72,6 @@ function NullToZero(a){
 	if(a === null) a = 0
 }
 
-function AdPool(){
-	const pool = require("../assets/items/advertisments.json")
-	const adverts = Object.keys(pool)
-	let adpool = Math.Floor(Math.random() * adverts)
-	return adpool
-}
-//Add if the item is missing just ignore.
 function getUserFromMention(mention) {
 	if (!mention) return;
 	if (mention.startsWith('<@') && mention.endsWith('>')) {
@@ -100,4 +93,4 @@ async function warn(user, reason, moderator){
 
 
 
-module.exports = { warn: warn, cm: cm, meters: meters, kilometers: kilometers, yards: yards, feet: feet, inches: inches, miles: miles, getUserFromMention: getUserFromMention, NullToZero: NullToZero, getUserFromMention: getUserFromMention }
+module.exports = { warn: warn, cm: cm, meters: meters, kilometers: kilometers, yards: yards, feet: feet, inches: inches, miles: miles, getUserFromMention: getUserFromMention, NullToZero: NullToZero }
