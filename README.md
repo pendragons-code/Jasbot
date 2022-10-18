@@ -13,8 +13,34 @@ npm i && npm update
 
 # NEWS
 Next versions will focus on making the bot more user friendly and using some moderation features.
+```
+Changes to units:
+
+Due to many people finding the conversion features useful in particular, I have decided to divide the items even further and implement more items to convert like speed, volume and mass!
+Meaning instead of:
+
+├── units
+│   ├── celsius.js
+│   ├── cm.js
+│   ├── fahrenheit.js
+│   ├── feet.js
+│   ├── inches.js
+│   ├── kelvin.js
+│   ├── kilometers.js
+│   ├── meters.js
+│   ├── miles.js
+│   └── yards.js
 
 
+
+
+It would look something like this:
+
+├── temperature
+│   ├── celsius.js
+│   ├── fahrenheit.js
+│   └── kelvin.js
+```
 
 
 
