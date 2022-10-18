@@ -15,7 +15,7 @@ module.exports = {
 		let fahrenheit = (parseFloat(args[0]) - 273.15) * 1.8 + 32
 		let desc = `${args[0]} kelvin(s) is equal to:\n${fahrenheit} fahrenheit \n${celsius} celsius`
 		const embed = new EmbedBuilder()
-		embed.setTitle("Conversion of units of temperture!")
+		embed.setTitle("Conversion!")
 		embed.setColor(defaultembedcolour)
 		embed.setFooter({ text: defaultfootertext })
 		embed.setDescription(desc)
