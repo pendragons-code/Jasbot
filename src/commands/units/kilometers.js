@@ -14,5 +14,15 @@ module.exports = {
 		if(args[1]) return messageCreate.channel.send(reject.user.numbers.toomany)
 		if(isNaN(number)) return messageCreate.channel.send(reject.user.numbers.invalid)
 		const embed = new EmbedBuilder()
+		embed.setTitle("Converting")
+		embed.setDescription(kilometers(number))
+		embed.setColor(defaultembedcolour)
+		embed.setFooter({ text: defaultfootertext })
+		embed.addFields({ name: "Disclaimer", value: "Figures here are rounded off by 5 significant figures." })
+		embed.setTimestamp()
+		messageCreate.channel.send({ embeds: [embed] }).catch(()=> {
+			console.err()
+			return messageCreate.channel.send(reject.ExecutionError)
+		})
 	}
 }
