@@ -28,13 +28,10 @@ npm run deploy
 ```
 
 # Future:
+Before you apply I must explain that I may or may not do this and if you apply for patreon, you will get the refund as the service has yet to start. The discord bot is not even verified and there isn't even an official server for it!
 
-Advertising: I hope that I could raise some money to help people that lack the opportunity to learn how to code. Especially those that has displayed aptitude, only to be held back by lack of material.				
-
-Through advertising, I intend to donate most of the money to climate change and UNICEF in order to help people everywhere. Yes, this would mean that I would still keep a portion of the money in order to save up for my education and stuff (I am just getting out of high school).					
-Many people think that I am using the UNICEF and such organisations to gain more profit as a PR stunt, I would like to say that for I have been for a long time I have been advocating for open source education.				
-
-The advertising would not be targetted. Meaning that it would literally be random.				
+So I hate to do this, but writing and hosting Jasbot costs money + I am gonna donate the money that I may or may not make to charities.		
+How does this work out? Ads are not targeted, meaning they are completely random. If you don't want ads, just host your own version of Jasbot. I don't intend to monetize this further. If you are interested to apply for ads when this bot get popular later, you can consider [patreon](https://www.patreon.com/Pendragonscode/membership)
 
 # Prod:
 This repository is not the exact same as the prod version.				
@@ -88,43 +85,6 @@ warn
 ban
 kick
 More common moderation commands
-
-
-random selection
-core commands
-anime commands
-unixporn commands
-utility commands
-unit commands
-scraper commands
-creator commands
-
-
-max-args features
-```
-
-
-
-# Major Changes that will be coming!!!
-
-```
-//I intend to make multiple database files instead of one singular json.sqlite file.
-//Therefore, I will be doing this
-
-const { QuickDB } = require('quick.db')
-
-//Storing Warns, Bans, kicks and moderation stuff
-const moderationdb = new QuickDB({ filePath: './DataBase/Moderation.sqlite' })
-
-//Storing Configurations (e.g. prefix)
-const guildconfigdb = new QuickDB({ filePath:'./DataBases/GuildConfig.sqlite' })
-
-//Storing basic details (commands ran, blacklist and more)
-const userdb = new QuickDB({ filePath: './DataBase/User.sqlite' })
-
-
-//bot config
-const botconfigdb = new QuickDB({ filePath: './DataBase/botconfig.sqlite' })
 ```
 # current Progress
 ```
@@ -202,8 +162,3 @@ Jasbot may not be my first discord bot, but it is the first personal one that I 
 Will not come soon at all. This is because I am not yet 16 (by discord's standards) and will have to wait till late dec for attempt of verification.
 Only after that, about next year january would I be cable to see some progress with verificationa and in turn things like sharing. Either that, or the situation changes and I use the teams features.
 
-
-
-# Quickmongo
-
-maybe... [quickmongo](https://quickmongo.js.org/#/docs/main/main/general/welcome)
