@@ -13,6 +13,8 @@ npm i && npm update
 
 # NEWS
 Next versions will focus on making the bot more user friendly and using some moderation features.
+
+YES THE DEFAULT ANTISWEAR IS IN THE `config.json` file. I will be updating that array tho.
 ```
 Changes to units:
 
