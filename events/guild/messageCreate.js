@@ -1,5 +1,4 @@
 module.exports = async (bot, messageCreate) => {
-	const Discord = require("discord.js")
 	const env = require("dotenv").config()
 	const { botconfigdb, userdb, guildconfigdb } = require("../../bot.js")
 	const config = require("../../config.json")
