@@ -1,0 +1,25 @@
+{
+"CreatorOnly": "You need to be a creator!",
+"MissingPerms": "You currently do not have the right permissions to use this command!",
+"BadApiResponse": "The site gave us a bad response, please try again later!",
+"ExecutionError": "Something went wrong and we don't know why! Contact the devs or try again later!",
+"DisabledCommand": "The command you are trying to run is currently disabled!",
+"BlacklistedUser": "You have been blacklisted and you will not be able to use the bot! Contact the devs if you think this is an error.",
+"user": {
+	"numbers": {
+		"invalid": "The parameters you have provided are not accepted as they are not valid!",
+		"missing": "You need to provide numbers!",
+		"notinrange": "The numbers you provided are not in an acceptable range!"
+	},
+	"mention": {
+		"invalid": "The user you mentioned is not valid!",
+		"missing": "You need to mention a user!",
+		"toomany": "You mentioned too many users!"
+	},
+	"args": {
+		"mising": "You need to include arguments!",
+		"invalid": "The arguments you provided are invalid!",
+		"toomany": "You added too many arguments!"
+	}
+	}
+}
