@@ -72,7 +72,7 @@ Actual data is held separately from the Machine hosting the bot and the data tha
 [User IDs]: Used for saving personal configurations, warns, bans, kicks and more!
 
 [Relevant commanding message]: 
-	.catch(()=> {
+	.catch(() =>{
 		console.log(messageCreate.content)
 		console.error()
 		return messageCreate.channel.send(reject.ExecutionError)
