@@ -14,43 +14,6 @@ npm i && npm update
 # Transition:
 This branch is basically facilitates the change of this handler to the more modern one.
 
-# NEWS
-Next versions will focus on making the bot more user friendly and using some moderation features.
-
-YES THE DEFAULT ANTISWEAR IS IN THE `config.json` file. I will be updating that array tho.
-```
-Changes to units:
-
-Due to many people finding the conversion features useful in particular, I have decided to divide the items even further and implement more items to convert like speed, volume and mass!
-Meaning instead of:
-
-├── units
-│   ├── celsius.js
-│   ├── cm.js
-│   ├── fahrenheit.js
-│   ├── feet.js
-│   ├── inches.js
-│   ├── kelvin.js
-│   ├── kilometers.js
-│   ├── meters.js
-│   ├── miles.js
-│   └── yards.js
-
-
-
-
-It would look something like this:
-
-├── temperature
-│   ├── celsius.js
-│   ├── fahrenheit.js
-│   └── kelvin.js
-```
-
-
-
-
-
 # Directions:
 Enter the .env file and enter the API keys and discord bot tokens accordingly				
 After Installing the packages you now just need to run the bot! You can do so by using:			
