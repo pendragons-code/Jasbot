@@ -11,8 +11,8 @@ module.exports = {
 		const axios = await import("axios")
 		if(!args[0]) return messageCreate.channel.send(reject.user.args.missing)
 		if(args[1]) return messageCreate.channel.send(reject.user.args.toomany)
-		if(!subreddit.includes("r/")) return messageCreate.channel.send("You need to provide a subreddit! E.G.: `r/meme`")
 		const subreddit = args[0]
+		if(!subreddit.startsWith("r/")) return messageCreate.channel.send("You need to provide a subreddit! E.G.: `r/meme`")
 		const request = {
 			method: "GET",
 			url: `https://reddit.com/${subreddit}/random/.json`
