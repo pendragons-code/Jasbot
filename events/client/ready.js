@@ -17,5 +17,4 @@ module.exports = async (bot) => {
 
 		})
 	bot.server
-	bot.test
 }
