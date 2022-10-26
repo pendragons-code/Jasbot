@@ -116,7 +116,9 @@ More common moderation commands
 ```
 
 # Sharding
-Jasbot may not be my first discord bot, but it is the first personal one that I am letting go public and verified. Therefor I am looking to consider sharding only after verification happens.
+Jasbot may not be my first discord bot, but it is the first personal one that I am letting go public and verified. Therefor I am looking to consider sharding only after verification happens.		
+[Discord js docs about sharding](https://discordjs.guide/sharding/#when-to-shard)
+[Discord js sharding example](https://github.com/discordjs/guide/tree/main/code-samples/sharding/getting-started)
 
 # Verification
 Will not come soon at all. This is because I am not yet 16 (by discord's standards) and will have to wait till late dec for attempt of verification.
