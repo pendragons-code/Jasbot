@@ -54,11 +54,6 @@ Before I begin I would like to guarentee that I WILL NOT TRACK YOUR MESSAGES
 This is primarily used for 2 things. Deleting messages with a list of swear words. I intend to make this configurable. So yes you can configure your own list of anti-swear words.
 ```
 
-# DataBase:
-The current DataBase, [quick.db](https://github.com/plexidev/quick.db/issues/250), is made to be a quick and easy to use database system.				
-This means that the in built features are relatively limited. This means that features like encrytion is not built in. I might consider the usage of encryption in this repo.				
-
-I would like to use something like mongodb, but costs means that some people may not have it as an available option.			
 
 # Coming Features:
 Honestly too many to put here not gonna lie. Genuinely.					
