@@ -11,6 +11,9 @@ enter the directory and run this to install all the packages:
 npm i && npm update
 ```
 
+# Transition:
+This branch is basically facilitates the change of this handler to the more modern one.
+
 # NEWS
 Next versions will focus on making the bot more user friendly and using some moderation features.
 
