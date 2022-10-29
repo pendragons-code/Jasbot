@@ -11,9 +11,6 @@ enter the directory and run this to install all the packages:
 npm i && npm update
 ```
 
-# Transition:
-This branch is basically facilitates the change of this handler to the more modern one.
-
 # Directions:
 Enter the .env file and enter the API keys and discord bot tokens accordingly				
 After Installing the packages you now just need to run the bot! You can do so by using:			
