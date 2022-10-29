@@ -2,13 +2,13 @@ const { EmbedBuilder } = require("discord.js")
 const { defaultembedcolour, defaultfootertext } = require("../../../config.json")
 const reject = require("../../../assets/items/rejection.json")
 module.exports = {
-  name: 'poll',
+	name: 'poll',
     aliases: [],
     category: 'utils',
     utilisation: "poll <number of emojis> <emoji[scalable]> <poll stuff here>\n (e.g.) poll 5 😃 🐻 🍔 ⚽ 🚀 Which emoji here do you all like most?",
     desc: "Initiates polls with spedcified fields!",
-async execute(bot, messageCreate, args, prefix) {
-	if(!args[2]) return messageCreate.channel.send(reject.user.args.missing)
+	async execute(bot, messageCreate, args, prefix) {
+	if(!args[2] || !args[0] || !args[1]) return messageCreate.channel.send(reject.user.args.missing)
 	if(parseInt(args[0]) < 1) return messageCreate.channel.send(reject.user.numbers.invalid)
 	let i = 0;
 	let embed = new EmbedBuilder()
