@@ -17,7 +17,7 @@
 		"toomany": "You mentioned too many users!"
 	},
 	"args": {
-		"mising": "You need to include arguments!",
+		"missing": "You need to include arguments!",
 		"invalid": "The arguments you provided are invalid!",
 		"toomany": "You added too many arguments!"
 	}
