@@ -53,6 +53,7 @@ This is primarily used for 2 things. Deleting messages with a list of swear word
 ```
 # Documentation:
 Yes I was told that this bot is not the best documented bot so lmao.
+Proper Documentation will come much later when there is an actual userbase.
 
 # Errors
 This thing was hastily put together with no consideration of stabiltiy yet. JK HAHA no. I just haven't got the time to test it yet so RIP.
