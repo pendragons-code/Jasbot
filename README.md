@@ -53,24 +53,8 @@ What this blob of code do?:
 Before I begin I would like to guarentee that I WILL NOT TRACK YOUR MESSAGES
 This is primarily used for 2 things. Deleting messages with a list of swear words. I intend to make this configurable. So yes you can configure your own list of anti-swear words.
 ```
-
-
-# Coming Features:
-Honestly too many to put here not gonna lie. Genuinely.					
-
-That said, you should see these coming out soon!			
-
-```
-AFK features.
-Giveaways, entry by rolls, reactions or everyone in the server.
-Greeting new users and goodbyes when they leave.
-Anti-swear
-warn
-ban
-kick
-More common moderation commands
-```
-
+# Documentation:
+Yes I was told that this bot is not the best documented bot so lmao.
 
 # Errors
 This thing was hastily put together with no consideration of stabiltiy yet. JK HAHA no. I just haven't got the time to test it yet so RIP.
