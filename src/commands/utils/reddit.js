@@ -15,7 +15,7 @@ module.exports = {
 		if(!subreddit.startsWith("r/")) return messageCreate.channel.send("You need to provide a subreddit! E.G.: `r/meme`")
 		const request = {
 			method: "GET",
-			url: `https://reddit.com/${subreddit}/random/.json`
+			url: `https://reddit.com/${subreddit}/random/.json?obey_over18=false`
 		}
 
 		axios.default(request).then(response => {
