@@ -11,7 +11,7 @@ module.exports = {
 		const axios = await import("axios")
 		const request = {
 			method: "GET",
-			url: 'https://reddit.com/r/animemes/random/.json'
+			url: 'https://reddit.com/r/animemes/random/.json?obey_over18=false'
 		}
 
 		axios.default(request).then(response => {
