@@ -1,8 +1,11 @@
+# This Repo
+Is not a really good project and not something worth looking into. It is not well optimized and you should frankly invite other bots and not waste your time.
+
 # Jasbot:
 
 This repository contains the open source version of Jasbot! It is poorly written as of now since this bot is made to be simple to use (mainly because I'm lazy, but yes I will work on it.).		
 This repository is not yet fully done, therefore you should come back later and make suggestions if you can!		
-It should be noted that this bot is nothing special and is somewhat terrible in code, better programmers would do many things a lot more differently. I'm not that good when writing code so I guess I can only YOLO and experiment here.		
+		
 
 ```
 git clone https://github.com/pendragons-code/Jasbot
