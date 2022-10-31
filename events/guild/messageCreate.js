@@ -21,13 +21,15 @@ module.exports = async (bot, messageCreate) => {
 		const args = messageCreate.content.slice(prefix.length).trim().split(/ +/g);
 		const command = args.shift().toLowerCase();
 		const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
-		const commandDisable = await guildconfigdb.get(`disabled_${messageCreate.guild.id}_${cmd}`)
-		const categoryDisable = await guildconfigdb.get(`disabledCategory_${messageCreate.guild.id}_${cmd.category}`)
 		if(!cmd) return
 		if(cmd){
 			try{
-				if(commandDisable === null) guildconfigdb.set(`disabled_${messageCreate.guild.id}_${cmd}`, "enabled")
-				if(categoryDisable === null) guildconfigdb.set(`disabledCategory_${messageCreate.guild.id}_${cmd.category}`, "enabled")
+				const commandDisable = await guildconfigdb.get(`disabledCommand_${messageCreate.guild.id}_${cmd.name}`)
+				const categoryDisable = await guildconfigdb.get(`disabledCategory_${messageCreate.guild.id}_${cmd.category}`)
+				if(cmd.category === "over18" && !messageCreate.channel.nsfw) return messageCreate.channel.send("Commands with the nsfw label can only work in nsfw channels!")
+				if(commandDisable === null) await guildconfigdb.set(`disabledCommand_${messageCreate.guild.id}_${cmd.name}`, "enabled")
+				console.log(`${commandDisable} - ${cmd.name}`)
+				if(categoryDisable === null) await guildconfigdb.set(`disabledCategory_${messageCreate.guild.id}_${cmd.category}`, "enabled")
 				if(commandDisable === "disabled" ||categoryDisable === "disabled") return messageCreate.channel.send(reject.DisabledCommand)
 				if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
 				cmd.execute(bot, messageCreate, args, prefix)
