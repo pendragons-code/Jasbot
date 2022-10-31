@@ -1,6 +1,9 @@
 # This Repo
 Is not a really good project and not something worth looking into. It is not well optimized and you should frankly invite other bots and not waste your time.
 
+# Update:
+Added disable enable commands! (will be updated to the main bot in a few days, since it is being vetted for top.gg right now)
+
 # Jasbot:
 
 This repository contains the open source version of Jasbot! It is poorly written as of now since this bot is made to be simple to use (mainly because I'm lazy, but yes I will work on it.).		
