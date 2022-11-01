@@ -38,11 +38,13 @@ module.exports = {
 		if(disabledCategory === null && args[0] === "category") await guildconfigdb.set(`disabledCategory_${messageCreate.guild.id}_${args[1]}`, "enabled")
 		if(disabledCommand === "disabled") return messageCreate.channel.send("This command is already disabled!")
 		if(disabledCategory === "disabled") return messageCreate.channel.send("This category is already disabled!")
+		if(args[0] === "category" && args[1] === "moderation") return messageCreate.channel.send("You cannot disable this category")
 		if(args[0] === "category" && cats.includes(args[1])){
 			await guildconfigdb.set(`disabledCategory_${messageCreate.guild.id}_${args[1]}`, "disabled")
 			messageCreate.channel.send({ embeds: [categoryEmbed] })
 		}
 		if(args[0] === "command" && !cmd.name) return messageCreate.channel.send(reject.user.args.invalid)
+		if(args[0] === "command" && cmd.name === "enable") return messageCreate.channel.send("You cannot disable this command!")
 		if(args[0] === "command" && cmd.name){
 			await guildconfigdb.set(`disabled_${messageCreate.guild.id}_${cmd.name}`, "disabled")
 			messageCreate.channel.send({ embeds: [commandEmbed] })
