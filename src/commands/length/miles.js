@@ -13,7 +13,7 @@ module.exports = {
 		let number = parseFloat(args[0])
 		if(!args[0]) return messageCreate.channel.send(reject.user.numbers.missing)
 		if(args[1]) return messageCreate.channel.send(reject.user.numbers.toomany)
-		if(isNan(number)) return messageCreate.channel.send(reject.user.number.invalid)
+		if(isNaN(number)) return messageCreate.channel.send(reject.user.number.invalid)
 		const embed = new EmbedBuilder()
 		embed.setTitle("Converting")
 		embed.setDescription(miles(number))
