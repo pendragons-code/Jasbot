@@ -189,13 +189,11 @@ async function unwarn(user, reason, moderator){
 	//messageCreate.channel.send(`${user} had 1 warn removed by ${moderator} for the following reason: \n${reason}`)
 }
 
-async function ProjectUsage(){
-	os.cpuUsage(function(v){
-		const memused =`${Math.round((process.memoryUsage.rss() /1024 /1024) * 100) / 100} MB`
-		const cpu = `CPU Usage: ${Math.round(v * 100) / 100} %`
-		let details = `${memused}\n${cpu}`
-		return details	
-	})
+async function ProjectUsage(a){					
+	const memused = `${Math.round((process.memoryUsage.rss() /1024 /1024) * 100) / 100} MB`
+	const cpu = `CPU Usage: ${Math.round(a * 100) / 100} %`
+	let details = `${memused}\n${cpu}`
+	return details
 }
 
 module.exports = { ProjectUsage, unwarn, warn, getUserFromMention, NullToZero, SecondOfArc, MinuteOfArc, milliradian, gradian, radian, degrees, Knot, KilometerPerHour, FootPerSecond, MilesPerHour, MetersPerSecond, miles, meters, cm , kilometers, inches, feet, yards }
