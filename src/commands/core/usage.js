@@ -9,7 +9,7 @@ module.exports = {
 	desc: "Sends You details of the bot usage so far.",
 	async execute(bot, messageCreate, args, prefix){
 		os.cpuUsage(function(v){
-			const used = process.memoryUsage().heapUsed / 1024 /1024
+			const used = process.memoryUsage.rss()/ 1024 /1024
 			let memory = `Approximate memory usage: ${Math.round(used * 100) / 100} MB`
 			let CPU = `CPU Usage: ${Math.round(v * 100) / 100}%`
 			const embed = new EmbedBuilder()
