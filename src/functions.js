@@ -1,5 +1,5 @@
 const { moderationdb } = require("../bot")
-
+const os = require("os-utils")
 function cm(a){
 	let inches = a / 2.54
 	let feet = a / 30.48
@@ -111,7 +111,7 @@ function degrees(a){
 	let Milliradian = a * (1000 * Math.PI/180) // Yes i could just divide radian to get milliradian out but lmao
 	let MinuteOfArc = a * 60
 	let SecondOfArc = a * 3600
-	return ``
+	return `${radian.toPrecision(5)} rad\n ${gradian.toPrecision(5)} grad\n ${Milliradian.toPrecision(5)} mrad\n ${MinuteOfArc.toPrecision(5)} Minute Of Arc\n ${SecondOfArc.toPrecision(5)} Second Of Arc`
 }
 
 function radian(a){
@@ -120,19 +120,43 @@ function radian(a){
 	let Milliradian = a * 1000
 	let MinuteOfArc = a * (60 * 180)/Math.PI
 	let SecondOfArc = a * (3600 * 180)/Math.PI
-	return ``
+	return `${degrees.toPrecision(5)} deg\n${gradian.toPrecision(5)} grad\n${Milliradian.toPrecision(5)} mrad\n${MinuteOfArc.toPrecision(5)} Minute Of Arc\n${SecondOfArc.toPrecision(5)} Second Of Arc`
 }
-
+//.toPrecision(5)
 function gradian(a){
+	let degrees = a * 180/200
+	let radian = a * Math.PI/200
+	let Milliradian = a * Math.PI/200 * 1000
+	let MinuteOfArc = a * 54
+	let SecondOfArc = a * 3240
+	return `${degrees.toPrecision(5)} deg\n${radian.toPrecision(5)} rad\n${Milliradian.toPrecision(5)} mrad\n${MinuteOfArc.toPrecision(5)} Minute Of Arc\n${SecondOfArc.toPrecision(5)} Second Of Arc`
 }
 
 function milliradian(a){
+	let degrees = a * 180/(1000 * Math.PI)
+	let radian = a / 1000
+	let gradian = a * 200/(1000 * Math.PI)
+	let MinuteOfArc = a * (60 * 180)/(1000 * Math.PI)
+	let SecondOfArc = a * (3600 * 180)/(1000 * Math.PI)
+	return `${degrees.toPrecision(5)} deg\n${radian.toPrecision(5)} rad\n${gradian.toPrecision(5)} grad\n${MinuteOfArc.toPrecision(5)} Minute Of Arc\n${SecondOfArc.toPrecision(5)} SecondOfArc`
 }
 
 function MinuteOfArc(a){
+	let degree = a / 60
+	let radian = (a * Math.PI)/(60 * 180)
+	let gradian = a / 54
+	let Milliradian = (a * 1000 * Math.PI)/(60 * 180)
+	let SecondOfArc = a * 60
+	return `${degree.toPrecision(5)} deg\n${radian.toPrecision(5)} rad\n${gradian.toPrecision(5)} grad\n${Milliradian.toPrecision(5)} mrad\n${SecondOfArc.toPrecision(5)} Second Of Arc`
 }
 
 function SecondOfArc(a){
+	let degree = a / 3600
+	let radian = (a * Math.PI)/(180 * 3600)
+	let gradian = a / 3240
+	let Milliradian = (a * 1000 * Math.PI)/(180 * 3600)
+	let MinuteOfArc = a / 60
+	return `${degree.toPrecision(5)} deg\n${radian.toPrecision(5)} rad\n${gradian.toPrecision(5)} grad\n${Milliradian.toPrecision(5)} mrad\n${MinuteOfArc.toPrecision(5)} Minute Of Arc`
 }
 
 function NullToZero(a){
@@ -153,17 +177,25 @@ function getUserFromMention(mention) {
 
 async function warn(user, reason, moderator){
 	let warncount = await  moderationdb.get(`warncount_${messageCreate.guild.id}_${user.id}`)
-	moderationdb.add(`warncount_${messageCreate.guild.id}_${user.id}`, 1)
-	moderationdb.set(`warn_${warncount}_${messageCreate.guild.id}_${user.id}`, [`${reason}`, `${moderator.id}`])
-	messageCreate.channel.send(`${user} was warned by ${moderator} for the following reason:\n${reason}`)
+	await moderationdb.add(`warncount_${messageCreate.guild.id}_${user.id}`, 1)
+	await moderationdb.set(`warn_${warncount}_${messageCreate.guild.id}_${user.id}`, [`${reason}`, `${moderator.id}`])
+	//messageCreate.channel.send(`${user} was warned by ${moderator} for the following reason:\n${reason}`)
 }
 
 async function unwarn(user, reason, moderator){
 	let unwarncount = await moderationdb.get(`unwarncount_${messageCreate.guild.id}_${user.id}`)
-	moderationdb.add(`unwarncount_${messageCreate.guild.id}_${user.id}`, 1)
-	moderationdb.set(`unwarn_${unwarncount}_${messageCreate.guild.id}_${user.id}`, [`${reason}`, `${moderator.id}`])
-	messageCreate.channel.send(`${user} had 1 warn removed by ${moderator} for the following reason: \n${reason}`)
+	await moderationdb.add(`unwarncount_${messageCreate.guild.id}_${user.id}`, 1)
+	await moderationdb.set(`unwarn_${unwarncount}_${messageCreate.guild.id}_${user.id}`, [`${reason}`, `${moderator.id}`])
+	//messageCreate.channel.send(`${user} had 1 warn removed by ${moderator} for the following reason: \n${reason}`)
 }
 
+async function ProjectUsage(){
+	os.cpuUsage(function(v){
+		const memused =`${Math.round((process.memoryUsage.rss() /1024 /1024) * 100) / 100} MB`
+		const cpu = `CPU Usage: ${Math.round(v * 100) / 100} %`
+		let details = `${memused}\n${cpu}`
+		return details	
+	})
+}
 
-module.exports = { MetersPerSecond: MetersPerSecond, FootPerSecond: FootPerSecond, KilometerPerHour: KilometerPerHour, MilesPerHour: MilesPerHour, Knot: Knot, unwarn: unwarn, warn: warn, cm: cm, meters: meters, kilometers: kilometers, yards: yards, feet: feet, inches: inches, miles: miles, getUserFromMention: getUserFromMention, NullToZero: NullToZero}
+module.exports = { ProjectUsage, unwarn, warn, getUserFromMention, NullToZero, SecondOfArc, MinuteOfArc, milliradian, gradian, radian, degrees, Knot, KilometerPerHour, FootPerSecond, MilesPerHour, MetersPerSecond, miles, meters, cm , kilometers, inches, feet, yards }
