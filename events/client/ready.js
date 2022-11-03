@@ -3,8 +3,6 @@ module.exports = async (bot) => {
 	const os = require("os-utils")
 	let editmode = await botconfigdb.get("editmode")
 	os.cpuUsage(function(v){
-		const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-		arr.reverse()
 		const used = process.memoryUsage().heapUsed / 1024 /1024
         	let memory = `Approximate memory usage: ${Math.round(used * 100) / 100} MB`
 		let Desc = `CPU Usage: ${Math.round(v * 100) / 100}%\n${memory}`
