@@ -27,4 +27,4 @@ const userdb = new QuickDB({ filePath: 'DataBase/User.sqlite' })
 const botconfigdb = new QuickDB({ filePath: 'DataBase/botconfig.sqlite' })
 bot.commands = new Collection()
 bot.structures = new Collection()
-module.exports = { bot: bot, moderationdb: moderationdb, guildconfigdb: guildconfigdb, userdb: userdb, botconfigdb: botconfigdb }
+module.exports = { bot, moderationdb, guildconfigdb, userdb, botconfigdb }
