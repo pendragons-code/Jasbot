@@ -13,4 +13,4 @@ function structurer(){
 	})
 	console.log(`${decorpiece} End of Stuctural components ${decorpiece2}`)
 }
-module.exports = { structurer: structurer }
+module.exports = { structurer }

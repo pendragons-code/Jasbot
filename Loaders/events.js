@@ -13,4 +13,4 @@ function eventer(){
 	})
 	console.log(`${decorpiece} End of loading events! ${decorpiece2}`)
 }
-module.exports = { eventer: eventer }
+module.exports = { eventer }

@@ -12,4 +12,4 @@ function AutoTasker(){
 	})
 	console.log(`${decorpiece} End of Automatic Tasks ${decorpiece2}`)
 } 
-module.exports = { AutoTasker: AutoTasker }
+module.exports = { AutoTasker }

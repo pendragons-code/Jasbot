@@ -14,4 +14,4 @@ function commander(){
 	})
 	console.log(`${decorpiece} End of commands ${decorpiece2}`)
 }
-module.exports = { decorpiece: decorpiece, decorpiece2: decorpiece2, commander: commander }
+module.exports = { decorpiece, decorpiece2, commander }
