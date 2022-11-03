@@ -2,7 +2,7 @@
 Is not a really good project and not something worth looking into. It is not well optimized and you should frankly invite other bots and not waste your time.
 
 # Update:
-Added disable enable commands! (will be updated to the main bot in a few days, since it is being vetted for top.gg right now)
+Added disable enable commands! (will be updated to the main bot in a few days, since it is being vetted for top.gg right now, don't wanna cause downtime mid testing.)
 
 # Jasbot:
 
