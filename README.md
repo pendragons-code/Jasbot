@@ -2,7 +2,9 @@
 Is not a really good project and not something worth looking into. It is not well optimized and you should frankly invite other bots and not waste your time.
 
 # Update:
-Added disable enable commands! (will be updated to the main bot in a few days, since it is being vetted for top.gg right now, don't wanna cause downtime mid testing.)
+Added disable enable commands! (will be updated to the main bot in a few days, since it is being vetted for top.gg right now, don't wanna cause downtime mid testing.)			
+Someone asked me to add some chemistry stuff, so maybe I might... meanwhile, I will be leaving a file in here. 			
+This file can be found [here](https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/periodic-table-lookup.json)
 
 # Jasbot:
 
