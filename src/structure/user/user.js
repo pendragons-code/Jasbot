@@ -15,13 +15,11 @@ module.exports = {
 			embed.setFooter({ text: "Hello there! I am a new bot that the owner made out of complete boredom for some reason." })
 			embed.setTimestamp()
 			embed.setTitle(`Hoiya ${messageCreate.author.username}!`)
-			try{
-				messageCreate.author.send({ embeds: [embed] })
-				userdb.set(`first_${messageCreate.author.id}`, 1)
-			}catch(e){
+			userdb.set(`first_${messageCreate.author.id}`, 1)
+			messageCreate.author.send({ embeds: [embed] }).catch(() =>{
 				messageCreate.channel.send({ embeds: [embed] })
 				userdb.set(`first_${messageCreate.author.id}`, 1)
-			}
+			})
 		}
 	}
 }
