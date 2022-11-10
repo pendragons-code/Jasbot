@@ -4,7 +4,10 @@ Is not a really good project and not something worth looking into. It is not wel
 # Update:
 Added disable enable commands! (will be updated to the main bot in a few days, since it is being vetted for top.gg right now, don't wanna cause downtime mid testing.)			
 Someone asked me to add some chemistry stuff, so maybe I might... meanwhile, I will be leaving a file in here. 			
-This file can be found [here](https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/periodic-table-lookup.json)
+This file can be found [here](https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/periodic-table-lookup.json)		
+We will not be using [db.table](https://quickdb.js.org/overview/docs#table) for these reasons:	
+1. Db.table is a useful features, but keeps everything on the same file the db is initiated from.
+2. Db.table 
 
 # Jasbot:
 
