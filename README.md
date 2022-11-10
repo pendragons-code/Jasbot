@@ -7,7 +7,8 @@ Someone asked me to add some chemistry stuff, so maybe I might... meanwhile, I w
 This file can be found [here](https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/periodic-table-lookup.json)		
 We will not be using [db.table](https://quickdb.js.org/overview/docs#table) for these reasons:	
 1. Db.table is a useful features, but keeps everything on the same file the db is initiated from.
-2. Db.table 
+2. Db.table makes it that should that one file get corrupted and the backups are non-existent, you are screwed (I have set the thing to do so every hour).
+3. Bad Opsec.
 
 # Jasbot:
 
