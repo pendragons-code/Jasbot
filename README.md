@@ -75,3 +75,6 @@ This repo will see less activity for now. Some shit got my ass really busy.
 
 # Backups:
 If you intend to make this backup system the main method for how you do yout things, I think it is ok for a small bot, but pls don't do it if you wanna grow big or something, just because this method works, does not mean it is good. Anyhow, this is not the backup system I use since the db is hosted on a different machine. For that, I get a bash script to copy the encrypted folder and files into a backup folder.
+
+# What about moderation features!!!
+So I should tell you this by now, I was transitioning from one pc to another and some files got lost on the way. Also this new PC is not the best with linux support which means i can only sit my ass down and wait for shit to happen.
