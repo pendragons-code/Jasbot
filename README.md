@@ -69,3 +69,6 @@ Proper Documentation will come much later when there is an actual userbase.
 
 # Errors
 This thing was hastily put together with no consideration of stabiltiy yet. JK HAHA no. I just haven't got the time to test it yet so RIP.
+
+# Development slowdown:
+This repo will see less activity for now. Some shit got my ass really busy.
