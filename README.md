@@ -72,3 +72,6 @@ This thing was hastily put together with no consideration of stabiltiy yet. JK H
 
 # Development slowdown:
 This repo will see less activity for now. Some shit got my ass really busy.
+
+# Backups:
+If you intend to make this backup system the main method for how you do yout things, I think it is ok for a small bot, but pls don't do it if you wanna grow big or something, just because this method works, does not mean it is good. Anyhow, this is not the backup system I use since the db is hosted on a different machine. For that, I get a bash script to copy the encrypted folder and files into a backup folder.
