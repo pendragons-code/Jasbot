@@ -1,4 +1,4 @@
-const { moderationdb } = require("../bot")
+const { moderationdb, bot } = require("../bot")
 const os = require("os-utils")
 function cm(a){
 	let inches = a / 2.54
@@ -171,7 +171,7 @@ function getUserFromMention(mention) {
 		if (mention.startsWith('!')) {
 			mention = mention.slice(1);
 		}
-		return client.users.cache.get(mention);
+		return bot.users.cache.get(mention);
 	}
 }
 
