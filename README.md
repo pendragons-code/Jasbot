@@ -2,13 +2,7 @@
 Is not a really good project and not something worth looking into. It is not well optimized and you should frankly invite other bots and not waste your time.
 
 # Update:
-Added disable enable commands! (will be updated to the main bot in a few days, since it is being vetted for top.gg right now, don't wanna cause downtime mid testing.)			
-Someone asked me to add some chemistry stuff, so maybe I might... meanwhile, I will be leaving a file in here. 			
-This file can be found [here](https://github.com/Bowserinator/Periodic-Table-JSON/blob/master/periodic-table-lookup.json)		
-We will not be using [db.table](https://quickdb.js.org/overview/docs#table) for these reasons:	
-1. Db.table is a useful features, but keeps everything on the same file the db is initiated from.
-2. Db.table makes it that should that one file get corrupted and the backups are non-existent, you are screwed (I have set the thing to do so every hour).
-3. Bad Opsec.
+Our coming features will focus on moderation and more, however, this will take a little longer to get this to be pushed onto the main bot as I am still trying to get this bot approved on top.gg.
 
 # Jasbot:
 
