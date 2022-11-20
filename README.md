@@ -20,7 +20,6 @@ min perms can be used like this as per documentation (https://discordjs.guide/po
 to check if user has EITHER kick OR ban:
 
 minperms: ["KickMembers", "BanMembers"]
-
 in /docs this will be explained
 ```
 
