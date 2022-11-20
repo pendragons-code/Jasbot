@@ -22,7 +22,6 @@ module.exports = async (bot, messageCreate) => {
 		const command = args.shift().toLowerCase();
 		const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
 		if(!cmd) return
-		if(cmd){
 			try{
 				const commandDisable = await guildconfigdb.get(`disabledCommand_${messageCreate.guild.id}_${cmd.name}`)
 				const categoryDisable = await guildconfigdb.get(`disabledCategory_${messageCreate.guild.id}_${cmd.category}`)
@@ -30,6 +29,12 @@ module.exports = async (bot, messageCreate) => {
 				if(commandDisable === null) await guildconfigdb.set(`disabledCommand_${messageCreate.guild.id}_${cmd.name}`, "enabled")
 				if(categoryDisable === null) await guildconfigdb.set(`disabledCategory_${messageCreate.guild.id}_${cmd.category}`, "enabled")
 				if(commandDisable === "disabled" ||categoryDisable === "disabled") return messageCreate.channel.send(reject.DisabledCommand)
+				let maxargs = cmd.maxargs
+				let minperms = cmd.minperms
+				if(maxargs) for(let i = 0; i < maxargs; i  ++) if(args[i+1]) return messageCreate.channel.send(reject.user.args.toomany)
+				if(minperms) for(let i = 0; i < minperms.length; i ++) if(!messageCreate.member.permissions.has(minperms[i])) return messageCreate.channel.send(reject.MissingPerms)
+					// What the fuck am I making here	
+					//This follows as what a moderator is defined as, someone with at lest either kick members or ban members this can change over time!
 				if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
 				cmd.execute(bot, messageCreate, args, prefix)
 				const res1 = bot.structures.get("users")
@@ -41,6 +46,5 @@ module.exports = async (bot, messageCreate) => {
 				messageCreate.channel.send(reject.ExecutionError)
 				return console.log(e)
 			}
-		}
 	}
 }
