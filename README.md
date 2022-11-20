@@ -16,10 +16,15 @@ minperms: [],
 async execute() ... other shit here
 min perms can be used like this as per documentation (https://discordjs.guide/popular-topics/permissions.html#checking-member-permissions)
 
-to check if user has kick and ban:
+to check if a user has kick OR ban
 
-minperms: ["KickMembers", "BanMembers"]
-in /docs this will be explained
+minperms: [PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers]
+
+
+to check if user has kick AND ban:
+
+minperms: [[PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers]]
+in /docs/perms.md this will be explained
 ```
 
 # Jasbot:
