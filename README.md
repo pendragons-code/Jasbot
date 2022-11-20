@@ -2,7 +2,30 @@
 Is not a really good project and not something worth looking into. It is not well optimized and you should frankly invite other bots and not waste your time.
 
 # Update:
-Our coming features will focus on moderation and more, however, this will take a little longer to get this to be pushed onto the main bot as I am still trying to get this bot approved on top.gg.
+Our coming features will focus on moderation and more, however, this will take a little longer to get this to be pushed onto the main bot as I am still trying to get this bot approved on top.gg.			
+
+
+So you may be able to tell that I made some changes in `events/guild/messageCreate.js`
+```
+Thing number 1
+
+Instead of adding an if statement to figure out permissions in the bot, i decided to do this
+name: "help"
+alias and the other shit here...
+minperms: [],
+async execute() ... other shit here
+
+min perms can be used like this as per [documentation](https://discordjs.guide/popular-topics/permissions.html#checking-member-permissions)
+to check if user has BOTH kick and ban:
+minperms: [[PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers]]
+
+
+to check if userhas EITHER kick OR ban:
+
+minperms: [PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers]
+
+in /docs this will be explained
+```
 
 # Jasbot:
 
