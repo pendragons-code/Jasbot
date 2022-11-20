@@ -31,8 +31,7 @@ module.exports = async (bot, messageCreate) => {
 			let maxargs = cmd.maxargs
 			let minperms = cmd.minperms
 			if(maxargs) for(let i = 0; i < maxargs; i  ++) if(args[i+1]) return messageCreate.channel.send(reject.user.args.toomany)
-			if(minperms) for(let i = 0; i < minperms.length; i ++) if(!messageCreate.member.permissions.has(minperms[i])) return messageCreate.channel.send(reject.MissingPerms)
-				// What the fuck am I making here	
+			if(minperms) for(let i = 0; i < minperms.length; i++)if(messageCreate.member.permissions.has(PermissionsBitField.Flags[minperms[i]])) return messageCreate.channel.send(`${reject.MissingPerms} \`${minperms[i]}\``)
 				//This follows as what a moderator is defined as, someone with at lest either kick members or ban members this can change over time!
 			if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
 			cmd.execute(bot, messageCreate, args, prefix)
