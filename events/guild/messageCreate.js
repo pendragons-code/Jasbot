@@ -1,5 +1,6 @@
 module.exports = async (bot, messageCreate) => {
 	const env = require("dotenv").config()
+	const { PermissionsBitField } = require("discord.js")
 	const { botconfigdb, userdb, guildconfigdb } = require("../../bot.js")
 	const config = require("../../config.json")
 	let editmode = await botconfigdb.get('editmode')
