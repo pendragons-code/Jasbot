@@ -20,7 +20,7 @@ to check if user has BOTH kick and ban:
 minperms: [[PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers]]
 
 
-to check if userhas EITHER kick OR ban:
+to check if user has EITHER kick OR ban:
 
 minperms: [PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers]
 
