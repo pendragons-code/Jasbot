@@ -6,7 +6,7 @@ How does this work out? Ads are not targeted, meaning they are completely random
 
 # Sharding
 Jasbot may not be my first discord bot, but it is the first personal one that I am letting go public and verified. Therefor I am looking to consider sharding only after verification happens.		    
-[Discord js docs about sharding](https://discordjs.guide/sharding/#when-to-shard)
+[Discord js docs about sharding](https://discordjs.guide/sharding/#when-to-shard)       
 [Discord js sharding example](https://github.com/discordjs/guide/tree/main/code-samples/sharding/getting-started)
 
 # Verification
