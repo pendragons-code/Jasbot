@@ -1,7 +1,7 @@
 module.exports = async (bot, messageCreate) => {
 	const env = require("dotenv").config()
-	const { PermissionsBitField } = require("discord.js")
 	const { botconfigdb, userdb, guildconfigdb } = require("../../bot.js")
+	const { PermissionsBitField } = require("discord.js")
 	const config = require("../../config.json")
 	let editmode = await botconfigdb.get('editmode')
 	let blacklisted = await userdb.get(`blacklisted_${messageCreate.author.id}`)
@@ -17,7 +17,7 @@ module.exports = async (bot, messageCreate) => {
 	let prefix = ''
 	if(!guildprefix || guildprefix === null) prefix = messageCreate.content.includes(config.prefix) ? config.prefix : `<@${config.botID}>`
 	if(guildprefix) prefix = messageCreate.content.includes(guildprefix) ? guildprefix : `<@${config.botID}>`
-    	if(messageCreate.content.indexOf(prefix) !==0) return
+    if(messageCreate.content.indexOf(prefix) !==0) return
 	const args = messageCreate.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
@@ -32,8 +32,15 @@ module.exports = async (bot, messageCreate) => {
 			let maxargs = cmd.maxargs
 			let minperms = cmd.minperms
 			if(maxargs) for(let i = 0; i < maxargs; i  ++) if(args[i+1]) return messageCreate.channel.send(reject.user.args.toomany)
-			if(minperms) for(let i = 0; i < minperms.length; i++) if(messageCreate.member.permissions.has(PermissionsBitField.Flags[minperms[i]])) return messageCreate.channel.send(`${reject.MissingPerms} \`${minperms[i]}\``)
-				//This follows as what a moderator is defined as, someone with at lest either kick members or ban members this can change over time!
+			if(minperms) for(let i = 0; i < minperms.length; i++) if(!messageCreate.member.permissions.has(minperms[i])){
+				const PermList = require("../../assets/items/permission.json")
+				let query = minperms[i]
+				if(Array.isArray(minperms[i])) query = minperms[i][0]
+				return messageCreate.channel.send(`${reject.MissingPerms} \`${PermList[query]}\``)
+			}
+			
+			
+			//This follows as what a moderator is defined as, someone with at lest either kick members or ban members this can change over time!
 			if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
 			cmd.execute(bot, messageCreate, args, prefix)
 			const res1 = bot.structures.get("users")
