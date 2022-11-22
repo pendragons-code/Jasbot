@@ -22,8 +22,8 @@ module.exports = {
     		countryembed.addField({ name: "Critical Cases", value: `${countrydata.critical}`})
     		countryembed.addField({ name: "Recovered", value: `${countrydata.recovered}`})
     		countryembed.setThumbnail('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMuMJvHwdul74INvu1iJ-rwXMBnJqU10nweQ&usqp=CAU')
-    		messageCreate.channel.send({embeds:[countryembed]}).catch(() => {
-			console.error()
+    		messageCreate.channel.send({embeds:[countryembed]}).catch((error)=>{
+			console.error("error", error)
 			console.log(messageCreate.content)
 			return messageCreate.channel.send(reject.ExecutionError)
 		})
