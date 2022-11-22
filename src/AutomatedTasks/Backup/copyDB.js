@@ -7,7 +7,7 @@ module.exports = async (bot) =>{
 	fs.copy(source, destination, function (err){
 		if(err){
 			console.log("Failed to copy Backup!" + destination)
-			return console.error()
+			return console.error("error", err)
 		}
 		console.log(`Copied Data base: ${destination}`)
 	})
