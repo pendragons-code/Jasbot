@@ -36,7 +36,7 @@ module.exports = {
 				embed.setFooter({ text: defaultfootertext })
 				embed.setTitle(`Blacklisting ${user}!`)
 				embed.setDescription(`${user} has been blacklisted!`)
-				userdb.set(`blacklisted_${user.id}`, "yes").catch((error)=>{
+				userdb.set(`blacklisted_${user.id}`, "yes").catch((error) =>{
 					console.error("error", error)
 					console.log(messageCreate.content)
 					return messageCreate.channel.send("Userdb could not update the blacklist status!")
@@ -51,7 +51,7 @@ module.exports = {
 				embed.setFooter({ text: defaultfootertext })
 				embed.setTitle(`Blacklisting ${user}!`)
 				embed.setDescription(`${user} has been removed from blacklist!`)
-				userdb.set(`blacklisted_${user.id}`, "no").catch((error)=>{
+				userdb.set(`blacklisted_${user.id}`, "no").catch((error) =>{
 					console.error("error", error)
 					console.log(messageCreate.content)
 					return messageCreate.channel.send("Userdb could not update the blacklist status!")
