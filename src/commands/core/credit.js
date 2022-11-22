@@ -27,7 +27,7 @@ module.exports = {
 		embed.setTitle("Credits!")
 		embed.setDescription(description)
 		embed.setTimestamp()
-		messageCreate.channel.send({ embeds: [embed] }).catch((error)=>{
+		messageCreate.channel.send({ embeds: [embed] }).catch((error) =>{
 			console.error("error", error)
 			return messageCreate.channel.send(reject.ExecutionError)
 		})
