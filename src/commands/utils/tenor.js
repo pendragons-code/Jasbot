@@ -25,8 +25,8 @@ module.exports = {
 		embed.setDescription("Incoming from Tenor!")
 		embed.setURL(data.results[selection].media[0].mediumgif.url)
 		embed.setImage(data.results[selection].media[0].mediumgif.url)
-		messageCreate.channel.send({ embeds: [embed] }).catch(() => {
-			console.error()
+		messageCreate.channel.send({ embeds: [embed] }).catch((error) =>{
+			console.error("error", error)
 			console.log(messageCreate.content)
 			return messageCreate.channel.send(`${reject.ExecutionError}\n There is a chance that the gif we recevied was considered inappropriate, please run this command again!`)
 		})
