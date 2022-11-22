@@ -21,7 +21,7 @@ module.exports = {
 		embed.setFooter({ text: defaultfootertext })
 		embed.setTimestamp()
 		embed.setTitle("Converting!")
-		messageCreate.channel.send({ embeds: [embed] }).catch((error)=>{
+		messageCreate.channel.send({ embeds: [embed] }).catch((error) =>{
 			console.error("error", error)
 			console.log(messageCreate.content)
 			messageCreate.channel.send(reject.ExecutionError)
