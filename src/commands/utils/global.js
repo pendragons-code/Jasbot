@@ -19,7 +19,7 @@ module.exports = {
 		globalembed.addFields({ name: "Deaths " , value: `${data.deaths}`})
 		globalembed.addFields({ name: "Critical Cases", value: `${data.critical}`})
 		globalembed.addFields({ name: "Recovered" , value: `${data.recovered}`})
-		messageCreate.channel.send({embeds: [globalembed] }).catch((error)=>{
+		messageCreate.channel.send({embeds: [globalembed] }).catch((error) =>{
 			console.error("error", error)
 			console.log(messageCreate.content)
 			return messageCreate.channel.send(reject.ExecutionError)
