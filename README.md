@@ -1,5 +1,5 @@
 # This Repo
-Is not a really good project and not something worth looking into. It is not well optimized and you should frankly invite other bots and not waste your time.
+Is not a really good project and not something worth looking into. It is not well optimized and you should frankly invite other bots and not waste your time. I'll prolly rewrite this bot all over again. Because im bored af.
 
 # Update:
 Our coming features will focus on moderation and more, however, this will take a little longer to get this to be pushed onto the main bot as I am still trying to get this bot approved on top.gg.			
