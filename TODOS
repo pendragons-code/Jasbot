@@ -3,3 +3,6 @@
 --[addrole and delrole, by default can only be used by people who are admins and mods, admins and mods are defined as people who have permissions to kick or ban members in the discord server]
 --[roleconf can have the following types: verification, allmembers and modsonly]
 
+[update: ]
+-[reddit.js]
+seems that the nsfw check is not working. will update soon!
