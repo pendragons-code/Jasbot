@@ -34,13 +34,17 @@ module.exports = async (bot, messageCreate) => {
 			if(maxargs) for(let i = 0; i < maxargs; i  ++) if(args[i+1]) return messageCreate.channel.send(reject.user.args.toomany)
 			if(minperms) for(let i = 0; i < minperms.length; i++) if(!messageCreate.member.permissions.has(minperms[i])){
 				const PermList = require("../../assets/items/permission.json")
-				let query = minperms[i]
-				if(Array.isArray(minperms[i])) query = minperms[i][0]
-				return messageCreate.channel.send(`${reject.MissingPerms} \`${PermList[query]}\``)
+				if(Array.isArray(minperms[i])){
+					let query = ""
+					for(let perarray = 0; perarray < minperms[i].length; perarray++){
+						let a = PermList[minperms[i][perarray]]
+						query + `\`${a}\``
+						if(minperms[i][perarray + 1]) a + ", "
+					}
+				}
+				let query = PermList[minperms[i]]
+				return messageCreate.channel.send(`${reject.MissingPerms} \`${query}\``)
 			}
-			
-			
-			//This follows as what a moderator is defined as, someone with at lest either kick members or ban members this can change over time!
 			if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
 			cmd.execute(bot, messageCreate, args, prefix)
 			const res1 = bot.structures.get("users")
