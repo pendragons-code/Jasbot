@@ -1,5 +1,6 @@
 # REWRITE
-I am well aware that this bot is not written at the best and i am also aware about the other issues. So I will be rewriting this bot.
+I am well aware that this bot is not written at the best and i am also aware about the other issues. So I will be rewriting this bot.			
+[Full Details!](https://github.com/pendragons-code/Jasbot/blob/less-terrible/README.md)
 
 # This Repo
 Is not a really good project and not something worth looking into. It is not well optimized and you should frankly invite other bots and not waste your time. 
