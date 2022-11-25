@@ -1,8 +1,0 @@
-{
-	"Disclaimer": {
-		"value": "Units are not accurate as they are rounded off at 5 significant figures.",
-		"name": "Disclaimer"
-	},
-	"Speed": "Sends converted variants of the specified speed!",
-	"Angles": "Sends converted variants of the specified angle value."
-}
