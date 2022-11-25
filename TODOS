@@ -1,3 +1,7 @@
+[rewrite the fucking bot]
+
+
+
 [moderation:]
 -[ban, kick, timeout, slowmode, warn, unwarn, warncount, warnhis, addrole, delrole, roleconf, moddocs (this is used to explain the moderation system)]
 --[addrole and delrole, by default can only be used by people who are admins and mods, admins and mods are defined as people who have permissions to kick or ban members in the discord server]
