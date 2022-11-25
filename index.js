@@ -1,0 +1,13 @@
+const env = require("dotenv").config()
+const { extrafunctions } = require("./Loaders/Extrafunctions")
+const { commander } = require("./Loaders/Commands.js")
+const { eventer } = require("./Loaders/events.js")
+const { bot } = require("./Loaders/bot.js")
+const { messagehelper } = require("./Loaders/messagehelpers.js")
+messagehelper()
+extrafunctions()
+commander()
+eventer()
+bot.login(process.env.testtoken)
+console.log(`Hanging out at process: ${process.pid}`)
+process.traceDeprecation = true

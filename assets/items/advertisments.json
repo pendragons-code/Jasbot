@@ -1,0 +1,25 @@
+{
+	"Pendragonscode": {
+		"Site": "https://jasbot.senghong.xyz",
+		"Description": "A casual boy that writes code badly.\n I periodically host random projects.\n One of the projects I host,\n a nodejs Pacman site, I lost the original repo link.\n Pls tell me if you know",
+		"Footericon": "https://avatars.githubusercontent.com/u/88629349?v=4",
+		"Socials": {
+			"single":{
+				"instagram": "https://www.instagram.com/pendragonscode",
+				"youtube": "https://www.youtube.com/channel/UCPCVuAlpsJ4yFxwp9Xon1xw",
+				"patreon": "https://patreon.com/pendragonscode"
+			},
+			"Combined": "[<:instagramlogo:1032223436111614096> Instagram](https://www.instagram.com/pendragonscode)\n [<:youtubelogo:1032223392365035571> Youtube](https://www.youtube.com/channel/UCPCVuAlpsJ4yFxwp9Xon1xw)\n[<:patreonlogo:1032225854144655392> Patreon](https://patreon.com/pendragonscode)"
+		},
+		"Title": "Pendragon's code.",
+		"Footer": "I might go for a lobotomy via soup spoon.",
+		"Colour": "#1166aa",
+		"Fields": {
+			"one": {
+				"name": "Useful links!",
+				"value": "[🎓 portfolio](https://code.senghong.xyz)\n[<:pacmanlogo:1032240045886808064> Pacman](https://game.senghong.xyz)",
+				"inline": true
+			}
+		}
+	}
+}
