@@ -12,12 +12,12 @@ module.exports = async (bot, messageCreate) => {
 	const res2 = bot.structures.get("antiswear")
 	res2.execute(bot, messageCreate)
 	if(editmode === null) editmode = 1
-	if(editmode == 0 && messageCreate.author.id != config.OwnerID) return messageCreate.channel.send("The bot is currently in editmode, there are some changes being made to the bot! Please wait for maintainence to be completed before trying again!")
 	let guildprefix = await guildconfigdb.get(`prefix_${messageCreate.guild.id}`)
 	let prefix = ''
 	if(!guildprefix || guildprefix === null) prefix = messageCreate.content.includes(config.prefix) ? config.prefix : `<@${config.botID}>`
 	if(guildprefix) prefix = messageCreate.content.includes(guildprefix) ? guildprefix : `<@${config.botID}>`
-    if(messageCreate.content.indexOf(prefix) !==0) return
+	if(messageCreate.content.indexOf(prefix) !==0) return
+	if(editmode == 0 && messageCreate.author.id != config.OwnerID) return messageCreate.channel.send("The bot is currently in editmode, there are some changes being made to the bot! Please wait for maintainence to be completed before trying again!")
 	const args = messageCreate.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
