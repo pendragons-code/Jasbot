@@ -39,7 +39,7 @@ module.exports = async (bot, messageCreate) => {
 					for(let perarray = 0; perarray < minperms[i].length; perarray++){
 						let a = PermList[minperms[i][perarray]]
 						query + `\`${a}\``
-						if(minperms[i][perarray + 1]) a + ", "
+						if(minperms[i][perarray + 1]) query + ", "
 					}
 				}
 				let query = PermList[minperms[i]]
