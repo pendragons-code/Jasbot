@@ -34,6 +34,7 @@ module.exports = async (bot, messageCreate) => {
 			if(maxargs) for(let i = 0; i < maxargs; i  ++) if(args[i+1]) return messageCreate.channel.send(reject.user.args.toomany)
 			if(minperms) for(let i = 0; i < minperms.length; i++) if(!messageCreate.member.permissions.has(minperms[i])){
 				const PermList = require("../../assets/items/permission.json")
+				let query = PermList[minperms[i]]
 				if(Array.isArray(minperms[i])){
 					let query = ""
 					for(let perarray = 0; perarray < minperms[i].length; perarray++){
@@ -42,7 +43,6 @@ module.exports = async (bot, messageCreate) => {
 						if(minperms[i][perarray + 1]) query + ", "
 					}
 				}
-				let query = PermList[minperms[i]]
 				return messageCreate.channel.send(`${reject.MissingPerms} \`${query}\``)
 			}
 			if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
