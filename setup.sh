@@ -5,3 +5,4 @@ export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || pr
 nvm i --lts
 npm i
 npm run deploy
+clear
