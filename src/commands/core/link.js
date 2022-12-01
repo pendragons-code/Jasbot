@@ -10,6 +10,6 @@ module.exports = {
 			messageCreate.channel.send("We could not reach your DMs!")
 			return messageCreate.channel.send("https://jasbot.senghong.xyz")
 		})
-		if(args[1] == "here") return messageCreate.channel.send("https://jasbot.senghong.xyz")
+		if(args[0] == "here") return messageCreate.channel.send("https://jasbot.senghong.xyz")
 	}
 }
