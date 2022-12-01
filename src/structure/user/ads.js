@@ -2,7 +2,7 @@ const { EmbedBuilder } = require("discord.js")
 const { guildconfigdb } = require("../../../bot.js")
 const adpool = require("../../../assets/items/advertisments.json")
 const adlist = Object.keys(adpool).map(x => x)
-const adRandom =  adlist[Math.floor(Math.random() & adlist.length)]
+const adRandom =  adlist[Math.floor(Math.random() * adlist.length)]
 module.exports = {
 	name: "ads",
 	async execute(bot, messageCreate, args, prefix){
