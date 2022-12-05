@@ -14,7 +14,7 @@ module.exports = {
 		if(!args[0] || !args[1]) return messageCreate.channel.send(reject.user.args.missing)
 		let user = getUserFromMention(args[0])
 		if(!user) return messageCreate.channel.send(reject.user.mentions.missing)
-		if(user.id === OwnerID) return mesasageCreate.channel.send("You cannot blacklist yourslf.")
+		if(user.id === OwnerID) return messageCreate.channel.send("You cannot blacklist yourslf.")
 		let details = await userdb.get(`blacklisted_${user.id}`)
 		if(details === null) details = "no"
 		let action = args[1]
