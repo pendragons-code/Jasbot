@@ -24,7 +24,7 @@ module.exports = {
 		    helpembed.setFooter({text:"Follow the dev on instagram!: @pendragonscode"})
 			return messageCreate.channel.send({ embeds: [helpembed] })
 		}
-		if(cats.includes(args[0])=== true){
+		if(cats.includes(args[0])){
 			let commands = bot.commands.filter(command => command.category === args[0])
 			let embed = new EmbedBuilder()
 			embed.setTitle("˜”°•.˜”°•--==++List of commands!++==-- •°”˜.•°”˜")
