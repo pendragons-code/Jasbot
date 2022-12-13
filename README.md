@@ -1,5 +1,6 @@
 # REWRITE
-I am well aware that this bot is not written at the best and i am also aware about the other issues. So I will be rewriting this bot.			
+I am well aware that this bot is not written at the best and i am also aware about the other issues. So I will be rewriting this bot.				
+Also Jasbot will be moving to slash commands!
 [Full Details!](https://github.com/pendragons-code/Jasbot/blob/less-terrible/README.md)
 
 # This Repo
