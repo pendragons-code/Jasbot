@@ -1,3 +1,6 @@
+# terrible branch
+So yes it will still stay around.
+
 # the 7th rewrite
 
 AHHH... How the duck DID I get here?! So as you know Jasbot has never used slash commands before. And in the early days, I knew slash commands would change discord api and bots in general forever. But I really disliked it for many reasons. While you can argue the menus and stuff are a lot more polished now, slash commands are still plagued by certain issues. That said I can also see some of the VERY DEV friendly parts.        
