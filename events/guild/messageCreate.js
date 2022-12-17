@@ -31,7 +31,7 @@ module.exports = async (bot, messageCreate) => {
 			if(commandDisable === "disabled" ||categoryDisable === "disabled") return messageCreate.channel.send(reject.DisabledCommand)
 			let maxargs = cmd.maxargs
 			let minperms = cmd.minperms
-			if(maxargs) for(let i = 0; i < maxargs; i  ++) if(args[i+1]) return messageCreate.channel.send(reject.user.args.toomany)
+			if(maxargs) if(args[maxarg + 1]) return messageCreate.channel.send(reject.user.args.toomany)
 			if(minperms) for(let i = 0; i < minperms.length; i++) if(!messageCreate.member.permissions.has(minperms[i])){
 				const PermList = require("../../assets/items/permission.json")
 				let query = PermList[minperms[i]]
