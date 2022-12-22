@@ -1,5 +1,5 @@
 # terrible branch
-So yes it will still stay around.
+So yes it will still stay around, the terrible branch is almost the same as the one that is hosted right now.
 
 # the 7th rewrite
 
@@ -11,3 +11,6 @@ That said, I do not intend to remove message entry command completely. There are
     3.) somehow combine both (apparently some people managed to do this, I just can't find them on github)                        
 
 That said im not a hater of the idea, I just much prefer the older way as I could easily copy and paste commands with less hassle. While my unhappiness is present, it is insignificant to the advantages brought by it.
+
+# Update about rewrite
+I have not yet done much with this rewrite, and the reason is that I just got my nationa exams results recently and I have gotten really busy applying for many stuff, that said, i will be updating this bot as much as I can!
