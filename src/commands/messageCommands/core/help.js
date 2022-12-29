@@ -1,10 +1,20 @@
+const { EmbedBuilder } = require("EmbedBuilder")
+const { Default } = require("../../../../config.json")
 module.exports = {
 	name: "help",
-	aliases: [],
+	aliases: ["commands"],
 	category: "core",
 	desc: "Sends list of commands on this bot!",
-	utilisation: "",
+	utilisation: "help <category/command name>",
 	async execute(bot, messageCreate, args, mainPrefix){
-		messageCreate.channel.send("Yes this should work!")
+		const commander = bot.commands.filter(x => x.showHelp !== false)
+		const commanderCategory = bot.commands.map(u => u.category)
+		let categoryArray = []
+		commanderCategory((CategoryName) => {
+			if(!categoryArray.includes(CategoryName)) categoryArray.push(CategoryName)
+		})
+		if(!args[0]){
+			let helpembed = new EmbedBuilder()
+		}
 	}
 }

@@ -10,5 +10,11 @@
 		"DefaultFooterText": "Add this discord bot in your server today!",
 		"DefaultBannedWords": [ "r a p e", "n i g g e r", "f u c k", "nigger", "cunt", "fuck", "whore", "nigga", "bitch", "biatch", "lan jiao", "chi bai", "rape you", "bang you", "pussy", "slut" ]
 	},
-	"adless-servers": []
+	"adless-servers": [],
+	"Decoration": {
+		"Title": {
+			"first": "˜”°•.˜”°•--==++",
+			"second": "++==-- •°”˜.•°”˜"
+		}
+	}
 }
