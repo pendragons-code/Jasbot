@@ -40,7 +40,7 @@ module.exports = async (bot, interactionCreate) => {
 			if(NewUser != "SentNewUserMessage") bot.utils.get("NewUserSlash").execute(bot, interactionCreate)
 			slashCmd.execute(bot, interactionCreate)
 		}catch(error){
-			console.error("Error!", error)
+			console.error(error)
 			return interactionCreate.reply({ content: reject.WeAreScrewed.ExecutionError })
 		}
 	}

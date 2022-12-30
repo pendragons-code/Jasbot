@@ -13,12 +13,12 @@ module.exports = {
 	NewUserEmbed.setColor(DefaultEmbedColor)
 	db.set(`NewUser_${interactionCreate.user.id}`, "SentNewUserMessage")
 	.catch((error) => {
-		console.error("Error", error)
+		console.error(error)
 		return interactionCreate.reply({ content: reject.WeAreScrewed.ExecutionError })
 	})
 	return interactionCreate.user.send({ embeds: [NewUserEmbed] })
 	.catch((error) => {
-		console.error("Error", error)
+		console.error(error)
 		return interactionCreate.reply({ embeds: [NewUserEmbed] })
 	})
 	}

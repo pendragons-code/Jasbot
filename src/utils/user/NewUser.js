@@ -14,11 +14,11 @@ module.exports = {
 		db.set(`NewUser_${interactionCreate.user.id}`, "SentNewUserMessage")
 		.catch((error) => {
 			messageCreate.reply(reject.WeAreScrewed.ExecutionError)
-			return console.error("Error!", error)
+			return console.error(error)
 		})
 		return messageCreate.author.send({ embeds: [NewUserEmbed] })
 		.catch((error) => {
-			console.error("Error", error)
+			console.error(error)
 			return messageCreate.reply({ embeds: [NewUserEmbed] })
 		})
 	}

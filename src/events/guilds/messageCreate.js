@@ -49,7 +49,7 @@ module.exports = async (bot, messageCreate) => {
 		cmd.execute(bot, messageCreate, args, prefix)
 		//advertisment
 	}catch(error){
-		console.error("Error!", error)
+		console.error(error)
 		return messageCreate.channel.send(reject.WeAreScrewed.ExecutionError)
 	}
 }

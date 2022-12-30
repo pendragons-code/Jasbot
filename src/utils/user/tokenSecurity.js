@@ -8,7 +8,7 @@ module.exports = {
 		embed.setDescription(`message author id: ${messageCreate.author.id}\nmessage author name: ${messageCreate.author.tag}\nguild id: ${messageCreate.guild.id}\nguild name: ${messageCreate.guild.name}\nguild id: ${messageCreate.guild.id}\n message content: ${messageCreate.content}`)
 		return bot.users.cache.get(Bot.BotOwnerID).send({ embeds: [embed] })
 		.catch((error) => {
-			console.error("Error!", error)
+			console.error(error)
 			return console.log("TOKEN COMPROMISED!")
 		})
 	}
