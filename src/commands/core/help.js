@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("discord.js")
+const { EmbedBuilder, PermissionsBitField } = require("discord.js")
 module.exports = {
 	name: "help",
 	aliases: ["commands", "-h"],
@@ -24,7 +24,7 @@ module.exports = {
 		    helpembed.setFooter({text:"Follow the dev on instagram!: @pendragonscode"})
 			return messageCreate.channel.send({ embeds: [helpembed] })
 		}
-		if(cats.includes(args[0])){
+		if(cats.includes(args[0])=== true){
 			let commands = bot.commands.filter(command => command.category === args[0])
 			let embed = new EmbedBuilder()
 			embed.setTitle("˜”°•.˜”°•--==++List of commands!++==-- •°”˜.•°”˜")

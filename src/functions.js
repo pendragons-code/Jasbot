@@ -1,5 +1,5 @@
-const { moderationdb, bot } = require("../bot")
-const os = require("os-utils")
+const { moderationdb } = require("../bot")
+const messageCreate = require("../events/guild/messageCreate")
 function cm(a){
 	let inches = a / 2.54
 	let feet = a / 30.48
@@ -171,23 +171,17 @@ function getUserFromMention(mention) {
 		if (mention.startsWith('!')) {
 			mention = mention.slice(1);
 		}
-		return bot.users.cache.get(mention);
+		return client.users.cache.get(mention);
 	}
 }
 
-async function warn(user, reason, moderator){
-	let warncount = await  moderationdb.get(`warncount_${messageCreate.guild.id}_${user.id}`)
-	await moderationdb.add(`warncount_${messageCreate.guild.id}_${user.id}`, 1)
-	await moderationdb.set(`warn_${warncount}_${messageCreate.guild.id}_${user.id}`, [`${reason}`, `${moderator.id}`])
-	//messageCreate.channel.send(`${user} was warned by ${moderator} for the following reason:\n${reason}`)
+async function warn(moderator, guildID, target, reason){
+	let warncount = await moderationdb.get(`warncount_${guildID}_${target}`)
+	moderationdb.add(`warncount_${guildID}_${target}`)
+	moderationdb.set(`warnhistory_${warncount}_${guildID}_${target}`, { moderatorID: moderator, reasonforwarn: reason })
 }
-
-async function unwarn(user, reason, moderator){
-	let unwarncount = await moderationdb.get(`unwarncount_${messageCreate.guild.id}_${user.id}`)
-	await moderationdb.add(`unwarncount_${messageCreate.guild.id}_${user.id}`, 1)
-	await moderationdb.set(`unwarn_${unwarncount}_${messageCreate.guild.id}_${user.id}`, [`${reason}`, `${moderator.id}`])
-	//messageCreate.channel.send(`${user} had 1 warn removed by ${moderator} for the following reason: \n${reason}`)
-}
+//--true will give the true number of warns, which means it will include the number of warns this user have received, this amount will not be removed from the item.
+async function unwarn(){}
 
 async function ProjectUsage(a){					
 	const memused = `${Math.round((process.memoryUsage.rss() /1024 /1024) * 100) / 100} MB`

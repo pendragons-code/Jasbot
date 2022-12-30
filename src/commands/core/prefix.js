@@ -12,7 +12,7 @@ module.exports = {
 		let newprefix = await guildconfigdb.get(`prefix_${messageCreate.guild.id}`)
 		if(!args[0]) return messageCreate.channel.send(reject.user.args.missing)
 		if(args[1]) return messageCreate.channel.send(reject.user.args.toomany)
-		guildconfigdb.set(`prefix_${messageCreate.guild.id}`, args[0])
+		await guildconfigdb.set(`prefix_${messageCreate.guild.id}`, args[0])
 		.catch(() => { return messageCreate.channel.send(reject.ExecutionError) })
 		const embed = new EmbedBuilder()
 		embed.setColor(defaultembedcolour)

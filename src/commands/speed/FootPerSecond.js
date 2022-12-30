@@ -20,8 +20,8 @@ module.exports = {
 		embed.setFooter({ text: defaultfootertext })
 		embed.addFields({ name: Disclaimer.name, value: Disclaimer.value })
 		embed.setDescription(FootPerSecond(number))
-		messageCreate.channel.send({ embeds: [embed] }).catch((error) =>{
-			console.error("error", error)
+		messageCreate.channel.send({ embeds: [embed] }).catch((error)=>{
+			console.error(error)
 			console.log(messageCreate.content)
 			return messageCreate.channel.send(reject.ExecutionError)
 		})

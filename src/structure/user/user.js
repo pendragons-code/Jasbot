@@ -7,7 +7,7 @@ module.exports = {
 		userdb.add(`cmd_${messageCreate.author.id}`, 1)
 		let newUser = await userdb.get(`first_${messageCreate.author.id}`)
 		if(newUser === null) newUser = 0
-		if(newUser == 1) return
+		if(newUser == 1) return 
 		if(newUser === 0){
 			let embed = new Discord.EmbedBuilder()
 			embed.setColor(defaultembedcolour)
@@ -15,11 +15,13 @@ module.exports = {
 			embed.setFooter({ text: "Hello there! I am a new bot that the owner made out of complete boredom for some reason." })
 			embed.setTimestamp()
 			embed.setTitle(`Hoiya ${messageCreate.author.username}!`)
-			userdb.set(`first_${messageCreate.author.id}`, 1)
-			messageCreate.author.send({ embeds: [embed] }).catch(() =>{
+			try{
+				messageCreate.author.send({ embeds: [embed] })
+				await userdb.set(`first_${messageCreate.author.id}`, 1)
+			}catch(e){
 				messageCreate.channel.send({ embeds: [embed] })
-				userdb.set(`first_${messageCreate.author.id}`, 1)
-			})
+				await userdb.set(`first_${messageCreate.author.id}`, 1)
+			}
 		}
 	}
 }

@@ -16,8 +16,8 @@ module.exports = {
 				//1 is off, 0 is on
 			case "on":
 				if(editmode === "0") return messageCreate.channel.send("Editmode is already on.")
-				botconfigdb.set(`editmode`, '0').catch((error) =>{
-					console.error("error", error)
+				await botconfigdb.set(`editmode`, '0').catch((error)=>{
+					console.error(error)
 					console.log(messageCreate.content)
 					return messageCreate.channel.send(reject.ExecutionError)
 				})
@@ -26,8 +26,8 @@ module.exports = {
 
 			case "off":
 				if(editmode === "1") return messageCreate.channel.send("Editmode is already off.")
-				botconfigdb.set(`editmode`, '1').catch((error) =>{
-					console.error("error", error)
+				await botconfigdb.set(`editmode`, '1').catch((error)=>{
+					console.error(error)
 					console.log(messageCreate.content)
 					return messageCreate.channel.send(reject.ExecutionError)
 				})

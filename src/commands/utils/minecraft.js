@@ -20,8 +20,8 @@ module.exports = {
 			embed.setTitle(res.hostname)
 			embed.setDescription(`Supported Version(s): ${res.version}\n\n Online: ${res.online}\n\n  MOTD: ${res.motd.clean}`)
 			messageCreate.channel.send({ embeds: [embed] })
-		}).catch((error) =>{
-			console.error("error", error)
+		}).catch((error)=>{
+			console.error(error)
 			console.log(messageCreate.content)
 			return messageCreate.channel.send(reject.ExecutionError)
 		})

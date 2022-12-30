@@ -18,8 +18,8 @@ module.exports = {
 		embed.setTitle("Total commands ran!")
 		embed.setTimestamp()
 		embed.setDescription(`${user.username} ran a total of ${cmdran} commands!`)
-		messageCreate.channel.send({ embeds: [embed] }).catch((error) =>{
-			console.error("error", error)
+		messageCreate.channel.send({ embeds: [embed] }).catch((error)=>{
+			console.error(error)
 			return messageCreate.channel.send(reject.ExecutionError)
 		})
 	}

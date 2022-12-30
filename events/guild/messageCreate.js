@@ -12,12 +12,12 @@ module.exports = async (bot, messageCreate) => {
 	const res2 = bot.structures.get("antiswear")
 	res2.execute(bot, messageCreate)
 	if(editmode === null) editmode = 1
+	if(editmode == 0 && messageCreate.author.id != config.OwnerID) return messageCreate.channel.send("The bot is currently in editmode, there are some changes being made to the bot! Please wait for maintainence to be completed before trying again!")
 	let guildprefix = await guildconfigdb.get(`prefix_${messageCreate.guild.id}`)
 	let prefix = ''
 	if(!guildprefix || guildprefix === null) prefix = messageCreate.content.includes(config.prefix) ? config.prefix : `<@${config.botID}>`
 	if(guildprefix) prefix = messageCreate.content.includes(guildprefix) ? guildprefix : `<@${config.botID}>`
-	if(messageCreate.content.indexOf(prefix) !==0) return
-	if(editmode == 0 && messageCreate.author.id != config.OwnerID) return messageCreate.channel.send("The bot is currently in editmode, there are some changes being made to the bot! Please wait for maintainence to be completed before trying again!")
+    if(messageCreate.content.indexOf(prefix) !==0) return
 	const args = messageCreate.content.slice(prefix.length).trim().split(/ +/g);
 	const command = args.shift().toLowerCase();
 	const cmd = bot.commands.get(command) || bot.commands.find(cmd => cmd.aliases && cmd.aliases.includes(command));
@@ -31,18 +31,18 @@ module.exports = async (bot, messageCreate) => {
 			if(commandDisable === "disabled" ||categoryDisable === "disabled") return messageCreate.channel.send(reject.DisabledCommand)
 			let maxargs = cmd.maxargs
 			let minperms = cmd.minperms
-			if(maxargs) if(args[maxarg + 1]) return messageCreate.channel.send(reject.user.args.toomany)
+			if(maxargs) for(let i = 0; i < maxargs; i  ++) if(args[i+1]) return messageCreate.channel.send(reject.user.args.toomany)
 			if(minperms) for(let i = 0; i < minperms.length; i++) if(!messageCreate.member.permissions.has(minperms[i])){
 				const PermList = require("../../assets/items/permission.json")
-				let query = PermList[minperms[i]]
 				if(Array.isArray(minperms[i])){
 					let query = ""
 					for(let perarray = 0; perarray < minperms[i].length; perarray++){
 						let a = PermList[minperms[i][perarray]]
 						query + `\`${a}\``
-						if(minperms[i][perarray + 1]) query + ", "
+						if(minperms[i][perarray + 1]) a + ", "
 					}
 				}
+				let query = PermList[minperms[i]]
 				return messageCreate.channel.send(`${reject.MissingPerms} \`${query}\``)
 			}
 			if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)

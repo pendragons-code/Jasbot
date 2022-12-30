@@ -28,8 +28,8 @@ module.exports = {
 
 		axios.default(options).then(function (response){
 			messageCreate(`${args[2]} in ${args[0]} is ${response.data, args[1]} `)
-		}).catch((error) =>{
-			console.error("error", error)
+		}).catch((error)=>{
+			console.error(error)
 			console.log(messageCreate.content)
 			return messageCreate.channel.send(reject.ExecutionError)
 		})

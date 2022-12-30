@@ -16,7 +16,6 @@ module.exports = {
 
 		axios.default(request).then(response => {
 			let meme = response.data[0].data.children[0].data
-			console.log(meme)
 			let memeEmbed = new EmbedBuilder()
 			memeEmbed.setTitle(meme.title)
 			memeEmbed.setDescription(`👍 ${meme.ups} | 👎 ${meme.downs} | 💬 ${meme.num_comments}`)

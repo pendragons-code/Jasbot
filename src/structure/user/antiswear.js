@@ -11,9 +11,9 @@ module.exports = {
 		let cusscheck = await guildconfigdb.get(`cuss_${messageCreate.guild.id}`)
 		if(cusscheck === null) cusscheck === "off"
 		if(cusscheck === "off" || cusscheck === null) return
-		for(i=0;i<swearconfig.length;i++){ 
+		for(i=0;i<swearconfig.length;i++){
 			if(messageCreate.content.toLowerCase().includes(swearconfig[i])){
-				if(warnonoff === "on") warn(messageCreate.author, `Used vulgar word: ${messageCreate.content}`, 'Jasbot-antiswear')
+				if(warnonoff === "on") warn("Jasbot", messageCreate.guild.id, messageCreate.author.id, `Used vulgar word: ${messageCreate.content}`)
 				messageCreate.channel.send("Anti-swear is on! Please do not swear again!")
 				return messageCreate.delete()
 			}

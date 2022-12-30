@@ -10,7 +10,7 @@ module.exports = {
 	async execute(bot, messageCreate, args, prefix){
 		if(!args[0]) return messageCreate.channel.send(reject.user.numbers.missing)
 		if(args[1]) return messageCreate.channel.send(reject.user.args.toomany)
-		if(isNaN(parseFloat(args[0]))) return messageCreate.channel.send(reject.user.number.invalid)
+		if(parseFloat(args[0])) return messageCreate.channel.send(reject.user.number.invalid)
 		let kelvin = parseFloat(args[0]) + 273.15
 		let fahrenheit = (parseFloat(args[0]) * 1.8) + 32
 		let desc = `${args[0]} degrees celsius is equal to:\n${kelvin} kelvin\n${fahrenheit} fahrenheit`
