@@ -1,0 +1,20 @@
+{
+	"Bot": {
+		"BotID": "875419076682473493",
+		"BotOwnerID": "875324148874895400",
+		"BotSite": "https://jasbot.senghong.xyz"
+	},
+	"Default": {
+		"DefaultPrefix": "jas",
+		"DefaultEmbedColor": "#0099ff",
+		"DefaultFooterText": "Add this discord bot in your server today!",
+		"DefaultBannedWords": [ "r a p e", "n i g g e r", "f u c k", "nigger", "cunt", "fuck", "whore", "nigga", "bitch", "biatch", "lan jiao", "chi bai", "rape you", "bang you", "pussy", "slut" ]
+	},
+	"adless-servers": [],
+	"Decoration": {
+		"Title": {
+			"first": "˜”°•.˜”°•--==++",
+			"second": "++==-- •°”˜.•°”˜"
+		}
+	}
+}

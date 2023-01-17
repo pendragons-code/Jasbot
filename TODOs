@@ -1,0 +1,5 @@
+[.] update config.json with all the sites and stuff
+[.] update commands
+[.] finish the messageCommands
+[.] finish the slashCommands
+[.] Clean up code using the new prettier config

@@ -1,0 +1,36 @@
+{
+  "name": "jasbot2",
+  "version": "2.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "deploy": "nodemon . > logfile 2> errfile"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.2.1",
+    "better-sqlite3": "^8.0.1",
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-rate-limit": "^6.7.0",
+    "fs-extra": "^11.1.0",
+    "mal-scraper": "^2.11.4",
+    "minecraft-server-status-simple": "^1.1.2",
+    "moment": "^2.29.4",
+    "node-fetch": "^3.3.0",
+    "novelcovid": "^3.0.2",
+    "os-utils": "^0.0.14",
+    "parse-ms": "^3.0.0",
+    "path": "^0.12.7",
+    "pug": "^3.0.2",
+    "quick.db": "^9.0.8",
+    "weather-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

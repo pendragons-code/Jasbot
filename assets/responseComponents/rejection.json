@@ -1,0 +1,38 @@
+{
+	"UserFault": {
+		"numbers": {
+			"invalid": "Invalid Number provided!",
+			"missing": "You need to provide another number!",
+			"tooMany": "You have given too many numbers!",
+			"notInRange": "The number you provided is not in the accepted range!",
+			"intOnly": "You need to provide an integer!",
+			"decimalsOnly": "You need to provide a number that is not an integer!"
+		},
+		"mentions": {
+			"BotMention": "You cannot mention the bot for this command!",
+			"SelfMention": "You cannot mention yourself for this command!",
+			"invalid": "The mention you provided is invalid!",
+			"tooMany": "You provided too many mentions!",
+			"missing": "You need to provide mentions!"
+		},
+		"args": {
+			"invalid": "You provided invalid arguments!",
+			"tooMany": "You have too many arguments!",
+			"missing": "You need to provide arguments!"
+		},
+		"privilege": {
+			"DisabledCommand": "The command is Disabled and you cannot run it!",
+			"BlackListedUser": "You are blacklisted, you cannot use any commands! You can message the Creator to appeal!",
+			"MissingPermissions": "You do not have the needed permissions to run this command!",
+			"CreatorOnly": "This command cannot be run by anyone, except the creator!"
+		}
+	},
+	"WeAreScrewed": {
+		"BadApiResponse": "The site gave us an invalid response, please try again later or check that the details you gave us are valid!",
+		"ExecutionError": "Something went wrong! Please inform the developers if the issue(s) persist(s)!"
+	},
+	"BotDownTime": {
+		"editMode": "We are making changes the bot! Please be patient, the bot will not do anything to avoid breaking anything! I apologize for problem(s) this might cause!",
+		"maintenance": "The bot is not up due to maintenance! I apologize for the problem(s) this may cause!"
+	}
+}
