@@ -14,6 +14,6 @@ module.exports = {
 		if(args[1]) return messageCreate.channel.send(reject.user.mention.toomany)
 		let output = await fetch.default("https://evilinsult.com/generate_insult.php?lang=en&type=json")
 		let insult = await output.json().insult
-		messageCreate.channe.send(`${user}, ${insult}`)
+		messageCreate.channel.send(`${user}, ${insult}`)
 	}
 }
