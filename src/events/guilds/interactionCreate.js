@@ -17,13 +17,13 @@ module.exports = async (bot, interactionCreate) => {
 		if(!slashCmd) return
 		if(slashCmd.category == "over18" && !interactionCreate.channel.nsfw) return interactionCreate.channel.send({ content: "You can only run this command in an nsfw channel!" })
 		if(slashCmd.minperms){
-			for(let i = 0; i < slashCmd.minperms.length; i++) if(!inter.member.permissions.has(slashCmd.minperms[i])){
+			for(let i = 0; i < slashCmd.minperms.length; ++i) if(!inter.member.permissions.has(slashCmd.minperms[i])){
 				let PermissionQuery = PermissionList[slashCmd.minperms[i]]
 				if(!Array.isArray(slashCmd.minperms[i])){
 					errorEmbed.setDescription(`${reject.UserFault.privilege.MissingPermissions} You are missing ${PermissionQuery}!`)
 					return interactionCreate.reply({ embeds: [errorEmbed] })
 				}
-				for(let perArray = 0; perArray < slashCmd.minperms[i].length; perArray++){
+				for(let perArray = 0; perArray < slashCmd.minperms[i].length; ++perArray){
 					let PermissionQuery = ""
 					let MissingPermissionName = PermissionList[slashCmd.minperms[i][perArray]]
 					PermissionQuery + `\`${MissingPermissionName}\``

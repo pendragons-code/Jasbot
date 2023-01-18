@@ -27,12 +27,12 @@ module.exports = async (bot, messageCreate) => {
 		if(cmd.category === "over18" && !messageCreate.channel.nsfw) return messageCreate.channel.send("This command can only work in an nsfw channel!")
 		if(commandDisable == "disabled" || categoryDisable === "disabled") return messageCreate.channel.send(reject.UserFault.privilege.DisabledCommand)
 		if(cmd.maxargs) if(args[cmd.maxargs + 1]) return messageCreate.channel.send(reject.user.args.tooMany)
-		if(cmd.minperms) for(let i = 0; i < cmd.minperms.length; i++) if(!messageCreate.member.permissions.has(cmd.minperms[i])){
+		if(cmd.minperms) for(let i = 0; i < cmd.minperms.length; ++i) if(!messageCreate.member.permissions.has(cmd.minperms[i])){
 			let MissingPermissionName = PermissionList[cmd.minperms[i]]
 			if(Array.isArray(cmd.minperms[i])){
 				// That one weird workaround (push in missing permissions that are missing in a string and send it)
 				let MissingPermissionName = ""
-				for(let perArray = 0; perArray < cmd.minperms[i].length; perArray++){
+				for(let perArray = 0; perArray < cmd.minperms[i].length; ++perArray){
 					let MissingPermissionNameFromAndLogic = PermissionList[cmd.minperms[i][perArray]]
 					MissingPermissionName + `\`${MissingPermissionNameFromAndLogic}\``
 					if(cmd.minperms[i][perArray + 1]) MissingPermissionName + ", "
