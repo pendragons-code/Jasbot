@@ -16,7 +16,7 @@ module.exports = {
 		if(args[0] == "list") return messageCreate.channel.send(list.join(", "))
 		if(!args[0] || !args[2]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		// there cannot be args[2] without args[1]
-		if(isNaN(parseFloat(args[2]))) return messageCreate.channel.send(reject.UserFault.numbers.missing)
+		if(isNaN(args[2])) return messageCreate.channel.send(reject.UserFault.numbers.missing)
 		if(parseFloat(args[2]) < 0 || parseFloat(args[2]) == 0) return messageCreate.channel.send(reject.UserFault.numbers.notInRange)
 		if(!list.includes(args[0])) return messageCreate.channel.send(`${reject.UserFault.args.invalid}\n Reference: **${args[0]}**`)
 		if(!list.includes(args[1])) return messageCreate.channel.send(`${reject.UserFault.args.invalid}\n Reference: **${args[1]}**`)
