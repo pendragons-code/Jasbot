@@ -5,7 +5,7 @@ module.exports = {
 	name: "poll",
 	aliases: [],
 	category: "utility",
-	utilitsation: "poll <number of emojis> <emojis [scalable] <words here>\npoll 5 🙂 🔗 👍 🔥 😭 Which emoji here do you all like most?",
+	utilisation: "poll <number of emojis> <emojis [scalable] <words here>\npoll 5 🙂 🔗 👍 🔥 😭 Which emoji here do you all like most?",
 	desc: "Initiates polls with specified fields!",
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[2]) return messageCreate.channel.send(reject.UserFault.args.invalid)

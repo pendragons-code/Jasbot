@@ -6,7 +6,7 @@ module.exports = {
 	name: "reddit",
 	aliases: [],
 	category: "utility",
-	utilitsation: "reddit <subreddit>",
+	utilisation: "reddit <subreddit>",
 	desc: "Extracts random post from specified subreddit. This may not work if post is nsfw, private or deleted.",
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[0]) return messageCreate.channel.send(reject.UserFault.args.missing)
@@ -19,9 +19,10 @@ module.exports = {
 		let redditEmbed = new EmbedBuilder()
 		redditEmbed.setTitle(sfwPost.title)
 		redditEmbed.setDescription(`👍 ${sfwPost.ups} | 👎 ${sfwPost.downs} | 💬 ${sfwPost.comments}`)
-		redditEmbed
-		redditEmbed
-		redditEmbed
-		redditEmbed
+		redditEmbed.setColor(Default.DefaultEmbedColor)
+		redditEmbed.setFooter({ text: Default.DefaultFooterText })
+		redditEmbed.setTimestamp()
+		if(sfwPost.url)redditEmbed.setImage(sfwPost.url)
+		messageCreate.channel.send({ embeds: [redditEmbed] })
 	}
 }
