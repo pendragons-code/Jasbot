@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require("EmbedBuilder")
+const { EmbedBuilder } = require("discord.js")
 const { Default, Decoration } = require("../../../../config.json")
 module.exports = {
 	name: "help",

@@ -1,5 +1,5 @@
 const { getUserFromMention } = require("../../../functions/mentions/users.js")
-const reject = require("")
+const reject = require("../../../../assets/responseComponents/rejection.json")
 const axios = require("axios")
 module.exports = {
 	name: "insult",

@@ -1,17 +1,14 @@
+const env = require("dotenv").config()
 const axios = require("axios")
-const { Default } = require("./config.json")
 async function banana() {
-	axios({
+const TenorKey = process.env.TenorKey
+	let results = await axios({
 		method: "get",
-		url: "https://some-random-api.ml/lyrics?title=$",
+		url: `https://g.tenor.com/v1/search?q=banana&key=${TenorKey}&limit=10`,
 		headers: {
-			"Content-Type": "application/json",
-			"Accept-Encoding": "gzip,deflate,compress"
-		}
-	}) .then((result) => {
-		for(i = 0; i < Default.DefaultBannedWords.length; ++i){
-			if(result.data.lyrics.includes(Default.DefaultBannedWords[i])) console.log("hit")
+			"Content-Type": "application/json"
 		}
 	})
+	console.log(results.data.results[2])
 }
 banana()
