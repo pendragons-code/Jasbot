@@ -18,6 +18,7 @@ module.exports = {
 		let sfwPost = await sfwGetPostReddit(subreddit)
 		let redditEmbed = new EmbedBuilder()
 		redditEmbed.setTitle(sfwPost.title)
+		redditEmbed.setURL(`https://reddit.com${sfwPost.permalink}`)
 		redditEmbed.setDescription(`👍 ${sfwPost.ups} | 👎 ${sfwPost.downs} | 💬 ${sfwPost.comments}`)
 		redditEmbed.setColor(Default.DefaultEmbedColor)
 		redditEmbed.setFooter({ text: Default.DefaultFooterText })

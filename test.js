@@ -4,11 +4,11 @@ async function banana() {
 const TenorKey = process.env.TenorKey
 	let results = await axios({
 		method: "get",
-		url: `https://g.tenor.com/v1/search?q=banana&key=${TenorKey}&limit=10`,
+		url: `https://reddit.com/r/Animemes/random/.json`,
 		headers: {
 			"Content-Type": "application/json"
 		}
 	})
-	console.log(results.data.results[2])
+	console.log(results.data[0].data.children[0].data)
 }
 banana()
