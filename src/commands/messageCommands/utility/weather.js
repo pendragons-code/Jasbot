@@ -31,7 +31,7 @@ module.exports = {
 			.catch((error) => {
 				console.log(messageCreate.content)
 				console.error(error)
-				return messageCreate.channel.send(reject.ExecutionError)
+				return messageCreate.channel.send(reject.WeAreScrewed.ExecutionError)
 			})
 		})
 	}

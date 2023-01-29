@@ -24,7 +24,7 @@ module.exports = {
 		.catch((error) => {
 			console.error(error)
 			console.log(messageCreate.content)
-			return messageCreate.channel.send(reject.ExecutionError)
+			return messageCreate.channel.send(reject.WeAreScrewed.ExecutionError)
 		})
 	}
 }

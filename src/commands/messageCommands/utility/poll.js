@@ -24,7 +24,7 @@ module.exports = {
 				embedMessage.react(args[i+1])
 				.catch((error) => {
 					console.error(error)
-					return messageCreate.reply(`${reject.ExecutionError}\n Something went wrong! Contact the dev should the issue persists!`)
+					return messageCreate.reply(`${reject.WeAreScrewed.ExecutionError}\n Something went wrong! Contact the dev should the issue persists!`)
 				})
 			}
 		})
