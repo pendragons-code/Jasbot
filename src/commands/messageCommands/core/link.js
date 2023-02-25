@@ -1,5 +1,5 @@
 module.exports = {
-	name: "Link",
+	name: "link",
 	aliases: [],
 	category: "core",
 	utilisation: "link <dm/here>",
