@@ -3,11 +3,11 @@ const { EmbedBuilder, PermissionsBitField } = require("discord.js")
 const { Default } = require("../../../../config.json")
 const reject = require("../../../../assets/responseComponents/rejection.json")
 module.exports = {
-	name: "disable",
+	name: "enable",
 	aliases: [],
 	category: "moderation",
-	utilisation: "disable <category/command> <category name/command name>",
-	desc: "Disables commands, needs at least kick or bad memebers permissions for this to work!",
+	utilisation: "enable <category/command> <category name/command name>",
+	desc: "enables commands, needs at least kick or bad memebers permissions for this to work!",
 	minperms: [PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers],
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[1]) return messageCreate.channel.send(reject.UserFault.args.missing)
@@ -21,14 +21,14 @@ module.exports = {
 			})
 			if(!allPossibleCategoriesInAnArray.includes(args[1]) || args[1] === "moderation") return messageCreate.channel.send(reject.UserFault.args.invalid)
 			const disabledCategory = await db.get(`disabledCategory_${messageCreate.guild.id}_${args[1]}`)
-			if(disabledCategory === "disabled") return messageCreate.channel.send("This category is already disabled!")
+			if(disabledCategory !== "disabled") return messageCreate.channel.send("This category is already enabled!")
 			let categoryEmbed = new EmbedBuilder()
 			categoryEmbed.setColor(Default.DefaultEmbedColor)
 			categoryEmbed.setFooter({ text: Default.DefaultEmbedColor })
-			categoryEmbed.setDescription(`Category ${args[1]} has been disabled!`)
-			categoryEmbed.setTitle(`Disabling Category!`)
+			categoryEmbed.setDescription(`Category ${args[1]} has been enabled!`)
+			categoryEmbed.setTitle(`Enabling Category!`)
 			categoryEmbed.setTimestamp()
-			await db.set(`disabledCategory_${messageCreate.guild.id}_${args[1]}`, "disabled")
+			await db.delete(`disabledCategory_${messageCreate.guild.id}_${args[1]}`)
 			.catch((error) => {
 				console.error(error)
 				console.log(messageCreate)
@@ -42,14 +42,13 @@ module.exports = {
 		if(args[0] === "command"){
 			let cmd = bot.commands.get(args[1] || bot.commands.find(cmd => cmd.aliases) && cmd.aliases.includes(args[1]))
 			if(!cmd.name) return messageCreate.channel.send(reject.UserFault.args.invalid)
-			if(cmd.name === "enable") return messageCreate.channel.send("You cannot disable the command; enable.")
 			let commandEmbed = new EmbedBuilder()
 			commandEmbed.setColor(Default.DefaultEmbedColor)
-			commandEmbed.setTitle("Disabling Command!")
+			commandEmbed.setTitle("Enabling Command!")
 			commandEmbed.setFooter({ text: Default.DefaultFooterText })
-			commandEmbed.setDescription(`Command ${args[1]} has been disabled!`)
+			commandEmbed.setDescription(`Command ${args[1]} has been enabled!`)
 			commandEmbed.setTimestamp()
-			await db.set(`disableCommand_${messageCreate.guild.id}_${cmd.name}`, "disabled")
+			await db.delete(`disableCommand_${messageCreate.guild.id}_${cmd.name}`)
 			// you may be asking, why use cmd.name?
 			// If i didn't I know have to account for every single alias and this could potentioally mean more storage occupied.
 			.catch((error) => {

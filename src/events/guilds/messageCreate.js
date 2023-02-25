@@ -25,7 +25,7 @@ module.exports = async (bot, messageCreate) => {
 		const commandDisable = await db.get(`disabledCommand_${messageCreate.guild.id}_${cmd.name}`)
 		const categoryDisable = await db.get(`disabledCategory_${messageCreate.guild.id}_${cmd.category}`)
 		if(cmd.category === "over18" && !messageCreate.channel.nsfw) return messageCreate.channel.send("This command can only work in an nsfw channel!")
-		if(commandDisable == "disabled" || categoryDisable === "disabled") return messageCreate.channel.send(reject.UserFault.privilege.DisabledCommand)
+		if(commandDisable === "disabled" || categoryDisable === "disabled") return messageCreate.channel.send(reject.UserFault.privilege.DisabledCommand)
 		if(cmd.maxargs) if(args[cmd.maxargs + 1]) return messageCreate.channel.send(reject.user.args.tooMany)
 		if(cmd.minperms) for(let i = 0; i < cmd.minperms.length; ++i) if(!messageCreate.member.permissions.has(cmd.minperms[i])){
 			let MissingPermissionName = PermissionList[cmd.minperms[i]]
