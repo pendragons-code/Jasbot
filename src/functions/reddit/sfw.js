@@ -4,7 +4,7 @@ async function sfwRedditCheck(subreddit) {
 		method: "GET",
 		url: `https://reddit.com/r/${subreddit}/about.json`
 	}
-	axios(request).then((response) => {
+	axios(sfwCheck).then((response) => {
 		let subDetails = response.data.data
 		if(subDetails.over18) return "nsfw"
 	})
