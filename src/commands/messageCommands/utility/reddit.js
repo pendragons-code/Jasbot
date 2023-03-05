@@ -11,11 +11,10 @@ module.exports = {
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[0]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		if(args[1]) return messageCreate.channel.send(reject.UserFault.args.tooMany)
-		let subreddit = args[0]
-		if(args[0].startsWith("r/")) subreddit.replace("r/", "")
-		let sfwSubredditStatus = await sfwRedditCheck(subreddit)
+		if(args[0].startsWith("r/")) args[0].replace("r/", "")
+		let sfwSubredditStatus = await sfwRedditCheck(args[0])
 		if(sfwSubredditStatus === "nsfw") return messageCreate.channel.send("The subreddit you provided is NSFW!")
-		let sfwPost = await sfwGetPostReddit(subreddit)
+		let sfwPost = await sfwGetPostReddit(args[0])
 		let redditEmbed = new EmbedBuilder()
 		redditEmbed.setTitle(sfwPost.title)
 		redditEmbed.setURL(`https://reddit.com${sfwPost.permalink}`)
