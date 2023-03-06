@@ -1,7 +1,7 @@
 const phin = require("phin")
-async function getCm(requestedLength) {
+async function getFoot(requestedLength) {
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/centimeter",
+		url: "https://api.senghong.xyz/api/foot",
 		method: "POST",
 		data: {
 			requestedLength: requestedLength
@@ -9,5 +9,6 @@ async function getCm(requestedLength) {
 	})
 	return response
 }
-module.exports = { getCm }
+module.exports = { getFoot }
 // Honestly this is a bad idea. I mean i am the same person who talked about redundancy
+// But I will leave this here first. I will probably come back to change this in the future.

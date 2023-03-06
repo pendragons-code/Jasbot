@@ -7,3 +7,11 @@ I promised a good bot and I failed to deliver. And so now I will pop in and arou
 
 # Future plans:
 I hope to be able to make a discord bot that is good and helpful when it comes to usage. So yeah! A little too ambitious for my current plight. However, there is nothing that I can do about my current situation.
+
+# How to use:
+```
+git clone https://github.com/pendragons-code/jasbot -b master
+npm i
+npm update
+npm run deploy
+```
