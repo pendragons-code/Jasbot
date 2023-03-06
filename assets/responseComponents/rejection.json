@@ -21,6 +21,7 @@
 			"missing": "You need to provide arguments!"
 		},
 		"privilege": {
+			"BotTooLow": "My permissions are not ranked high enough to perform this command!",
 			"DisabledCommand": "The command is Disabled and you cannot run it!",
 			"BlackListedUser": "You are blacklisted, you cannot use any commands! You can message the Creator to appeal!",
 			"MissingPermissions": "You do not have the needed permissions to run this command!",
