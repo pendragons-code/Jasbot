@@ -46,7 +46,7 @@ module.exports = async (bot, messageCreate) => {
 		// This becomes worse if the array is a fat one!
 		// This already can give you an idea of the reduction of speed.
 		if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
-		//if(NewUser !== "SentNewUserMessage") bot.utils.get("NewUser").execute(bot, messageCreate, args);
+		if(NewUser !== "SentNewUserMessage") bot.utils.get("NewUser").execute(bot, messageCreate, args);
 		if(cmd.category === "creator" && messageCreate.author.id !== Bot.BotOwnerID) return messageCreate.channel.send(reject.UserFault.privilege.CreatorOnly)
 		cmd.execute(bot, messageCreate, args, prefix)
 		await db.add(`cmdsRan_${messageCreate.author.id}`, 1)

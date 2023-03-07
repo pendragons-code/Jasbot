@@ -1,6 +1,6 @@
 const { Default } = require("../../../config.json")
 const { db } = require("../../loaders/bot.js")
-const { EmbedBuilder } = require("disocrd.js")
+const { EmbedBuilder } = require("discord.js")
 const reject = require("../../../assets/responseComponents/rejection.json")
 const interactionCreate = require("../../events/guilds/interactionCreate")
 module.exports = {

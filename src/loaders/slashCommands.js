@@ -10,7 +10,7 @@ function loadSlashCommands() {
 		for(const file of slashCommandsFile) {
 			const slashCommand = require(`../commands/slashCommands/${dirs}/${file}`)
 			bot.slashCommands.set(slashCommand.name.toLowerCase(), slashCommand)
-			console.log(`Loaded ${file} from ${dirs}!`)
+			console.log(`Loaded slashCommand: ${file} from ${dirs}!`)
 			CommandsArray.push(slashCommand);
 		}
 	})
