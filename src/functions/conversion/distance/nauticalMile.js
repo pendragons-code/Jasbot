@@ -7,7 +7,7 @@ async function getNauticalMile(requestedLength) {
 			requestedLength: requestedLength
 		}
 	})
-	return response
+	return JSON.stringify(response.body).replaceAll(",", ",\n").replaceAll("{", "").replaceAll("}", "").replace(":", ": ")
 }
 module.exports = { getNauticalMile }
 // Honestly this is a bad idea. I mean i am the same person who talked about redundancy

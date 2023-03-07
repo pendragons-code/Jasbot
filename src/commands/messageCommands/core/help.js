@@ -8,10 +8,10 @@ module.exports = {
 	utilisation: "help <category/command name>",
 	async execute(bot, messageCreate, args, mainPrefix){
 		const primariyTitleWithDecoration = `${Decoration.Title.first} List of commands! ${Decoration.Title.second}`
-		const commander = bot.commands.filter(x => x.showHelp !== false)
-		const commanderCategory = bot.commands.map(u => u.category)
+		const commander = bot.messageCommands.filter(x => x)
+		const commanderCategory = bot.messageCommands.map(u => u.category)
 		let categoryArray = []
-		commanderCategory((CategoryName) => {
+		commanderCategory.forEach((CategoryName) => {
 			if(!categoryArray.includes(CategoryName)) categoryArray.push(CategoryName)
 		})
 		if(!args[0]){
@@ -21,7 +21,7 @@ module.exports = {
 			mainHelpEmbed.setTitle(primariyTitleWithDecoration)
 			mainHelpEmbed.setDescription(`Prefix is ${mainPrefix}! This bot has ${commander.size} commands!`)
 			mainHelpEmbed.addFields(
-				{ name: "Available categories!", value: `\`${mainPrefix} help <category>\`` + "\n\n`" + categoryArray.join("`, `") + "`", inline: true }
+				{ name: "Available categories!", value: mainPrefix + " `help <category>`" + "\n\n" + "`" + categoryArray.join("`, `") + "`", inline: true }
 			)
 			mainHelpEmbed.setTimestamp()
 			return messageCreate.channel.send({ embeds: [mainHelpEmbed] })

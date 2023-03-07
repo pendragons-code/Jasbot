@@ -10,7 +10,7 @@ module.exports = async (bot, messageCreate) => {
 	let BlackListedUser = await db.get(`blacklisted_${messageCreate.author.id}`)
 	if(messageCreate.content.includes(process.env.token)) bot.utils.get("tokenSecurity").execute(bot, messageCreate, args)
 	//antiswear code here
-		// I don't have to do this since I can just put that code here, but I put it like that because i find it easier editing the utils file and not having to make messageCreate.js long and messy
+	// I don't have to do this since I can just put that code here, but I put it like that because i find it easier editing the utils file and not having to make messageCreate.js long and messy
 	if(dbPrefix === null) dbPrefix = Default.DefaultPrefix
 	let prefix = messageCreate.content.includes(dbPrefix) ? dbPrefix : `<@${Bot.BotID}>`
 	if(messageCreate.author.bot || messageCreate.channel.type == "dm" || messageCreate.content.indexOf(prefix) !== 0) return
@@ -40,12 +40,13 @@ module.exports = async (bot, messageCreate) => {
 			}
 			return messageCreate.channel.send(`${reject.UserFault.privilege.MissingPermissions} ${MissingPermissionName}`)
 		}
+		// get
 		// Why did i not just create an array and check if it included the command?
 		// I did this because not only do I now have to wait for the DB, but I also now have to parse the array.
 		// This becomes worse if the array is a fat one!
 		// This already can give you an idea of the reduction of speed.
 		if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
-		if(NewUser != "SentNewUserMessage") bot.utils.get("NewUser").execute(bot, messageCreate, args)
+		//if(NewUser !== "SentNewUserMessage") bot.utils.get("NewUser").execute(bot, messageCreate, args);
 		if(cmd.category === "creator" && messageCreate.author.id !== Bot.BotOwnerID) return messageCreate.channel.send(reject.UserFault.privilege.CreatorOnly)
 		cmd.execute(bot, messageCreate, args, prefix)
 		await db.add(`cmdsRan_${messageCreate.author.id}`, 1)

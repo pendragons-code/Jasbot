@@ -5,7 +5,7 @@ const { Default, Bot } = require("../../../../config.json")
 module.exports = {
 	name: "weather",
 	aliases: [],
-	categroy: "utility",
+	category: "utility",
 	utilisation: "weather <destination>",
 	desc: "Provides weather details using weather-js!",
 	async execute(bot, messageCreate, args, mainPrefix) {

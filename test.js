@@ -1,6 +1,5 @@
-const malScraper = require("mal-scraper")
-async function banana() {
-	let result = await malScraper.getInfoFromName("nisekoi")
-	console.log(result)
+const { getCm } = require("./src/functions/conversion/distance/cm.js")
+async function test(){
+	console.log(await getCm(50))
 }
-banana()
+test()

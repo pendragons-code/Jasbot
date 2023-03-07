@@ -1,6 +1,6 @@
 {
 	"conversion": {
 		"name": "Conversion disclaimer!",
-		"value": "The numericals here are not the most accurate and will only be able to provide an approximate result should the result be recursive or endless."
+		"value": "Gives list of common converted forms of the provided value. It should be noted that the values are estimated and accurate values may not always be available."
 	}
 }
