@@ -1,4 +1,4 @@
-function milliRadian(queriedAmt) {
+async function milliRadian(queriedAmt) {
 	let degrees = queriedAmt * 180/(1000 * Math.PI)
 	let radian = queriedAmt / 1000
 	let gradian = queriedAmt * 200/(1000 * Math.PI)
