@@ -5,7 +5,7 @@ const adList = Object.keys(adPool).map(x => x)
 const adRandom =  adList[Math.floor(Math.random() * adList.length)]
 module.exports = {
 	name: "ads",
-	async execute(bot, messageCreate, args){
+	async execute(bot, messageCreate, args) {
 		const adEmbed = new EmbedBuilder()
 		const ms = await import("parse-ms")
 		let cooldown = 3600000

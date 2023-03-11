@@ -13,7 +13,7 @@ module.exports = {
 		if(!args[1]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		if(args[0] != "category" && args[0]!= "command") return messageCreate.channel.send(reject.UserFault.args.invalid)
 		if(args[2]) return messageCreate.channel.send(reject.UserFault.args.tooMany)
-		if(args[0] === "category"){
+		if(args[0] === "category") {
 			let availableCategories = bot.commands.map(command => command.category)
 			let allPossibleCategoriesInAnArray = []
 			availableCategories.forEach((categoryInQuestion) => {
@@ -39,7 +39,7 @@ module.exports = {
 				return messageCreate.channel.send({ embeds: [categoryEmbed] })
 			})
 		}
-		if(args[0] === "command"){
+		if(args[0] === "command") {
 			let cmd = bot.commands.get(args[1] || bot.commands.find(cmd => cmd.aliases) && cmd.aliases.includes(args[1]))
 			if(!cmd.name) return messageCreate.channel.send(reject.UserFault.args.invalid)
 			if(cmd.name === "enable") return messageCreate.channel.send("You cannot disable the command; enable.")

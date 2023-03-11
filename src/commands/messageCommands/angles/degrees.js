@@ -1,6 +1,6 @@
 const { degrees } = require("../../../functions/conversion/angles/degrees.js")
 const { EmbedBuilder } = require("discord.js")
-const { DefaultEmbedColor, DefaultFooterText, Bot } = require("../../../../config.json")
+const { Default, Bot } = require("../../../../config.json")
 const { conversion } = require("../../../../assets/responseComponents/disclaimers.json")
 const reject = require("../../../../assets/responseComponents/rejection.json")
 module.exports = {
@@ -16,11 +16,11 @@ module.exports = {
 		if(isNaN(args[0])) return messageCreate.channel.send(reject.UserFault.invalid)
 		let number = parseFloat(args[0])
 		const embed = new EmbedBuilder()
-		embed.setColor(DefaultEmbedColor)
-		embed.setFooter({ text: DefaultFooterText })
+		embed.setColor(Default.DefaultEmbedColor)
+		embed.setFooter({ text: Default.DefaultFooterText })
 		embed.setTimestamp()
 		embed.setTitle("Conversion!")
-		embed.setDescription(await degrees(number))
+		embed.setDescription(degrees(number))
 		embed.setURL(Bot.BotSite)
 		return messageCreate.channel.send({ embeds: [embed] })
 	}

@@ -26,7 +26,7 @@ module.exports = {
 				messageCreate.channel.send({ embeds: [blacklistEmbed] })
 				break
 			case "on":
-				if(BlackListedUser === "yes"){
+				if(BlackListedUser === "yes") {
 					blacklistEmbed.setTitle(`${user} is already blacklisted!`)
 					blacklistEmbed.setDescription(`You cannot blacklist users that are already blacklisted!`)
 					return messageCreate.channel.send({ embeds: [blacklistEmbed] })
@@ -41,7 +41,7 @@ module.exports = {
 				messageCreate.channel.send({ embeds: [blacklistEmbed] })
 				break
 			case "off":
-				if(BlackListedUser === null){
+				if(BlackListedUser === null) {
 					blacklistEmbed.setTitle(`Not blacklisted!`)
 					blacklistEmbed.setDescription(`This user is not already on the blacklist!`)
 					return messageCreate.channel.send({ embeds: [blacklistEmbed] })

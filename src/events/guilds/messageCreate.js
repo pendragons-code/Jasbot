@@ -27,12 +27,12 @@ module.exports = async (bot, messageCreate) => {
 		if(cmd.category === "over18" && !messageCreate.channel.nsfw) return messageCreate.channel.send("This command can only work in an nsfw channel!")
 		if(commandDisable === "disabled" || categoryDisable === "disabled") return messageCreate.channel.send(reject.UserFault.privilege.DisabledCommand)
 		if(cmd.maxargs) if(args[cmd.maxargs + 1]) return messageCreate.channel.send(reject.user.args.tooMany)
-		if(cmd.minperms) for(let i = 0; i < cmd.minperms.length; ++i) if(!messageCreate.member.permissions.has(cmd.minperms[i])){
+		if(cmd.minperms) for(let i = 0; i < cmd.minperms.length; ++i) if(!messageCreate.member.permissions.has(cmd.minperms[i])) {
 			let MissingPermissionName = PermissionList[cmd.minperms[i]]
-			if(Array.isArray(cmd.minperms[i])){
+			if(Array.isArray(cmd.minperms[i])) {
 				// That one weird workaround (push in missing permissions that are missing in a string and send it)
 				let MissingPermissionName = ""
-				for(let perArray = 0; perArray < cmd.minperms[i].length; ++perArray){
+				for(let perArray = 0; perArray < cmd.minperms[i].length; ++perArray) {
 					let MissingPermissionNameFromAndLogic = PermissionList[cmd.minperms[i][perArray]]
 					MissingPermissionName + `\`${MissingPermissionNameFromAndLogic}\``
 					if(cmd.minperms[i][perArray + 1]) MissingPermissionName + ", "
@@ -46,7 +46,8 @@ module.exports = async (bot, messageCreate) => {
 		// This becomes worse if the array is a fat one!
 		// This already can give you an idea of the reduction of speed.
 		if(args[0] === "-h") return messageCreate.channel.send(cmd.utilisation)
-		if(NewUser !== "SentNewUserMessage") bot.utils.get("NewUser").execute(bot, messageCreate, args);
+		// I forgot i .toLowerCase() everything in the collection.
+		if(NewUser !== "SentNewUserMessage") bot.utils.get("newuser").execute(bot, messageCreate, args);
 		if(cmd.category === "creator" && messageCreate.author.id !== Bot.BotOwnerID) return messageCreate.channel.send(reject.UserFault.privilege.CreatorOnly)
 		cmd.execute(bot, messageCreate, args, prefix)
 		await db.add(`cmdsRan_${messageCreate.author.id}`, 1)
@@ -55,7 +56,7 @@ module.exports = async (bot, messageCreate) => {
 			return messageCreate.channel.send(reject.WeAreScrewed.ExecutionError)
 		})
 		//advertisment
-	}catch(error){
+	}catch(error) {
 		console.error(error)
 		return messageCreate.channel.send(reject.WeAreScrewed.ExecutionError)
 	}

@@ -6,7 +6,7 @@ module.exports = {
 	category: "core",
 	desc: "Sends list of commands on this bot!",
 	utilisation: "help <category/command name>",
-	async execute(bot, messageCreate, args, mainPrefix){
+	async execute(bot, messageCreate, args, mainPrefix) {
 		const primariyTitleWithDecoration = `${Decoration.Title.first} List of commands! ${Decoration.Title.second}`
 		const commander = bot.messageCommands.filter(x => x)
 		const commanderCategory = bot.messageCommands.map(u => u.category)
@@ -14,7 +14,7 @@ module.exports = {
 		commanderCategory.forEach((CategoryName) => {
 			if(!categoryArray.includes(CategoryName)) categoryArray.push(CategoryName)
 		})
-		if(!args[0]){
+		if(!args[0]) {
 			let mainHelpEmbed = new EmbedBuilder()
 			mainHelpEmbed.setColor(Default.DefaultEmbedColor)
 			mainHelpEmbed.setFooter({ text: Default.DefaultFooterText })
@@ -26,7 +26,7 @@ module.exports = {
 			mainHelpEmbed.setTimestamp()
 			return messageCreate.channel.send({ embeds: [mainHelpEmbed] })
 		}
-		if(categoryArray.includes(args[0])){
+		if(categoryArray.includes(args[0])) {
 			// the naming here is that the category is specified and i want to find the commands of the specified category if you could not pick that up, future me
 			let categorySpecificCommands = bot.commands.filter(commands => commands.category === args[0])
 			let categorySpecificEmbed = new EmbedBuilder()
@@ -40,7 +40,7 @@ module.exports = {
 			categorySpecificEmbed.setTimestamp()
 			return messageCreate.channel.send({ embeds: [categorySpecificEmbed] })
 		}
-		if(args[0] && !categoryArray.includes(args[0])){
+		if(args[0] && !categoryArray.includes(args[0])) {
 			const searchCommand = bot.commands.get(args.join(" ").toLowerCase()) || bot.commands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()))
 			if(!searchCommand) return messageCreate.channel.send(`I did not find this command!`)
 			let searchCommandEmbed = new EmbedBuilder()

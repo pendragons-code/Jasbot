@@ -1,14 +1,14 @@
-const { milliRadian } = require("../../../functions/conversion/angles/milliradian.js")
+const { minuteOfArc } = require("../../../functions/conversion/angles/minuteOfArc.js")
 const reject = require("../../../../assets/responseComponents/rejection.json")
 const { EmbedBuilder } = require("discord.js")
 const { Default, Bot } = require("../../../../config.json")
 const { conversion } = require("../../../../assets/responseComponents/disclaimers.json")
 module.exports = {
-	name: "milliradian",
+	name: "minofarc",
 	aliases: [],
 	category: "angles",
 	desc: conversion.value,
-	utilisation: "milliradian <value>",
+	utilisation: "minofarc <value>",
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[0]) return messageCreate.channel.send(reject.UserFault.numbers.missing)
 		if(isNaN(args[0])) return messageCreate.channel.send(reject.UserFault.numbers.invalid)
@@ -20,7 +20,7 @@ module.exports = {
 		resultEmbed.setColor(Default.DefaultEmbedColor)
 		resultEmbed.setTitle("Converting!")
 		resultEmbed.setTimestamp()
-		resultEmbed.setDescription(milliRadian(number))
+		resultEmbed.setDescription(minuteOfArc(number))
 		return messageCreate.channel.send({ embeds: [resultEmbed] })
 	}
 }

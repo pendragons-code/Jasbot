@@ -2,7 +2,7 @@ const { Default } = require("../../../config.json")
 const { db } = require("../../loaders/bot.js")
 const { EmbedBuilder } = require("discord.js")
 const reject = require("../../../assets/responseComponents/rejection.json")
-const interactionCreate = require("../../events/guilds/interactionCreate")
+const interactionCreate = require("../../events/guilds/interactionCreate.js")
 module.exports = {
 	name: "NewUserSlash",
 	async execute({ bot, interactionCreate }) {

@@ -1,6 +1,6 @@
-async function getUserFromMention(mentionedUser){
+async function getUserFromMention(mentionedUser) {
 	if(!mentionedUser) return console.error("No specified user!")
-	if(mentionedUser.startsWith('<@') && mentionedUser.endsWith('>')){
+	if(mentionedUser.startsWith('<@') && mentionedUser.endsWith('>')) {
 		mention = mentionedUser.slice(2, -1)
 		if(mention.startsWith("!")) mention.slice(1)
 	}

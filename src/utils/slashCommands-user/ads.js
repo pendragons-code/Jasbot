@@ -5,7 +5,7 @@ const adList = Object.keys(adPool).map(x => x)
 const adRandom =  adList[Math.floor(Math.random() * adList.length)]
 module.exports = {
 	name: "ads",
-	async execute({ bot, interactionCreate }){
+	async execute({ bot, interactionCreate }) {
 		let slashAdCoolDown = await db.get(`slashAdCoolDown_${interactionCreate.guild.id}_${interactionCreate.user.id}`)
 		if(slashAdCoolDown !== null && slashAdCoolDown - (Date.now() - slashAdCoolDown) > 0) return
 		const coolDown = 300000

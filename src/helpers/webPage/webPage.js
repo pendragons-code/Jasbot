@@ -21,7 +21,7 @@ module.exports = (bot) => {
 	})
 	
 	
-	app.use(function(req, res){
+	app.use(function(req, res) {
 	    res.status(404).send("🍌, 404")
 	});
 	

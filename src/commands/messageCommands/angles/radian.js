@@ -1,10 +1,10 @@
-const { milliRadian } = require("../../../functions/conversion/angles/milliradian.js")
+const { radian } = require("../../../functions/conversion/angles/radian.js")
 const reject = require("../../../../assets/responseComponents/rejection.json")
 const { EmbedBuilder } = require("discord.js")
 const { Default, Bot } = require("../../../../config.json")
 const { conversion } = require("../../../../assets/responseComponents/disclaimers.json")
 module.exports = {
-	name: "milliradian",
+	name: "radian",
 	aliases: [],
 	category: "angles",
 	desc: conversion.value,
@@ -20,7 +20,7 @@ module.exports = {
 		resultEmbed.setColor(Default.DefaultEmbedColor)
 		resultEmbed.setTitle("Converting!")
 		resultEmbed.setTimestamp()
-		resultEmbed.setDescription(milliRadian(number))
+		resultEmbed.setDescription(radian(number))
 		return messageCreate.channel.send({ embeds: [resultEmbed] })
 	}
 }
