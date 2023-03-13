@@ -1,12 +1,13 @@
 const { db } = require("../../../loaders/bot.js")
 const { EmbedBuilder } = require("discord.js")
+const { Default, Bot } = require("../../../../config.json")
 const reject = require("../../../../assets/responseComponents/rejection.json")
 module.exports = {
 	name: "todo",
 	aliases: [],
 	category: "utility",
 	desc: "A command that helps you manage your ToDo list.",
-	utilisation: "todo add <task>\n todo remove <task number>\ntodo set <task number> <task>\ntodo reset all",
+	utilisation: "todo add <task>\n todo remove <task number>\ntodo set <task number> <task>\ntodo reset all\n todo show all",
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[1]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		let ToDoEmbed = new EmbedBuilder()
@@ -24,9 +25,18 @@ module.exports = {
 				.then(() => {
 					ToDoEmbed.setTitle(`Added task ${numberOfTodos + 1}`)
 					ToDoEmbed.setDescription("```" + `[${numberOfTodos + 1}] ${args.slice(1).join(" ")}` + "```")
+					ToDoEmbed.setColor(Default.DefaultEmbedColor)
+					ToDoEmbed.setFooter({ text: Default.DefaultFooterText })
+					ToDoEmbed.setTimestamp()
+					ToDoEmbed.setURL(Bot.BotSite)
 					messageCreate.channel.send({ embeds: [ToDoEmbed] })
 				})
 				break;
+			case "remove":
+				if(isNaN(args[1])) return messageCreate.channel.send(reject.UserFault.numbers.invalid)
+				break;
+			default:
+				return messageCreate.channel.send(reject.UserFault.args.invalid)
 		}
 	}
 }
