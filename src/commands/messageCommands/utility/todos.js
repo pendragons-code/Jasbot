@@ -7,7 +7,7 @@ module.exports = {
 	aliases: [],
 	category: "utility",
 	desc: "A command that helps you manage your ToDo list.",
-	utilisation: "todo add <task>\n todo remove <task number>\ntodo set <task number> <task>\ntodo reset all\n todo show all",
+	utilisation: "todo add <task>\n todo remove <task number>\ntodo set <task number> <task>\ntodo reset all\n todo show <all/ task number>",
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[1]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		let ToDoEmbed = new EmbedBuilder()
@@ -15,6 +15,11 @@ module.exports = {
 		let numberOfTodos = 0
 		if(currentSetOfTODOs !== null) numberOfTodos = currentSetOfTODOs.length
 		switch(args[0]) {
+			case "show":
+				if(args[1] === "all") return messageCreate.channel.send(`${currentSetOfTODOs}`)
+				messageCreate.channel.send(currentSetOfTODOs.at(args[1] - 1))
+				break;
+
 			case "add":
 				await db.push(`todos_${messageCreate.author.id}`, args.slice(1).join(" "))  // Not gonna limit the number of characters because the discord's in-built limit seems good enough to me
 				.catch((error) => {
@@ -49,7 +54,11 @@ module.exports = {
 				})
 				break;
 
-			//case "set":
+			case "set":
+				currentSetOfTODOs.splice(0, 1, "test go through")
+				await db.set(`todos_${messageCreate.author.id}`, currentSetOfTODOs)
+				break;
+
 			default:
 				return messageCreate.channel.send(reject.UserFault.args.invalid)
 		}
