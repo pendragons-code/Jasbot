@@ -36,7 +36,9 @@ module.exports = {
 				break;
 
 			case "add":
-				if(!args[2]) return messageCreate.cahnnel.send(reject.UserFault.args.missing)
+				if(!args[2]) return messageCreate.channel.send(reject.UserFault.args.missing)
+				if(currentSetOfTODOs.length === 29) return messageCreate.channel.send("You have reach the maximum number of tasks.")
+				if((currentSetOfTODOs.join("v").replace(" ", "v").length + args.slice(1).join("v") ) > 2000) return messageCreate.channel.send("Adding this task exceeds the 2000 character limit!")
 				await db.push(`todos_${messageCreate.author.id}`, args.slice(1).join(" "))  // Not gonna limit the number of characters because the discord's in-built limit seems good enough to me
 				.catch((error) => {
 					console.error(error)
@@ -71,6 +73,7 @@ module.exports = {
 				if(numberOfTodos === null || numberOfTodos < 1) return messageCreate.channel.send("You do not have any ToDos!")
 				if(isNaN(args[1])) return messageCreate.channel.send(reject.UserFault.numbers.invalid)
 				if((parseInt(args[1])-1) > currentSetOfTODOs.length || parseInt(args[1]) < 1) return messageCreate.channel.send(reject.UserFault.numbers.notInRange)
+				if((currentSetOfTODOs.join("v").replace(" ", "v").length + args.slice(2).join("v") ) > 2000) return messageCreate.channel.send("Adding this task exceeds the 2000 character limit!")
 				await currentSetOfTODOs.splice(parseInt(args[1]-1), 1, args.slice(2).join(" ")) // todo args[0](set) args[1](task number to change) args[2 ++](task here)
 				await db.set(`todos_${messageCreate.author.id}`, currentSetOfTODOs)
 				ToDoEmbed.setTitle(`Updating task ${parseInt(args[1])}!`)
@@ -85,4 +88,4 @@ module.exports = {
 	}
 }
 
-// Things to implement (character limit checker(2000), task limit (30), check if set is redundant)
+//check if set is redundant)
