@@ -36,9 +36,9 @@ module.exports = {
 				break;
 
 			case "add":
-				if(!args[2]) return messageCreate.channel.send(reject.UserFault.args.missing)
-				if(currentSetOfTODOs.length === 29) return messageCreate.channel.send("You have reach the maximum number of tasks.")
-				if((currentSetOfTODOs.join("v").replace(" ", "v").length + args.slice(1).join("v") ) > 2000) return messageCreate.channel.send("Adding this task exceeds the 2000 character limit!")
+				if(!args[1]) return messageCreate.channel.send(reject.UserFault.args.missing)
+				if(currentSetOfTODOs !== null && currentSetOfTODOs.length === 29) return messageCreate.channel.send("You have reach the maximum number of tasks.")
+				if(currentSetOfTODOs !== null && currentSetOfTODOs.join("v").replace(" ", "v").length + args.slice(1).join("v").length > 2000) return messageCreate.channel.send("Adding this task exceeds the 2000 character limit!")
 				await db.push(`todos_${messageCreate.author.id}`, args.slice(1).join(" "))  // Not gonna limit the number of characters because the discord's in-built limit seems good enough to me
 				.catch((error) => {
 					console.error(error)
@@ -74,6 +74,7 @@ module.exports = {
 				if(isNaN(args[1])) return messageCreate.channel.send(reject.UserFault.numbers.invalid)
 				if((parseInt(args[1])-1) > currentSetOfTODOs.length || parseInt(args[1]) < 1) return messageCreate.channel.send(reject.UserFault.numbers.notInRange)
 				if((currentSetOfTODOs.join("v").replace(" ", "v").length + args.slice(2).join("v") ) > 2000) return messageCreate.channel.send("Adding this task exceeds the 2000 character limit!")
+				if(currentSetOfTODOs[`${args[1] - 1}`].includes(args.slice(2).join(" "))) return messageCreate.channel.send("You cannot change the task to the same thing.")
 				await currentSetOfTODOs.splice(parseInt(args[1]-1), 1, args.slice(2).join(" ")) // todo args[0](set) args[1](task number to change) args[2 ++](task here)
 				await db.set(`todos_${messageCreate.author.id}`, currentSetOfTODOs)
 				ToDoEmbed.setTitle(`Updating task ${parseInt(args[1])}!`)
