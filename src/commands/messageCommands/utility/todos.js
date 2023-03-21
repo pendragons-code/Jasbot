@@ -88,5 +88,3 @@ module.exports = {
 		}
 	}
 }
-
-//check if set is redundant)
