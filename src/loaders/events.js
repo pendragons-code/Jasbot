@@ -1,8 +1,9 @@
 const { readdirSync } = require("fs")
 const { bot } = require("./bot.js")
-function loadEvents() {
+async function loadEvents() {
 	console.log("Events:")
-	readdirSync("./src/events").forEach(dirs => {
+	const loadEventsDirs = await readdirSync("./src/events").filter(dirs => dirs)
+	for(dirs of loadEventsDirs) {
 		const eventFile = readdirSync(`./src/events/${dirs}`).filter(file => file.endsWith(".js"))
 		for(const file of eventFile) {
 			//named this event since this actually requires the file, while the other is a searching operation.
@@ -10,6 +11,6 @@ function loadEvents() {
 			console.log(`Loading event: ${file} from ${dirs}!`)
 			bot.on(file.split(".")[0], event.bind(null, bot))
 		}
-	})
+	}
 }
 module.exports = { loadEvents }

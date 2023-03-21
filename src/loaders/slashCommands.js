@@ -2,10 +2,11 @@ const { readdirSync } = require("fs")
 const { Collection } = require("discord.js")
 const { bot } = require("./bot.js")
 
-function loadSlashCommands() {
+async function loadSlashCommands() {
 	bot.slashCommands = new Collection()
 	CommandsArray = [];
-	readdirSync("./src/commands/slashCommands").forEach(dirs => {
+	let loadSlashCommandsDirs = await readdirSync("./src/commands/slashCommands").filter(dirs => dirs)
+	for(const dirs of loadSlashCommandsDirs) {
 		const slashCommandsFile = readdirSync(`./src/commands/slashCommands/${dirs}`).filter(file => file.endsWith(".js"))
 		for(const file of slashCommandsFile) {
 			const slashCommand = require(`../commands/slashCommands/${dirs}/${file}`)
@@ -13,7 +14,7 @@ function loadSlashCommands() {
 			console.log(`Loaded slashCommand: ${file} from ${dirs}!`)
 			CommandsArray.push(slashCommand);
 		}
-	})
+	}
 	bot.on("ready", (bot) => {
 		bot.application.commands.set(CommandsArray)
 	})
