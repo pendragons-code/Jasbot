@@ -40,7 +40,7 @@ module.exports = {
 			categorySpecificEmbed.setTimestamp()
 			return messageCreate.channel.send({ embeds: [categorySpecificEmbed] })
 		}
-		if(args[0] && !categoryArray.includes(args[0])) {
+		if(!categoryArray.includes(args[0])) {
 			const searchCommand = bot.messageCommands.get(args.join(" ").toLowerCase()) || bot.messageCommands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()))
 			if(!searchCommand) return messageCreate.channel.send(`I did not find this command!`)
 			let searchCommandEmbed = new EmbedBuilder()
