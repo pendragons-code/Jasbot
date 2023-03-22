@@ -28,7 +28,7 @@ module.exports = {
 		}
 		if(categoryArray.includes(args[0])) {
 			// the naming here is that the category is specified and i want to find the commands of the specified category if you could not pick that up, future me
-			let categorySpecificCommands = bot.commands.filter(commands => commands.category === args[0])
+			let categorySpecificCommands = bot.messageCommands.filter(commands => commands.category === args[0])
 			let categorySpecificEmbed = new EmbedBuilder()
 			categorySpecificEmbed.setTitle(primariyTitleWithDecoration)
 			categorySpecificEmbed.setDescription(`Prefix is ${mainPrefix}! This bot has ${commander.size} commands!`)
@@ -41,7 +41,7 @@ module.exports = {
 			return messageCreate.channel.send({ embeds: [categorySpecificEmbed] })
 		}
 		if(args[0] && !categoryArray.includes(args[0])) {
-			const searchCommand = bot.commands.get(args.join(" ").toLowerCase()) || bot.commands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()))
+			const searchCommand = bot.messageCommands.get(args.join(" ").toLowerCase()) || bot.messageCommands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()))
 			if(!searchCommand) return messageCreate.channel.send(`I did not find this command!`)
 			let searchCommandEmbed = new EmbedBuilder()
 			searchCommandEmbed.setTitle("Help Center!")
@@ -52,7 +52,7 @@ module.exports = {
 				{ name: "Category", value: searchCommand.category, inline: true },
 				{ name: "Alias(es)", value: searchCommand.aliases.length < 1 ? "None" : searchCommand.aliases.join(", "), inline: true },
 				{ name: "Utilisation", value: searchCommand.utilisation, inline: true },
-				{ name: "Description", value: searchCommandEmbed.desc }
+				{ name: "Description", value: searchCommand.desc }
 			)
 			searchCommandEmbed.setTimestamp()
 			searchCommandEmbed.setDescription("Have fun using this bot!")
