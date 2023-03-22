@@ -21,12 +21,16 @@ module.exports = {
 			required: false
 		}
 	],
-	async execute({bot, interactionCreate}) {
+	async execute(bot, interactionCreate) {
 		const primariyTitleWithDecoration = `${Decoration.Title.first} List of commands! ${Decoration.Title.second}`
 		const slashCommander = bot.slashCommands.filter(x => x)
 		const noArgumentHelpEmbed = new EmbedBuilder()
 		const categoryArray = []
-		if(!inter.options._hoistedOptions[0].value){
+		const slashCommanderCategory = bot.slashCommands.map(u => u.category)
+		for(const CategoryName of slashCommanderCategory) {
+			if(!categoryArray.includes(CategoryName)) categoryArray.push(CategoryName)
+		}
+		if(!interactionCreate.options._hoistedOptions[0]){
 			noArgumentHelpEmbed.setTitle(primariyTitleWithDecoration)
 			noArgumentHelpEmbed.setColor(Default.DefaultEmbedColor)
 			noArgumentHelpEmbed.setFooter({ text: Default.DefaultFooterText })
@@ -36,7 +40,7 @@ module.exports = {
 			noArgumentHelpEmbed.addFields(
 				{ name: "Available categories!", value: "`help <category>`\n\n`" + categoryArray.join("`, `")+ "`", inline: true }
 			)
-			return interactionCreate.reply()
+			return interactionCreate.reply({ embeds: [noArgumentHelpEmbed] })
 		}
 	}
 }
