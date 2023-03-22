@@ -11,9 +11,9 @@ module.exports = {
 		const commander = bot.messageCommands.filter(x => x)
 		const commanderCategory = bot.messageCommands.map(u => u.category)
 		let categoryArray = []
-		commanderCategory.forEach((CategoryName) => {
+		for(const CategoryName of commanderCategory) {
 			if(!categoryArray.includes(CategoryName)) categoryArray.push(CategoryName)
-		})
+		}
 		if(!args[0]) {
 			let mainHelpEmbed = new EmbedBuilder()
 			mainHelpEmbed.setColor(Default.DefaultEmbedColor)
@@ -21,7 +21,7 @@ module.exports = {
 			mainHelpEmbed.setTitle(primariyTitleWithDecoration)
 			mainHelpEmbed.setDescription(`Prefix is ${mainPrefix}! This bot has ${commander.size} commands!`)
 			mainHelpEmbed.addFields(
-				{ name: "Available categories!", value: mainPrefix + " `help <category>`" + "\n\n" + "`" + categoryArray.join("`, `") + "`", inline: true }
+				{ name: "Available categories!", value: "`" + mainPrefix + "help <category>`\n\n`" + categoryArray.join("`, `") + "`", inline: true }
 			)
 			mainHelpEmbed.setTimestamp()
 			return messageCreate.channel.send({ embeds: [mainHelpEmbed] })
