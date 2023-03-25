@@ -1,9 +1,9 @@
 const { ActionRowBuilder, ButtonBuilder, EmbedBuilder, ApplicationCommandOptionType } = require("discord.js")
 const { Bot, Default, Decoration } = require("../../../../config.json")
 const reject = require("../../../../assets/responseComponents/rejection.json")
+const {desc} = require("../../messageCommands/core/help")
 module.exports = {
 	name: "help",
-	aliases: ["commands"],
 	category: "core",
 	description: "A basic help command!",
 	utilisation: "help <category/command name>",
@@ -52,6 +52,14 @@ module.exports = {
 			)
 			return interactionCreate.reply({ embeds: [HelpEmbed] })
 		}
-		//command specific help fetch
+		const searchCommand = bot.slashCommands.get(actionWord.toLowerCase)
+		if(!searchCommand) return interactionCreate.reply("Not found!")
+		HelpEmbed.addFields(
+			{ name: "Name", value: searchCommand.name, inline: true },
+			{ name: "Category", value: searchCommand.category, inline: true },
+			{ name: "Utilisation", value: searchCommand.utilisation, inline: true },
+			{ name: "Description", value: searchCommand.description }
+		)
+		return interactionCreate.reply({ embeds: [HelpEmbed] })
 	}
 }

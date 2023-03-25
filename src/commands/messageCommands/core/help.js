@@ -40,24 +40,22 @@ module.exports = {
 			categorySpecificEmbed.setTimestamp()
 			return messageCreate.channel.send({ embeds: [categorySpecificEmbed] })
 		}
-		if(!categoryArray.includes(args[0])) {
-			const searchCommand = bot.messageCommands.get(args.join(" ").toLowerCase()) || bot.messageCommands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()))
-			if(!searchCommand) return messageCreate.channel.send(`I did not find this command!`)
-			let searchCommandEmbed = new EmbedBuilder()
-			searchCommandEmbed.setTitle("Help Center!")
-			searchCommandEmbed.setColor(Default.DefaultEmbedColor)
-			searchCommandEmbed.setFooter({ text: Default.DefaultFooterText })
-			searchCommandEmbed.addFields(
-				{ name: "Name", value: searchCommand.name, inline: true },
-				{ name: "Category", value: searchCommand.category, inline: true },
-				{ name: "Alias(es)", value: searchCommand.aliases.length < 1 ? "None" : searchCommand.aliases.join(", "), inline: true },
-				{ name: "Utilisation", value: searchCommand.utilisation, inline: true },
-				{ name: "Description", value: searchCommand.desc }
-			)
-			searchCommandEmbed.setTimestamp()
-			searchCommandEmbed.setDescription("Have fun using this bot!")
+		const searchCommand = bot.messageCommands.get(args.join(" ").toLowerCase()) || bot.messageCommands.find(x => x.aliases && x.aliases.includes(args.join(" ").toLowerCase()))
+		if(!searchCommand) return messageCreate.channel.send(`I did not find this command!`)
+		let searchCommandEmbed = new EmbedBuilder()
+		searchCommandEmbed.setTitle("Help Center!")
+		searchCommandEmbed.setColor(Default.DefaultEmbedColor)
+		searchCommandEmbed.setFooter({ text: Default.DefaultFooterText })
+		searchCommandEmbed.addFields(
+			{ name: "Name", value: searchCommand.name, inline: true },
+			{ name: "Category", value: searchCommand.category, inline: true },
+			{ name: "Alias(es)", value: searchCommand.aliases.length < 1 ? "None" : searchCommand.aliases.join(", "), inline: true },
+			{ name: "Utilisation", value: searchCommand.utilisation, inline: true },
+			{ name: "Description", value: searchCommand.desc }
+		)
+		searchCommandEmbed.setTimestamp()
+		searchCommandEmbed.setDescription("Have fun using this bot!")
 
-			return messageCreate.channel.send({ embeds: [searchCommandEmbed] })
-		}
+		return messageCreate.channel.send({ embeds: [searchCommandEmbed] })
 	}
 }
