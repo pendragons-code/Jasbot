@@ -6,7 +6,7 @@ module.exports = {
 	aliases: ["-v"],
 	category: "core",
 	desc: "Sends you some information about the bot and the version of the discord bot!",
-	utilisation: "verion",
+	utilisation: "version",
 	async execute(bot, messageCreate, args, mainPrefix) {
 		const versionEmbed = new EmbedBuilder()
 		versionEmbed.setTitle("Version Details!")

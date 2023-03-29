@@ -1,7 +1,6 @@
-const { ActionRowBuilder, ButtonBuilder, EmbedBuilder, ApplicationCommandOptionType } = require("discord.js")
+const { EmbedBuilder, ApplicationCommandOptionType } = require("discord.js")
 const { Bot, Default, Decoration } = require("../../../../config.json")
 const reject = require("../../../../assets/responseComponents/rejection.json")
-const {desc} = require("../../messageCommands/core/help")
 module.exports = {
 	name: "help",
 	category: "core",

@@ -1,4 +1,5 @@
 const { db } = require("../../../loaders/bot.js")
+const { PermissionsBitField } = require("discord.js")
 const { Default } = require("../../../../config.json")
 const reject = require("../../../../assets/responseComponents/rejection.json")
 module.exports = {
@@ -7,6 +8,7 @@ module.exports = {
 	category: "core",
 	desc: "Changes bot prefix!",
 	utilisation: "prefix <new prefix>",
+	minperms: [PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers],
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[0]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		if(args[1]) return messageCreate.channel.send(reject.UserFault.args.tooMany)
