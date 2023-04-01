@@ -14,10 +14,10 @@ module.exports = {
 		versionEmbed.setTimestamp()
 		versionEmbed.setColor(Default.DefaultEmbedColor)
 		versionEmbed.setDescription(`Jasbot is currently on ${version}!\n Jasbot is made by: ${author}`)
-		messageCreate.channel.send({ embeds: [versionEmbed] })
+		interactionCreate.reply({ embeds: [versionEmbed] })
 		.catch((error) => {
 			console.error(error)
-			return messageCreate.channel.send(reject.WeAreScrewed.ExecutionError)
+			return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)
 		})
 	}
 }
