@@ -17,4 +17,4 @@ npm run deploy
 ```
 
 # Temporarily pausing development:
-Some of the commands in this bot use packages that rely on a dependency called: "request". It has been around for a long time and has been really helpful to the entire community that uses it, however, there has been a discovered vulnerability in the project and some commands that use this package can be considered core to the use-case for Jasbot. Therefor, I will be looking for alternatives or consider taking some other action.
+Some of the commands in this bot use packages that rely on a dependency called: "request". It has been around for a long time and has been really helpful to the entire community that uses it, however, there has been a discovered vulnerability in the project and some commands that use this package can be considered core to the use-case for Jasbot. Therefor, I will be looking for alternatives or consider taking some other action. I should also highlight that I am using this package in several other projects not even accounting the VERY HIGH likelyhood that the dependencies I use also do end up using this package. So yay I think.
