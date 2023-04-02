@@ -1,6 +1,6 @@
 {
 	"conversion": {
 		"name": "Conversion disclaimer!",
-		"value": "Gives list of common converted forms of the provided value. It should be noted that the values are estimated and accurate values may not always be available."
+		"value": "Returns converted values. May be rounded off if it is too long."
 	}
 }

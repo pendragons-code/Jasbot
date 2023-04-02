@@ -50,3 +50,6 @@ module.exports = {
 		})
 	}
 }
+
+// weather-js, mal-scraper and request are 3 affected packages
+// also the owner of the mal-scraper is already aware of the picture bug.
