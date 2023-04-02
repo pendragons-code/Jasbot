@@ -29,7 +29,7 @@ module.exports = {
 		}
 		if(interactionCreate.options._hoistedOptions[0].value.trim().includes(" ")) return interactionCreate.reply("Your argument still had whitespaces after trimming. Remove all spaces to change your prefix.")
 
-		await db.set(`prefix_${interactionCreate.guild.id}`, interactionCreate.options._hoistedOptions[0].value.trim())
+		await db.set(`prefix_${interactionCreate.guildId}`, interactionCreate.options._hoistedOptions[0].value.trim())
 		.catch((error) => {
 			console.error(error)
 			return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)

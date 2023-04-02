@@ -12,6 +12,7 @@ async function loadMessageCommands() {
 			const command = require(`../commands/messageCommands/${dirs}/${file}`)
 			console.log(`Loading messageCommand: ${file} from ${dirs}!`)
 			bot.messageCommands.set(command.name.toLowerCase(), command)
+			delete require.cache[require.resolve(`../commands/messageCommands/${dirs}/${file}`)]
 		}
 	}
 }

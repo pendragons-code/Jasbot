@@ -10,6 +10,7 @@ async function loadEvents() {
 			const event = require(`../events/${dirs}/${file}`)
 			console.log(`Loading event: ${file} from ${dirs}!`)
 			bot.on(file.split(".")[0], event.bind(null, bot))
+			delete require.cache[require.resolve(`../events/${dirs}/${file}`)]
 		}
 	}
 }

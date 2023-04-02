@@ -12,6 +12,7 @@ async function loadUtils() {
 			const utility = require(`../utils/${dirs}/${file}`)
 			console.log(`Loading util: ${file} from ${dirs}!`)
 			bot.utils.set(utility.name.toLowerCase(), utility)
+			delete require.cache[require.resolve(`../utils/${dirs}/${file}`)]
 		}
 	}
 }

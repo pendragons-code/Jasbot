@@ -12,7 +12,8 @@ async function loadSlashCommands() {
 			const slashCommand = require(`../commands/slashCommands/${dirs}/${file}`)
 			bot.slashCommands.set(slashCommand.name.toLowerCase(), slashCommand)
 			console.log(`Loaded slashCommand: ${file} from ${dirs}!`)
-			CommandsArray.push(slashCommand);
+			CommandsArray.push(slashCommand)
+			delete require.cache[require.resolve(`../commands/slashCommands/${dirs}/${file}`)]
 		}
 	}
 	bot.on("ready", (bot) => {

@@ -8,6 +8,7 @@ async function loadHelper() {
 		for(const file of helper) {
 			require(`../helpers/${dirs}/${file}`)(bot)
 			console.log(`Loading Helper: ${file} from ${dirs} succeeded!`)
+			delete require.cache[require.resolve(`../helpers/${dirs}/${file}`)]
 		}
 	}
 }

@@ -1,27 +1,31 @@
 const malScraper = require("mal-scraper")
 const reject = require("../../../../assets/responseComponents/rejection.json")
-const { EmbedBuilder } = require("discord.js")
+const { EmbedBuilder, ApplicationCommandOptionType } = require("discord.js")
 const { Default } = require("../../../../config.json")
 module.exports = {
 	name: "anisearch",
-	aliases: ["animesearch"],
 	category: "anime",
 	utilisation: "anisearch <search terms here>",
-	desc: "Scrapes items off MAL! (My Anime List)",
-	async execute(bot, messageCreate, args, mainPrefix) {
-		if(!args[0]) return messageCreate.channel.send(reject.UserFault.args.missing)
-		const name = args.join(" ")
-		let result = await malScraper.getInfoFromName(name)
+	description: "Scrapes items off MAL! (My Anime List)",
+	options: [
+		{
+			name: "anime",
+			description: "The search term to have the results to be sorted by.",
+			type:ApplicationCommandOptionType.String,
+			required: true
+		}
+	],
+	async execute(bot, interactionCreate) {
+		let result = await malScraper.getInfoFromName(interactionCreate.options._hoistedOptions[0].value)
 		let nsfwRating = ["R - 17+ (violence & profanity)", "R+ - Mild Nudity", "Rx - Hentai"]
-		if(nsfwRating.includes(result.rating) && !messageCreate.channel.nsfw) return messageCreate.channel.send("NSFW content only in NSFW channels!")
+		if(nsfwRating.includes(result.classification) && !interactionCreate.channel.nfsw) return messageCreate.channel.send("NSFW content only in NSFW channels!")
 		const anisearchEmbed = new EmbedBuilder()
-		anisearchEmbed.setTitle("Search Results!")
-		anisearchEmbed.setFooter({ text: `Search results for ${name}!` })
+		anisearchEmbed.setFooter({ text: `Search results for ${interactionCreate.options._hoistedOptions[0].value}!` })
 		anisearchEmbed.setColor(Default.DefaultEmbedColor)
 		anisearchEmbed.setThumbnail(result.image)
 		anisearchEmbed.setTimestamp()
 		anisearchEmbed.setURL(result.detailsLink)
-		console.log(result)
+		anisearchEmbed.setTitle(`Search Results!`)
 		if(result.alternativeTitles.english[0]) anisearchEmbed.addFields({ name: "English Title", value: result.alternativeTitles.english[0] })
 		if(result.alternativeTitles.japanese[0]) anisearchEmbed.addFields({ name: "Japanese Title", value: result.alternativeTitles.japanese[0] })
 		if(result.type) anisearchEmbed.addFields({ name: "Type", value: result.type })
@@ -38,11 +42,11 @@ module.exports = {
 		if(result.scoreStats) anisearchEmbed.addFields({ name: "Score Stats", value: result.scoreStats })
 		if(result.classification) anisearchEmbed.addFields({ name: "Classification", value: result.classification })
 
-		messageCreate.channel.send({ embeds: [anisearchEmbed] })
+		interactionCreate.reply({ embeds: [anisearchEmbed] })
 		.catch((error) => {
-			console.log(messageCreate.content)
+			console.log(interactionCreate)
 			console.error(error)
-			return messageCreate.channel.send(reject.WeAreScrewed.ExecutionError)
+			return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)
 		})
 	}
 }

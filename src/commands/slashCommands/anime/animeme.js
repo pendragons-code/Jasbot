@@ -1,6 +1,6 @@
 const { EmbedBuilder } = require("discord.js")
 const { Default } = require("../../../../config.json")
-const { sfwGetPostReddit } = require("../../../fuctions/reddit/sfw.js")
+const { sfwGetPostReddit } = require("../../../functions/reddit/sfw.js")
 const reject = require("../../../../assets/responseComponents/rejection.json")
 module.exports = {
 	name: "animeme",
