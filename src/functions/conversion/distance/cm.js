@@ -1,7 +1,7 @@
 const phin = require("phin")
 async function getCm(requestedLength) {
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/centimeter",
+		url: "https://api.pendragonscode.xyz/api/centimeter",
 		method: "POST",
 		parse: "json",
 		data: {

@@ -1,7 +1,7 @@
 const phin = require("phin")
 async function getMeterPerSecond(requestedSpeed){
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/MeterPerSecond",
+		url: "https://api.pendragonscode.xyz/api/MeterPerSecond",
 		method: "POST",
 		parse: "json",
 		data: {

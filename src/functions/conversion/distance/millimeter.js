@@ -1,7 +1,7 @@
 const phin = require("phin")
 async function getMm(requestedLength) {
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/millimeter",
+		url: "https://api.pendragonscode.xyz/api/millimeter",
 		method: "POST",
 		data: {
 			requestedLength: requestedLength

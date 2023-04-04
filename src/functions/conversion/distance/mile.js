@@ -1,7 +1,7 @@
 const phin = require("phin")
 async function getMile(requestedLength) {
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/mile",
+		url: "https://api.pendragonscode.xyz/api/mile",
 		method: "POST",
 		data: {
 			requestedLength: requestedLength

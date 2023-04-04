@@ -1,6 +1,6 @@
 {
 	"Pendragonscode": {
-		"Site": "https://jasbot.senghong.xyz",
+		"Site": "https://jasbot.pendragonscode.xyz",
 		"Description": "A casual boy that writes code badly.\n I periodically host random projects.\n One of the projects I host,\n a nodejs Pacman site, I lost the original repo link.\n Pls tell me if you know",
 		"Footericon": "https://avatars.githubusercontent.com/u/88629349?v=4",
 		"Socials": {
@@ -17,7 +17,7 @@
 		"Fields": {
 			"one": {
 				"name": "Useful links!",
-				"value": "[🎓 portfolio](https://code.senghong.xyz)\n[<:pacmanlogo:1032240045886808064> Pacman](https://game.senghong.xyz)",
+				"value": "[🎓 portfolio](https://code.pendragonscode.xyz)\n[<:pacmanlogo:1032240045886808064> Pacman](https://game.pendragonscode.xyz)",
 				"inline": true
 			}
 		}

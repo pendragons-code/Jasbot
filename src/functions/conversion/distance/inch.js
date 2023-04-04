@@ -1,7 +1,7 @@
 const phin = require("phin")
 async function getInch(requestedLength) {
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/Inch",
+		url: "https://api.pendragonscode.xyz/api/Inch",
 		method: "POST",
 		data: {
 			requestedLength: requestedLength

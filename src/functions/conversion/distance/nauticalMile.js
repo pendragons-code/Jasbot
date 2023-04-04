@@ -1,7 +1,7 @@
 const phin = require("phin")
 async function getNauticalMile(requestedLength) {
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/nauticalMile",
+		url: "https://api.pendragonscode.xyz/api/nauticalMile",
 		method: "POST",
 		data: {
 			requestedLength: requestedLength

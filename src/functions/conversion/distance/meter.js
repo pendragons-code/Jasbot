@@ -1,7 +1,7 @@
 const phin = require("phin")
 async function getMeter(requestedLength) {
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/meter",
+		url: "https://api.pendragonscode.xyz/api/meter",
 		method: "POST",
 		data: {
 			requestedLength: requestedLength

@@ -1,7 +1,7 @@
 const phin = require("phin")
 async function getYard(requestedLength) {
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/yard",
+		url: "https://api.pendragonscode.xyz/api/yard",
 		method: "POST",
 		data: {
 			requestedLength: requestedLength

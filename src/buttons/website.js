@@ -6,7 +6,7 @@ module.exports = async ({ bot, interactionCreate }) => {
 	embed.setURL(Bot.BotSite)
 	embed.addFields(
 		{ name: "Bot's site!", value: `[Click Me!](${Bot.BotSite})` },
-		{ name: "Portfolio", value: "[Click Me!](https://code.senghong.xyz)" }
+		{ name: "Portfolio", value: "[Click Me!](https://code.pendragonscode.xyz)" }
 	)
 	embed.setColor(Default.DefaultEmbedColor)
 	embed.setTimestamp()

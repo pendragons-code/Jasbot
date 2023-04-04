@@ -1,7 +1,7 @@
 const phin = require("phin")
 async function getNm(requestedLength) {
 	const response = await phin({
-		url: "https://api.senghong.xyz/api/nanometer",
+		url: "https://api.pendragonscode.xyz/api/nanometer",
 		method: "POST",
 		data: {
 			requestedLength: requestedLength
