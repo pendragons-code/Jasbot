@@ -11,7 +11,7 @@ module.exports = {
 	options: [
 		{
 			name: "minuteofarc",
-			description: "The amount in milliradians.",
+			description: "The amount in minute of arc.",
 			type: ApplicationCommandOptionType.String,  // using .String because the user could be trying to throw in a float, not int
 			required: true
 		}

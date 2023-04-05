@@ -2,16 +2,16 @@ const { EmbedBuilder, ApplicationCommandOptionType } = require("discord.js")
 const { Default, Bot } = require("../../../../config.json")
 const { conversion } = require("../../../../assets/responseComponents/disclaimers.json")
 const reject = require("../../../../assets/responseComponents/rejection.json")
-const { radian } = require("../../../functions/conversion/angles/radian.js")
+const { secondOfArc } = require("../../../functions/conversion/angles/secondOfArc.js")
 module.exports = {
-	name: "radians",
+	name: "secondofarc",
 	category: "angles",
 	description: conversion.value,
-	utilisation:  "radians <value>",
+	utilisation:  "secondofarc <value>",
 	options: [
 		{
-			name: "radians",
-			description: "The amount in radians.",
+			name: "secondofarc",
+			description: "The amount in secondofarc.",
 			type: ApplicationCommandOptionType.String,  // using .String because the user could be trying to throw in a float, not int
 			required: true
 		}
@@ -24,7 +24,7 @@ module.exports = {
 		embed.setFooter({ text: Default.DefaultFooterText })
 		embed.setTimestamp()
 		embed.setTitle("Conversion!")
-		embed.setDescription(radian(number))
+		embed.setDescription(secondOfArc(number))
 		embed.setURL(Bot.BotSite)
 		return interactionCreate.reply({ embeds: [embed] })
 	}
