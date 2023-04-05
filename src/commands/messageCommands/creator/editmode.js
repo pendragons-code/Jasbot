@@ -1,5 +1,5 @@
 const { db } = require("quick.db")
-const { reject } = require("../../../../assets/responseComponents/rejection.json")
+const reject = require("../../../../assets/responseComponents/rejection.json")
 module.exports = {
 	name: "editmode",
 	aliases: [],
