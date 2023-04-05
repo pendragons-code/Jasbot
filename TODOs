@@ -3,3 +3,4 @@
 [.] finish the messageCommands
 [.] finish the slashCommands
 [.] Clean up code using the new prettier config
+[.] messageUpdate event (deletes bad word if message updated has bad word.)

@@ -17,6 +17,7 @@ module.exports = {
 		if(BlackListedUser === null) BlackListedUser = "no"
 		let blacklistEmbed = new EmbedBuilder()
 		blacklistEmbed.setTimestamp()
+		blacklistEmbed.setURL(Bot.BotSite)
 		blacklistEmbed.setFooter({ text: Default.DefaultFooterText })
 		blacklistEmbed.setColor(Default.DefaultEmbedColor)
 		switch(args[1]) {
@@ -51,6 +52,8 @@ module.exports = {
 					console.log(messageCreate.content)
 					return messageCreate.channel.send(reject.WeAreScrewed.ExecutionError)
 				})
+				blacklistEmbed.setDescription(`${user} has been removed from blacklist!`)
+				blacklistEmbed.setTitle(`Whitelisting ${user}!`)
 				messageCreate.channel.send({ embeds: [blacklistEmbed] })
 				break
 			default:

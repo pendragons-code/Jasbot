@@ -20,7 +20,7 @@ module.exports = {
 			required: false
 		}
 	],
-	async execute(bot, interactionCreate) {
+	async execute(bot, interactionCreate) { // Will be adding choices later, I noticed that adding choices actually made the autocorrect thing load really slow.
 		if(interactionCreate.options._hoistedOptions[1]) return interactionCreate.reply(reject.UserFault.args.tooMany)
 		const primariyTitleWithDecoration = `${Decoration.Title.first} List of commands! ${Decoration.Title.second}`
 		const slashCommander = bot.slashCommands.filter(x => x)

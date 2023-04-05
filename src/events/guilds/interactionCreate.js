@@ -37,6 +37,7 @@ module.exports = async (bot, interactionCreate) => {
 			const commandDisable = await db.get(`disabledCommand_${interactionCreate.guild.id}_${slashCmd.name}`)
 			const categoryDisable = await db.get(`disabledCategory_${interactionCreate.guild.id}_${slashCmd.category}`)
 			if(commandDisable == "disabled" || categoryDisable == "disabled") return interactionCreate.reply({ content: reject.UserFault.privilege.BlackListedUser })
+			if(slashCmd.category === "creator" && interactionCreate.user.id !== Bot.BotOwnerID) interactionCreate.reply("You are not allowed to use this command!")
 			if(NewUser != "SentNewUserMessage") bot.utils.get("newuserslash").execute(bot, interactionCreate)
 			slashCmd.execute(bot, interactionCreate)
 			await db.add(`cmdsRan_${interactionCreate.user.id}`, 1)
