@@ -41,15 +41,31 @@ module.exports = {
 		blacklistEmbed.setFooter({ text: Default.DefaultFooterText })
 		blacklistEmbed.setColor(Default.DefaultEmbedColor)
 		switch(state) {
+			case "check":
+				blacklistEmbed.setTitle(`${user}'s blacklist status!`)
+				blacklistEmbed.setDescription(`Blacklist status: ${blacklistStatus}`)
+				interactionCreate.reply({ embeds: [blacklistEmbed] })
+				break;
 			case "off":
 				if(blacklistStatus === "no") return interactionCreate.reply("This user was not blacklisted!")
-				await db.delete(`blacklisted_${user.id}`).catch((error) => {
+				await db.delete(`blacklisted_${user.id}`).catch((error) => { // db operations are costly, especially if this bot gets big
 					console.log(interactionCreate)
 					console.error(error)
 					return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)
 				})
 				blacklistEmbed.setDescription(`${user} has been removed from blacklist!`)
 				blacklistEmbed.setTitle(`Whitelisting ${user}!`)
+				interactionCreate.reply({ embeds: [blacklistEmbed] })
+				break;
+			case "on":
+				if(blacklistEmbed === "yes") return interactionCreate.reply("This user is already blacklisted!")
+				await db.set(`blacklisted_${user.id}`, "yes").catch((error) => {
+					console.error(error)
+					console.log(messageCreate.content)
+					return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)
+				})
+				blacklistEmbed.setTitle(`Blacklisting ${user}!`)
+				blacklistEmbed.setDescription(`${user} has been blacklisted`)
 				interactionCreate.reply({ embeds: [blacklistEmbed] })
 				break;
 			default:
