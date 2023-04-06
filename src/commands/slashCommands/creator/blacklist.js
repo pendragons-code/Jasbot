@@ -31,7 +31,7 @@ module.exports = {
 	async execute(bot, interactionCreate) {
 		let user = getUserFromMention(interactionCreate.options._hoistedOptions[0].value)
 		if(!user) return interactionCreate.reply(reject.UserFault.mentions.invalid)
-		if(user.id === Bot.BotID || user,id === Bot.BotOwnerID) return interactionCreate.reply(reject.UserFault.mentions.SelfMention)
+		if(user.id === Bot.BotID || user.id === Bot.BotOwnerID) return interactionCreate.reply(reject.UserFault.mentions.SelfMention)
 		let state = interactionCreate.options._hoistedOptions[1].value
 		const blacklistStatus = await db.get(`blacklisted_${user.id}`)
 		if(blacklistStatus === null) blacklistStatus = "no"
