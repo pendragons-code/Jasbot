@@ -9,7 +9,7 @@ module.exports = {
 	options: [
 		{
 			name: "state",
-			description: "",
+			description: "<on/off/check>",
 			type: ApplicationCommandOptionType.String,
 			required: true,
 			choices: [
@@ -21,5 +21,30 @@ module.exports = {
 	],
 	async execute(bot, interactionCreate) {
 		let state = interactionCreate.options._hoistedOptions[0].value
+		let editmode = await db.get("editmode")
+		switch(state) {
+			case "on":
+				if(editmode === "on") return interactionCreate.reply("Editmode is already on!")
+				await db.set("editmode", "on").catch((error) => {
+					console.error(error)
+					console.log(interactionCreate)
+					return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)
+				})
+				interactionCreate.reply("Turning on editmode.")
+				break;
+
+			case "off":
+				if(editmode === null) return interactionCreate.reply("Editmode is already off!")
+				await db.delete("editmode").catch((error) => {
+					console.error(error)
+					console.log(interactionCreate)
+					return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)
+				})
+				break;
+			case "check":
+				if(editmode === null) editmode = "off"
+				interactionCreate.reply(`Editmode is ${editmode}!`)
+				break;
+		}
 	}
 }

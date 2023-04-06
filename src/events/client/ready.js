@@ -12,7 +12,7 @@ module.exports = async (bot) => {
 		bot.user.setActivity("Use 'jas help' for commands!")
 	}, 3000)
 	bot.webPage
-	bot.copyDB
+	//bot.copyDB
 	setInterval(function() {
 		bot.copyDB, 10800000
 	})

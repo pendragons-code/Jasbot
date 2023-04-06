@@ -10,7 +10,6 @@ module.exports = {
 		if(!args[0]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		if(args[1]) return messageCreate.channel.send(reject.UserFault.args.tooMany)
 		let editmode = await db.get("editmode")
-		if(editmode === null) editmode = "off"  // Will no longer use "1" and "0" to represent editmode state.
 		switch(args[0]) {
 			case "on":
 				if(editmode === "on") return messageCreate.channel.send("Editmode is already on!")
@@ -23,7 +22,7 @@ module.exports = {
 				break
 
 			case "off":
-				if(editmode === "off") return messageCreate.channel.send("Editmode is already off!")
+				if(editmode === null) return messageCreate.channel.send("Editmode is already off!")
 				await db.delete("editmode").catch((error) => {
 					console.error(error)
 					console.log(messageCreate.content)
@@ -33,6 +32,7 @@ module.exports = {
 				break
 			
 			case "check":
+				if(editmode === null) editmode = "off"
 				messageCreate.channel.send(`Editmode is ${editmode}!`)
 				break
 
