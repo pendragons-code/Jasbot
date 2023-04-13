@@ -70,7 +70,7 @@ module.exports = {
 				break;
 			default:
 				//honestly not even possible
-				console.log("HOW THE FUC*!??!!?")
+				console.error("HOW THE FUC*!??!!?")
 				console.log(interactionCreate)
 				return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)
 		}

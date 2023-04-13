@@ -10,6 +10,6 @@ loadHelper()
 loadUtils()
 loadSlashCommands()
 loadMessageCommands()
-bot.login(process.env.token)
+bot.login(process.env.testToken)
 console.log(`Hanging on for dear life on: ${process.pid}`)
 process.traceDeprecation = true

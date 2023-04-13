@@ -7,7 +7,7 @@ module.exports = {
 	aliases: [],
 	category: "utility",
 	desc: "A command that helps you manage your ToDo list.",
-	utilisation: "todo add <task>\n todo remove <task number>\ntodo set <task number> <task>\ntodo reset all\n todo show <all/ task number>",
+	utilisation: "todo add <task>\ntodo remove <task number>\ntodo set <task number> <task>\ntodo reset all\ntodo show <all/task number>",
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[1]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		let ToDoEmbed = new EmbedBuilder()
@@ -20,7 +20,7 @@ module.exports = {
 		ToDoEmbed.setURL(Bot.BotSite)
 		switch(args[0]) {
 			case "show": // code works, we just need to implement embed now
-				if(numberOfTodos === null || numberOfTodos < 1) return messageCreate.channel.send("You do not have any ToDos!")
+				if(numberOfTodos < 1) return messageCreate.channel.send("You do not have any ToDos!")
 				if(args[1] === "all"){
 					let resultForToDoShowAllDescription = ""
 					for(let i = 0; i < currentSetOfTODOs.length; ++i) resultForToDoShowAllDescription += `[${i+1}] ${currentSetOfTODOs[i]}\n`
