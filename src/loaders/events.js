@@ -9,7 +9,7 @@ async function loadEvents() {
 			//named this event since this actually requires the file, while the other is a searching operation.
 			const event = require(`../events/${dirs}/${file}`)
 			console.log(`Loading event: ${file} from ${dirs}!`)
-			bot.on(file.split(".")[0], event.bind(null, bot))
+			bot.on(file.replace(".js", ""), event.bind(null, bot))
 			delete require.cache[require.resolve(`../events/${dirs}/${file}`)]
 		}
 	}
