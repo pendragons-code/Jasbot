@@ -8,7 +8,7 @@ module.exports = {
 	category: "moderation",
 	utilisation: "disable <category/command> <category name/command name>",
 	desc: "Disables commands, needs at least kick or bad memebers permissions for this to work!",
-	minperms: [PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers],
+	minPerms: [PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers],
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[1]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		if(args[0] != "category" && args[0]!= "command") return messageCreate.channel.send(reject.UserFault.args.invalid)

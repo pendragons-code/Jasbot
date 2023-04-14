@@ -10,7 +10,7 @@ module.exports = {
 	category: "moderation",
 	desc: "Kicks the user out of the server!",
 	utilisation: "kick <@user || user id> <reason>",
-	minperms: [ PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers ],
+	minPerms: [ PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers ],
 	async execute(bot, messageCreate, args, mainPrefix) {
 		if(!args[0]) return messageCreate.channel.send(reject.UserFault.args.missing)
 		let targetToKick = getUserFromMention(args[0]) || messageCreate.guild.members.cache.get(args[0])

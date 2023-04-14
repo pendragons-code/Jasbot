@@ -16,18 +16,18 @@ module.exports = async (bot, interactionCreate) => {
 		errorEmbed.setTitle("Error!")
 		if(!slashCmd) return
 		if(slashCmd.category == "over18" && !interactionCreate.channel.nsfw) return interactionCreate.channel.send({ content: "You can only run this command in an nsfw channel!" })
-		if(slashCmd.minperms) {
-			for(let i = 0; i < slashCmd.minperms.length; ++i) if(!inter.member.permissions.has(slashCmd.minperms[i])) {
-				let PermissionQuery = PermissionList[slashCmd.minperms[i]]
-				if(!Array.isArray(slashCmd.minperms[i])) {
+		if(slashCmd.minPerms) {
+			for(let i = 0; i < slashCmd.minPerms.length; ++i) if(!inter.member.permissions.has(slashCmd.minPerms[i])) {
+				let PermissionQuery = PermissionList[slashCmd.minPerms[i]]
+				if(!Array.isArray(slashCmd.minPerms[i])) {
 					errorEmbed.setDescription(`${reject.UserFault.privilege.MissingPermissions} You are missing ${PermissionQuery}!`)
 					return interactionCreate.reply({ embeds: [errorEmbed] })
 				}
-				for(let perArray = 0; perArray < slashCmd.minperms[i].length; ++perArray) {
+				for(let perArray = 0; perArray < slashCmd.minPerms[i].length; ++perArray) {
 					let PermissionQuery = ""
-					let MissingPermissionName = PermissionList[slashCmd.minperms[i][perArray]]
+					let MissingPermissionName = PermissionList[slashCmd.minPerms[i][perArray]]
 					PermissionQuery + `\`${MissingPermissionName}\``
-					if(slashCmd.minperms[i][perArray + 1]) PermissionQuery + ", "
+					if(slashCmd.minPerms[i][perArray + 1]) PermissionQuery + ", "
 					errorEmbed.setDescription(`${reject.UserFault.privilege.MissingPermissions} You are missing ${PermissionQuery}!`)
 					return interactionCreate.reply({ embeds: [errorEmbed] })
 				}

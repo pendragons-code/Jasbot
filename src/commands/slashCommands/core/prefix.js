@@ -7,7 +7,7 @@ module.exports = {
 	category: "core",
 	description: "A basic help command!",
 	utilisation: "help <category/command name>",
-	minperms: [PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers],
+	minPerms: [PermissionsBitField.Flags.KickMembers, PermissionsBitField.Flags.BanMembers],
 	options: [
 		{
 			name: "prefix",

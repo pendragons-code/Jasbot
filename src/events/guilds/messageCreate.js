@@ -26,16 +26,16 @@ module.exports = async (bot, messageCreate) => {
 		const categoryDisable = await db.get(`disabledCategory_${messageCreate.guild.id}_${cmd.category}`)
 		if(cmd.category === "over18" && !messageCreate.channel.nsfw) return messageCreate.channel.send("This command can only work in an nsfw channel!")
 		if(commandDisable === "disabled" || categoryDisable === "disabled") return messageCreate.channel.send(reject.UserFault.privilege.DisabledCommand)
-		if(cmd.maxargs) if(args[cmd.maxargs + 1]) return messageCreate.channel.send(reject.UserFault.args.tooMany)
-		if(cmd.minperms) for(let i = 0; i < cmd.minperms.length; ++i) if(!messageCreate.member.permissions.has(cmd.minperms[i])) {
-			let MissingPermissionName = PermissionList[cmd.minperms[i]]
-			if(Array.isArray(cmd.minperms[i])) {
+		if(cmd.maxArgs) if(args[cmd.maxArgs + 1]) return messageCreate.channel.send(reject.UserFault.args.tooMany)
+		if(cmd.minPerms) for(let i = 0; i < cmd.minPerms.length; ++i) if(!messageCreate.member.permissions.has(cmd.minPerms[i])) {
+			let MissingPermissionName = PermissionList[cmd.minPerms[i]]
+			if(Array.isArray(cmd.minPerms[i])) {
 				// That one weird workaround (push in missing permissions that are missing in a string and send it)
 				let MissingPermissionName = ""
-				for(let perArray = 0; perArray < cmd.minperms[i].length; ++perArray) {
-					let MissingPermissionNameFromAndLogic = PermissionList[cmd.minperms[i][perArray]]
+				for(let perArray = 0; perArray < cmd.minPerms[i].length; ++perArray) {
+					let MissingPermissionNameFromAndLogic = PermissionList[cmd.minPerms[i][perArray]]
 					MissingPermissionName + `\`${MissingPermissionNameFromAndLogic}\``
-					if(cmd.minperms[i][perArray + 1]) MissingPermissionName + ", "
+					if(cmd.minPerms[i][perArray + 1]) MissingPermissionName + ", "
 				}
 			}
 			return messageCreate.channel.send(`${reject.UserFault.privilege.MissingPermissions} ${MissingPermissionName}`)
