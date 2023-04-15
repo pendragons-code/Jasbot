@@ -1,7 +1,2 @@
-[.] update config.json with all the sites and stuff
-[.] update commands
-[.] finish the messageCommands
-[.] finish the slashCommands
-[.] Clean up code using the new prettier config
-[.] messageUpdate event (deletes bad word if message updated has bad word.)
-[.] anti-swear flaw, if i wanna remove an anti-swear word, i would need to say it, which would be remove and removal will fail. The method around this is telling the user to off it first and configure it later!
+[.] slash commands
+[.] messageUpdate event (anti-swear!)
