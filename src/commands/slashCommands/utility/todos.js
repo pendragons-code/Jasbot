@@ -61,7 +61,16 @@ module.exports = {
 				ToDoEmbed.setDescription("```" + `[${interactionOptions[1].value}] ` + currentSetOfTODOs[`${interactionOptions[1].value - 1}`] + "```")
 				interactionCreate.reply({ embeds: [ToDoEmbed] })
 				break
-		// to add other features!
+			case "add":
+				if(typeof interactionOptions[1].value !== "string") return interactionCreate.reply("You need to provide a task, not a task number!")
+				if(currentSetOfTODOs !== null && currentSetOfTODOs.length === 29) return interactionCreate.reply("You have reached the maximum number of todos!")
+				if(currentSetOfTODOs !== null && currentSetOfTODOs.join("v").replace(" ", "v").length + interactionOptions[1].value.length > 2000) return interactionCreate.reply("Adding this task exceeds the 2000 character limit!")
+				await db.push(`todos_${interactionCreate.user.id}`).catch((error) => {
+					console.error(error)
+					console.log(interactionCreate)
+					return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)
+				})
+				break
 			default:
 				console.error("No way...")
 				console.log(interactionCreate)
