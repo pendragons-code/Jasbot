@@ -70,6 +70,11 @@ module.exports = {
 					console.log(interactionCreate)
 					return interactionCreate.reply(reject.WeAreScrewed.ExecutionError)
 				})
+				.then(() => {
+					ToDoEmbed.setTitle(`Added task ${numberOfTodos + 1}`)
+					ToDoEmbed.setDescription("```" + `[${numberOfTodos + 1}] ${interactionOptions[1].value}` + "```")
+					interactionCreate.reply({ embeds: [ToDoEmbed] })
+				})
 				break
 			default:
 				console.error("No way...")
