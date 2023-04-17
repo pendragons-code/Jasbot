@@ -21,3 +21,7 @@ I will be moving away from weather-js
 
 # Code Format and Quality
 It would seem that one of my commits to this repo had cause code to be rolled back, reducing the quality. I am trying to resolve this issue as of now. Last but not least, my linting configuration was also broken along the way and it conflicts with the extension I use for VSC and codium's format structure (As of neovim the thing is not working consistently.). Because of this broken configurations of both ends and conflicting extensions, weird stuff has appeared and I will be trying to fix them first.
+
+# Security:
+Currently MAL-scraper is being worked on and weather-js is completely deprecated.       
+While I am willing to wait for MAL-scraper, I will be shifting from weather-js to [this](https://rapidapi.com/weatherapi/api/weatherapi-com)!
