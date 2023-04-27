@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require("discord.js")
 const { Bot } = require("../../../config.json")
 module.exports = {
-	name: "tokenSecurity",
+	name: "tokensecurity",
 	async execute(bot, messageCreate, args) {
 		const embed = new EmbedBuilder()
 		embed.setTitle("TOKEN COMPROMISED!!!!")

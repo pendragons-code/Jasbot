@@ -8,7 +8,7 @@ module.exports = async (bot, messageCreate) => {
 	let dbPrefix = await db.get(`prefix_${messageCreate.guild.id}`)
 	let NewUser = await db.get(`NewUser_${messageCreate.author.id}`)
 	let BlackListedUser = await db.get(`blacklisted_${messageCreate.author.id}`)
-	if(messageCreate.content.includes(process.env.token)) bot.utils.get("tokenSecurity").execute(bot, messageCreate, args)
+	if(messageCreate.content.includes(process.env.token)) bot.utils.get("tokensecurity").execute(bot, messageCreate, args)
 	//antiswear code here
 	// I don't have to do this since I can just put that code here, but I put it like that because i find it easier editing the utils file and not having to make messageCreate.js long and messy
 	if(dbPrefix === null) dbPrefix = Default.DefaultPrefix
