@@ -16,6 +16,8 @@ module.exports = async (bot) => {
 	setInterval(function() {
 		bot.copyDB, 10800000
 	})
-	console.log(bot.guilds.cache.map(guild => guild.name))
-	console.log(bot.guilds.cache.map(guild => guild.id))
+	bot.guilds.cache.map(guild => {
+		console.log(guild.name)
+		console.log(guild.id)
+	})
 }
