@@ -1,5 +1,5 @@
 const { Client, GatewayIntentBits } = require("discord.js")
-const { QuickDB } = require('quick.db');
+const { QuickDB } = require("quick.db");
 const bot = new Client({
 	intents: [
 		GatewayIntentBits.DirectMessages,
