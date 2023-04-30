@@ -17,3 +17,6 @@ Basic code quality changes to some of the earlier files.
 Major changes to the web server.
 Moving away from weather-js and awaitig fixes for MAL-scraper.
 ```
+# UPDATE
+
+I will be redoing Jasbot. And for good reason. This entire time Jasbot has been in development and 50% of the time I used was pretty much used to solve and cause problems and the oter 50% was just wasted. I honestly got so out of touch with this project that when I saw the package.json file, I was shocked. Somehow pug, node-fetch, phin and a lot of packages that really don't have a need being there are there. Now imagine the actual code. I think you get the idea. It is also generally a good idea to redo it because the whole thing so far has been such a shitshow.

@@ -15,6 +15,7 @@ module.exports = {
 		if(args[2]) return messageCreate.channel.send(reject.UserFault.args.tooMany)
 		if(parseInt(args[1]) > 2000) return messageCreate.channel.send(`${reject.UserFault.numbers.notInRange}`)
 		if(!options.includes(args[0])) return messageCreate.channel.send(reject.UserFault.args.invalid)
+		// moving this to an actual function.
 		let set = ""
 		let Caps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		let noCaps = "abcdefghijklmnopqrstuvwxyz"
