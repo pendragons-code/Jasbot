@@ -3,7 +3,7 @@ const { Default, Bot } = require("../../../../config.json")
 const { stringGen } = require("../../../functions/randomGeneration/stringGen.js")
 const reject = require("../../../../assets/responseComponents/rejection.json")
 module.exports = {
-	name: "",
+	name: "stringgen",
 	aliases: [],
 	category: "utility",
 	desc: "Generates random string with options!",
